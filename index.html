@@ -5,15 +5,33 @@
     <title>HTML Academy: Мишка</title>
   </head>
   <body>
-
-    Каталог товаров
-    Вязание на заказ
-    Поиск по сайту
-    Корзина: пока пуста
-
-    Милые штуки ручной работы для дома
-    Детские игрушки
-    Предметы интерьера
+    <header class="page-header">
+      <a class="logo"><img src="http://placehold.it/86x35" alt="Мишка"></a>
+      <nav class="main-nav main-nav--closed">
+        <button class="main-nav__toggle" type="button">Открыть меню</button>
+        <ul class="main-nav__items">
+          <li class="main-nav__item"><a href="catalog.html">Каталог товаров</a></li>
+          <li class="main-nav__item"><a href="#">Вязание на заказ</a></li>
+        </ul>
+        <ul class="main-nav__user-items">
+          <li class="main-nav__user-item"><a class="main-nav__search" href="#" title="Поиск по сайту">Поиск по сайту</a></li>
+          <li class="main-nav__user-item"><a class="main-nav__cart" href="#">Корзина: пока пуста</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="page-main">
+      <header class="page-main__header">
+        <div class="page-main__wrapper">
+          <h1 class="page-main__title">Милые штуки ручной работы для дома</h1>
+          <nav class="categories-nav">
+            <ul class="categories-nav__items">
+              <li class="categories-nav__item"><a href="catalog.hmtl#toys">Детские игрушки</a></li>
+              <li class="categories-nav__item"><a href="catalog.hmtl#interior">Предметы интерьера</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </main>
 
     Товар недели
     Вязаные корзинки
