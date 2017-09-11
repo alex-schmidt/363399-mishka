@@ -12,7 +12,7 @@
         <div class="main-nav__inner">
           <ul class="main-nav__list">
             <li class="main-nav__item main-nav__item--active"><a>Каталог товаров</a></li>
-            <li class="main-nav__item"><a href="order">Вязание на заказ</a></li>
+            <li class="main-nav__item"><a href="order.html">Вязание на заказ</a></li>
           </ul>
           <ul class="main-nav__list">
             <li class="main-nav__item main-nav__item--search"><a href="#" title="Поиск по сайту">Поиск по сайту</a></li>
@@ -20,7 +20,7 @@
         </div>
         </ul>
       </nav>
-      <p class="page-header__text hidden-mobile">Бесплатная доставка по России</p>
+      <p class="page-header__notice hidden-mobile">Бесплатная доставка по России</p>
     </header>
     <main class="page-main">
       <h1 class="page-main__title">Каталог товаров</h1>
@@ -89,17 +89,17 @@
         Разработано <a href="#" class="page-footer__copyright-link"><img src="http://placehold.it/27x34" alt="HTML Academy"></a>
       </p>
     </footer>
-    <section class="modal modal--add-cart">
+    <section class="modal-add-cart modal">
       <div class="modal__inner">
         <h2 class="modal__title">Добавить в корзину</h2>
-        <form class="modal__form" action="https://echo.htmlacademy.ru/" method="post">
-          <legend class="modal__legend">Выберите размер:</legend>
-          <p class="modal__sizes-toggles">
-              <label class="modal__sizes-toggle"><input type="radio" name="size" value="S"> S</label>
-              <label class="modal__sizes-toggle"><input type="radio" name="size" value="M"> M</label>
-              <label class="modal__sizes-toggle"><input type="radio" name="size" value="L"> L</label>
+        <form class="modal-add-cart__form" action="https://echo.htmlacademy.ru/" method="post">
+          <legend class="modal-add-cart__legend">Выберите размер:</legend>
+          <p class="modal-add-cart__sizes-toggles">
+              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="S"> S</label>
+              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="M"> M</label>
+              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="L"> L</label>
           </p>
-          <button type="submit" class="modal__add btn">Добавить</button>
+          <button type="submit" class="modal-add-cart__submit btn">Добавить</button>
         </form>
       </div>
       <div class="modal__overlay"></div>
