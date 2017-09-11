@@ -9,21 +9,22 @@
       <a class="logo"><img src="http://placehold.it/86x35" alt="Мишка"></a>
       <nav class="main-nav main-nav--closed">
         <button class="main-nav__toggle" type="button">Открыть меню</button>
-        <ul class="main-nav__items">
+        <ul class="main-nav__list">
           <li class="main-nav__item"><a href="catalog.html">Каталог товаров</a></li>
           <li class="main-nav__item"><a href="#">Вязание на заказ</a></li>
         </ul>
-        <ul class="main-nav__user-items">
-          <li class="main-nav__user-item"><a class="main-nav__search" href="#" title="Поиск по сайту">Поиск по сайту</a></li>
-          <li class="main-nav__user-item"><a class="main-nav__cart" href="#">Корзина: пока пуста</a></li>
+        <ul class="main-nav__list">
+          <li class="main-nav__item main-nav__item--search"><a href="#" title="Поиск по сайту">Поиск по сайту</a></li>
+          <li class="main-nav__item main-nav__item--cart"><a href="#">Корзина: пока пуста</a></li>
         </ul>
       </nav>
+      <p class="page-header__text hidden-mobile">Бесплатная доставка по России</p>
     </header>
-    <main>
-      <header class="main-header">
-        <h1 class="main-title">Милые штуки ручной работы для дома</h1>
+    <main class="page-main">
+      <header class="page-main__header">
+        <h1 class="page-main__title">Милые штуки ручной работы для дома</h1>
         <nav class="categories-nav">
-          <ul class="categories-nav__items">
+          <ul class="categories-nav__list">
             <li class="categories-nav__item"><a href="catalog.hmtl#toys">Детские игрушки</a></li>
             <li class="categories-nav__item"><a href="catalog.hmtl#interior">Предметы интерьера</a></li>
           </ul>
@@ -46,12 +47,12 @@
         </dl>
         <img src="http://placehold.it/260x315" alt="Три вязаные корзинки на руках" class="featured-product__image">
         <p class="featured-product__price"><strong>Цена: 990 руб.</strong></p>
-        <a href="#" class="featured-product__order btn">Заказать</a>
+        <a href="#" class="featured-product__order-link btn">Заказать</a>
       </section>
       <section class="advantages">
         <div class="advantages__inner">
           <h2 class="advantages__title">Коротко о нас:</h2>
-          <ul class="advantages__items">
+          <ul class="advantages__list">
             <li class="advantages__item">Экологически чистые материалы</li>
             <li class="advantages__item">Скандинавский стиль по российской цене</li>
             <li class="advantages__item">Увеличивает лайки на фотографиях</li>
@@ -64,7 +65,7 @@
       <section class="reviews">
         <div class="reviews__inner slider">
           <h2 class="reviews__title">Отзывы</h2>
-          <div class="reviews__items">
+          <div class="reviews__list">
             <blockquote class="reviews__item slider-item">
               <p>Я молодая мама, но всё равно фотографии не набирали и близко такого количества лайков, как у популярных инстамамочек. В отчаянии, я накупила аксессуаров и игрушек в мишке, и мои фотографии сразу стали более стильными, а также набирают больше лайков!</p>
               <cite class="reviews__author">
@@ -78,11 +79,11 @@
             <button type="button" class="reviews__next slider__next">Следующий отзыв</button>
           </p>
         </div>
-        <a href="reviews-add.html" class="reviews__write btn">Написать</a>
+        <a href="reviews-add.html" class="reviews__write-link btn">Написать</a>
       </section>
       <section class="contacts">
         <h2 class="contacts__title">Контакты</h2>
-        <dl class="contacts__items">
+        <dl class="contacts__list">
           <dt class="contacts__name">E-mail:</dt>
           <dd class="contacts__value">info@mimimishkashop.ru</dd>
           <dt class="contacts__name">Адрес:</dt>
@@ -95,7 +96,7 @@
         <p class="contacts__map-wrapper">
           <img src="http://placehold.it/320x460" alt="Карта проезда" class="contacts__map-image">
         </p>
-        <a href="feedback-add.html" class="contacts__write btn">Напишите нам</a>
+        <a href="feedback-add.html" class="contacts__write-link btn">Напишите нам</a>
       </section>
     </main>
     <footer class="page-footer">
@@ -110,14 +111,7 @@
         Разработано <a href="#" class="page-footer__copyright-link"><img src="http://placehold.it/27x34" alt="HTML Academy"></a>
       </p>
     </footer>
-
-
-
-
-
-
-
-
+    section.
 
     <!-- TODO: livereload comment/delete -->
     <script src="http://localhost:35729/livereload.js"></script>
