@@ -47,7 +47,7 @@
         </dl>
         <img src="http://placehold.it/260x315" alt="Три вязаные корзинки на руках" class="featured-product__image">
         <p class="featured-product__price"><strong>Цена: 990 руб.</strong></p>
-        <a href="#" class="featured-product__order-link btn">Заказать</a>
+        <a href="#" class="featured-product__order btn">Заказать</a>
       </section>
       <section class="advantages">
         <div class="advantages__inner">
@@ -79,7 +79,7 @@
             <button type="button" class="reviews__next slider__next">Следующий отзыв</button>
           </p>
         </div>
-        <a href="reviews-add.html" class="reviews__write-link btn">Написать</a>
+        <a href="reviews-add.html" class="reviews__write btn">Написать</a>
       </section>
       <section class="contacts">
         <h2 class="contacts__title">Контакты</h2>
@@ -96,7 +96,7 @@
         <p class="contacts__map-wrapper">
           <img src="http://placehold.it/320x460" alt="Карта проезда" class="contacts__map-image">
         </p>
-        <a href="feedback-add.html" class="contacts__write-link btn">Напишите нам</a>
+        <a href="feedback-add.html" class="contacts__write btn">Напишите нам</a>
       </section>
     </main>
     <footer class="page-footer">
@@ -111,7 +111,30 @@
         Разработано <a href="#" class="page-footer__copyright-link"><img src="http://placehold.it/27x34" alt="HTML Academy"></a>
       </p>
     </footer>
-    section.
+    <section class="order-modal">
+      <div class="order-modal__inner">
+        <h2 class="order-modal__title">Добавить в корзину</h2>
+        <form class="order-modal__form" action="https://echo.htmlacademy.ru/" method="post">
+          <legend class="order-modal__legend">Выберите размер:</legend>
+          <ul class="order-modal__sizes-list">
+            <li class="order-modal__sizes-item">
+              <input class="order-modal__sizes-radio" type="radio" id="order_size_s" name="size" value="S">
+              <label for="order_size_s">S</label>
+            </li>
+            <li class="order-modal__sizes-item">
+              <input class="order-modal__sizes-radio" type="radio" id="order_size_m" name="size" value="M">
+              <label for="order_size_m">M</label>
+            </li>
+            <li class="order-modal__sizes-item">
+              <input class="order-modal__sizes-radio" type="radio" id="order_size_l" name="size" value="L">
+              <label for="order_size_l">L</label>
+            </li>
+          </ul>
+          <button type="submit" class="order-modal__add btn">Добавить</button>
+        </form>
+      </div>
+      <div class="order-modal__overlay"></div>
+    </section>
 
     <!-- TODO: livereload comment/delete -->
     <script src="http://localhost:35729/livereload.js"></script>
