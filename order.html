@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>HTML Academy: Мишка - Каталог товаров</title>
+    <title>HTML Academy: Мишка - Вязание на заказ</title>
   </head>
   <body>
     <header class="page-header">
@@ -10,11 +10,11 @@
       <nav class="main-nav main-nav--closed">
         <button class="main-nav__toggle" type="button">Открыть меню</button>
         <div class="main-nav__inner">
-          <ul class="main-nav__list">
+          <ul class="main-nav__list main-nav__list--site">
             <li class="main-nav__item"><a href="catalog.html">Каталог товаров</a></li>
             <li class="main-nav__item main-nav__item--active"><a>Вязание на заказ</a></li>
           </ul>
-          <ul class="main-nav__list">
+          <ul class="main-nav__list main-nav__list--user">
             <li class="main-nav__item main-nav__item--search"><a href="#" title="Поиск по сайту">Поиск по сайту</a></li>
             <li class="main-nav__item main-nav__item--cart"><a href="#">Корзина: пока пуста</a></li>
           </ul>
@@ -26,14 +26,14 @@
       <h1 class="page-main__title">Вязание на заказ</h1>
       <p>Мы будем рады воплотить в жизнь ваши пожелания! Заполните простую форму заказа и мы свяжемся с вами, чтобы уточнить детали.</p>
       <form action="https://echo.htmlacademy.ru/" method="post" class="form">
-        <fieldset class="form__group">
+        <fieldset class="form__set">
           <legend class="form__title">Тип</legend>
           <ul class="form__list">
-            <li class="form__item"><label class="radio"><input type="radio" name="type" value="1" checked>Детская игрушка</label></li>
-            <li class="form__item"><label class="radio"><input type="radio" name="type" value="2">Аксессуар для интерьера</label></li>
+            <li><label class="radio"><input type="radio" name="type" value="1" checked>Детская игрушка</label></li>
+            <li><label class="radio"><input type="radio" name="type" value="2">Аксессуар для интерьера</label></li>
           </ul>
         </fieldset>
-        <fieldset class="form__group">
+        <fieldset class="form__set">
           <legend class="form__title">Цвет</legend>
           <ul class="form__list">
             <li><label class="checkbox"><i></i><input type="checkbox" name="color-1"  value="1" checked>Белый</label></li>
@@ -44,36 +44,36 @@
             <li><label class="checkbox"><i></i><input type="checkbox" value="1" name="color-6">Оранжевый</label></li>
           </ul>
         </fieldset>
-        <fieldset class="form__group">
+        <fieldset class="form__set">
           <legend class="form__title">ФИО</legend>
-          <p class="form__line">
-            <label for="order_firstname" class="label">Имя:</label>
-            <input type="text" name="firstname" id="order_firstname" placeholder="Введите ваше имя*" required>
+          <p class="form__group">
+            <label class="label" for="order_firstname">Имя:</label>
+            <input class="field-text" type="text" name="firstname" id="order_firstname" placeholder="Введите ваше имя*" required>
           </p>
-          <p class="form__line">
-            <label for="order_lastname" class="label">Фамилия:</label>
-            <input type="text" name="lastname" id="order_lastname" placeholder="Укажите фамилию*" required>
+          <p class="form__group">
+            <label class="label" for="order_lastname">Фамилия:</label>
+            <input class="field-text" type="text" name="lastname" id="order_lastname" placeholder="Укажите фамилию*" required>
           </p>
-          <p class="form__line">
-            <label for="order_middlename" class="label">Отчество:</label>
-            <input type="text" name="middlename" id="order_middlename" placeholder="Отчество, если желаете">
+          <p class="form__group">
+            <label class="label" for="order_middlename">Отчество:</label>
+            <input class="field-text" type="text" name="middlename" id="order_middlename" placeholder="Отчество, если желаете">
           </p>
         </fieldset>
-        <fieldset class="form__group-wrap">
+        <fieldset class="form__set">
           <legend class="visually-hidden">Контакты</legend>
-          <p class="form__group">
-            <label for="order_email" class="form__title">E-mail</label>
+          <p class="form__group form__group--no-offset">
+            <label class="form__title" for="order_email">E-mail</label>
             <span class="field-text field-text--email"><input type="email" name="email" id="order_email" placeholder="Ваш email*" required></span>
           </p>
-          <p class="form__group">
-            <label for="order_phone" class="form__title">Тел</label>
+          <p class="form__group form__group--no-offset">
+            <label class="form__title" for="order_phone">Тел</label>
             <span class="field-text field-text--phone"><input type="tel" name="phone" id="order_phone" placeholder="+7 ххх хх хх*" required></span>
           </p>
         </fieldset>
-        <fieldset class="form__group-wrap">
+        <fieldset class="form__set">
           <legend class="visually-hidden">Дополнительная информация</legend>
-          <p class="form__group">
-            <label for="order_message" class="form__title">Доп</label>
+          <p class="form__group form__group--no-offset">
+            <label class="form__title" for="order_message">Доп</label>
             <textarea class="field-text field-text--area" name="message" cols="30" rows="10" id="order_message" placeholder="Опишите все ваши пожелания к заказу"></textarea>
           </p>
         </fieldset>
@@ -96,8 +96,5 @@
         Разработано <a href="#" class="page-footer__copyright-link"><img src="http://placehold.it/27x34" alt="HTML Academy"></a>
       </p>
     </footer>
-
-    <!-- TODO: livereload comment/delete -->
-    <script src="http://localhost:35729/livereload.js"></script>
   </body>
 </html>

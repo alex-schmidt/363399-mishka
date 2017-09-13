@@ -10,15 +10,15 @@
       <nav class="main-nav main-nav--closed">
         <button class="main-nav__toggle" type="button">Открыть меню</button>
         <div class="main-nav__inner">
-          <ul class="main-nav__list">
+          <ul class="main-nav__list main-nav__list--site">
             <li class="main-nav__item main-nav__item--active"><a>Каталог товаров</a></li>
             <li class="main-nav__item"><a href="order.html">Вязание на заказ</a></li>
           </ul>
-          <ul class="main-nav__list">
+          <ul class="main-nav__list main-nav__list--user">
             <li class="main-nav__item main-nav__item--search"><a href="#" title="Поиск по сайту">Поиск по сайту</a></li>
             <li class="main-nav__item main-nav__item--cart"><a href="#">Корзина: пока пуста</a></li>
+          </ul>
         </div>
-        </ul>
       </nav>
       <p class="page-header__notice hidden-mobile">Бесплатная доставка по России</p>
     </header>
@@ -32,8 +32,8 @@
           <div class="catalog__item-info">
             <h2 class="catalog__item-name"><a href="#">Зайчик-попрыгайчик</a></h2>
             <p>Рост 30 см, вес 200 г</p>
-            <p class="catalog__item-price-wrap">
-              <b class="catalog__item-price">1 200 руб.</b>
+            <p class="catalog__item-price">
+              <b class="catalog__item-price-text">1 200 руб.</b>
               <a href="#" class="catalog__item-add-cart">Добавить в корзину</a>
             </p>
           </div>
@@ -45,8 +45,8 @@
           <div class="catalog__item-info">
             <h2 class="catalog__item-name"><a href="#">Корзинка для белья</a></h2>
             <p>Диаметр 15 см, высота 10 см</p>
-            <p class="catalog__item-price-wrap">
-              <b class="catalog__item-price">690 руб.</b>
+            <p class="catalog__item-price">
+              <b class="catalog__item-price-text">690 руб.</b>
               <a href="#" class="catalog__item-add-cart">Добавить в корзину</a>
             </p>
           </div>
@@ -58,8 +58,8 @@
           <div class="catalog__item-info">
             <h2 class="catalog__item-name"><a href="#">Большая корзинка для игрушек</a></h2>
             <p>Диаметр 30 см, высота 30 см</p>
-            <p class="catalog__item-price-wrap">
-              <b class="catalog__item-price">1 500 руб.</b>
+            <p class="catalog__item-price">
+              <b class="catalog__item-price-text">1 500 руб.</b>
               <a href="#" class="catalog__item-add-cart">Добавить в корзину</a>
             </p>
           </div>
@@ -73,7 +73,7 @@
         </div>
         <div class="promo__desc">
           <p>По просьбам наших любимых фолловеров мы сняли для вас подробное видео о том, как появляются наши товары.</p>
-          <a href="order.html" class="promo__order btn">Сделать заказ</a>
+          <a href="order.html" class="btn btn--full-width">Сделать заказ</a>
         </div>
       </section>
     </main>
@@ -89,23 +89,20 @@
         Разработано <a href="#" class="page-footer__copyright-link"><img src="http://placehold.it/27x34" alt="HTML Academy"></a>
       </p>
     </footer>
-    <section class="modal-add-cart modal">
+    <section class="modal">
       <div class="modal__inner">
         <h2 class="modal__title">Добавить в корзину</h2>
-        <form class="modal-add-cart__form" action="https://echo.htmlacademy.ru/" method="post">
-          <legend class="modal-add-cart__legend">Выберите размер:</legend>
-          <p class="modal-add-cart__sizes-toggles">
-              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="S"> S</label>
-              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="M"> M</label>
-              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="L"> L</label>
+        <form class="add-cart" action="https://echo.htmlacademy.ru/" method="post">
+          <legend class="add-cart__legend">Выберите размер:</legend>
+          <p class="add-cart__sizes radio-button-group">
+              <label class="radio-button"><input type="radio" name="size" value="S"> S</label>
+              <label class="radio-button"><input type="radio" name="size" value="M"> M</label>
+              <label class="radio-button"><input type="radio" name="size" value="L"> L</label>
           </p>
-          <button type="submit" class="modal-add-cart__submit btn">Добавить</button>
+          <button type="submit" class="btn btn--primary btn--full-width">Добавить</button>
         </form>
       </div>
       <div class="modal__overlay"></div>
     </section>
-
-    <!-- TODO: livereload comment/delete -->
-    <script src="http://localhost:35729/livereload.js"></script>
   </body>
 </html>

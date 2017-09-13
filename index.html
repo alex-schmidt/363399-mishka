@@ -10,11 +10,11 @@
       <nav class="main-nav main-nav--closed">
         <button class="main-nav__toggle" type="button">Открыть меню</button>
         <div class="main-nav__inner">
-          <ul class="main-nav__list">
+          <ul class="main-nav__list main-nav__list--site">
             <li class="main-nav__item"><a href="catalog.html">Каталог товаров</a></li>
             <li class="main-nav__item"><a href="order.html">Вязание на заказ</a></li>
           </ul>
-          <ul class="main-nav__list">
+          <ul class="main-nav__list main-nav__list--user">
             <li class="main-nav__item main-nav__item--search"><a href="#" title="Поиск по сайту">Поиск по сайту</a></li>
             <li class="main-nav__item main-nav__item--cart"><a href="#">Корзина: пока пуста</a></li>
           </ul>
@@ -33,25 +33,27 @@
         </nav>
       </header>
       <section class="featured-product">
-        <h2 class="featured-product__heading">
-          <i class="feautured-product__title">Товар недели</i>
-          <span class="visually-hiddden">&ndash;</span>
-          <b class="feautured-product__name">Вязаные корзинки</b>
-        </h2>
-        <p>Экологически чистая пряжа, ручная работа. Доступны в шести расцветках, и трех размерах.</p>
-        <dl class="featured-product__specs">
-          <dt class="featured-product__specs-name">Цвет:</dt>
-          <dd class="featured-product__specs-value">«Тиффани»/серый</dd>
-          <dt class="featured-product__specs-name">Диаметр:</dt>
-          <dd class="featured-product__specs-value">25 см</dd>
-          <dt class="featured-product__specs-name">Высота:</dt>
-          <dd class="featured-product__specs-value">15 см</dd>
-        </dl>
-        <img src="http://placehold.it/260x315" alt="Три вязаные корзинки на руках" class="featured-product__image">
-        <p class="featured-product__price-wrap">
-          <strong class="featured-product__price">Цена: 990 руб.</strong>
-          <a href="#" class="featured-product__add-cart btn">Заказать</a>
-        </p>
+        <div class="featured-product__inner">
+          <h2 class="featured-product__title">
+            <b class="feautured-product__name">Вязаные корзинки</b>
+            <span class="visually-hiddden">&ndash;</span>
+            <i class="feautured-product__badge">Товар недели</i>
+          </h2>
+          <p>Экологически чистая пряжа, ручная работа. Доступны в шести расцветках, и трех размерах.</p>
+          <dl class="featured-product__specs">
+            <dt class="featured-product__specs-name">Цвет:</dt>
+            <dd class="featured-product__specs-value">«Тиффани»/серый</dd>
+            <dt class="featured-product__specs-name">Диаметр:</dt>
+            <dd class="featured-product__specs-value">25 см</dd>
+            <dt class="featured-product__specs-name">Высота:</dt>
+            <dd class="featured-product__specs-value">15 см</dd>
+          </dl>
+          <img src="http://placehold.it/260x315" alt="Три вязаные корзинки на руках" class="featured-product__image">
+          <p class="featured-product__price">
+            <strong class="featured-product__price-text">Цена: 990 руб.</strong>
+            <a href="#" class="btn btn--full-width">Заказать</a>
+          </p>
+        </div>
       </section>
       <section class="advantages">
         <div class="advantages__inner">
@@ -86,21 +88,23 @@
         <a href="reviews-add.html" class="reviews__write btn">Написать</a>
       </section>
       <section class="contacts">
-        <h2 class="contacts__title">Контакты</h2>
-        <dl class="contacts__list">
-          <dt class="contacts__name">E-mail:</dt>
-          <dd class="contacts__value">info@mimimishkashop.ru</dd>
-          <dt class="contacts__name">Адрес:</dt>
-          <dd class="contacts__value">
-            г. Санкт-петербург,<br>
-            ул. Большая конюшенная,<br>
-            д. 19/8, офис 101
-          </dd>
-        </dl>
-        <p class="contacts__map-wrap">
-          <img src="http://placehold.it/320x460" alt="Карта проезда" class="contacts__map-image">
-        </p>
-        <a href="feedback-add.html" class="contacts__write btn">Напишите нам</a>
+        <div class="contacts__inner">
+          <h2 class="contacts__title">Контакты</h2>
+          <dl class="contacts__list">
+            <dt class="contacts__name">E-mail:</dt>
+            <dd class="contacts__value">info@mimimishkashop.ru</dd>
+            <dt class="contacts__name">Адрес:</dt>
+            <dd class="contacts__value">
+              г. Санкт-петербург,<br>
+              ул. Большая конюшенная,<br>
+              д. 19/8, офис 101
+            </dd>
+          </dl>
+          <p class="contacts__map">
+            <img src="http://placehold.it/320x460" alt="Карта проезда" class="contacts__map-image">
+          </p>
+          <a href="contact.html" class="contacts__write btn">Напишите нам</a>
+        </div>
       </section>
     </main>
     <footer class="page-footer">
@@ -115,23 +119,20 @@
         Разработано <a href="#" class="page-footer__copyright-link"><img src="http://placehold.it/27x34" alt="HTML Academy"></a>
       </p>
     </footer>
-    <section class="modal-add-cart modal">
+    <section class="modal">
       <div class="modal__inner">
         <h2 class="modal__title">Добавить в корзину</h2>
-        <form class="modal-add-cart__form" action="https://echo.htmlacademy.ru/" method="post">
-          <legend class="modal-add-cart__legend">Выберите размер:</legend>
-          <p class="modal-add-cart__sizes-toggles">
-              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="S"> S</label>
-              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="M"> M</label>
-              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="L"> L</label>
+        <form class="add-cart" action="https://echo.htmlacademy.ru/" method="post">
+          <legend class="add-cart__legend">Выберите размер:</legend>
+          <p class="add-cart__sizes radio-button-group">
+              <label class="radio-button"><input type="radio" name="size" value="S"> S</label>
+              <label class="radio-button"><input type="radio" name="size" value="M"> M</label>
+              <label class="radio-button"><input type="radio" name="size" value="L"> L</label>
           </p>
-          <button type="submit" class="modal-add-cart__submit btn">Добавить</button>
+          <button type="submit" class="btn btn--primary btn--full-width">Добавить</button>
         </form>
       </div>
       <div class="modal__overlay"></div>
     </section>
-
-    <!-- TODO: livereload comment/delete -->
-    <script src="http://localhost:35729/livereload.js"></script>
   </body>
 </html>
