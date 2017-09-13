@@ -9,16 +9,18 @@
       <a class="logo"><img src="http://placehold.it/86x35" alt="Мишка"></a>
       <nav class="main-nav main-nav--closed">
         <button class="main-nav__toggle" type="button">Открыть меню</button>
-        <ul class="main-nav__list">
-          <li class="main-nav__item"><a href="catalog.html">Каталог товаров</a></li>
-          <li class="main-nav__item"><a href="#">Вязание на заказ</a></li>
-        </ul>
-        <ul class="main-nav__list">
-          <li class="main-nav__item main-nav__item--search"><a href="#" title="Поиск по сайту">Поиск по сайту</a></li>
-          <li class="main-nav__item main-nav__item--cart"><a href="#">Корзина: пока пуста</a></li>
-        </ul>
+        <div class="main-nav__inner">
+          <ul class="main-nav__list">
+            <li class="main-nav__item"><a href="catalog.html">Каталог товаров</a></li>
+            <li class="main-nav__item"><a href="order.html">Вязание на заказ</a></li>
+          </ul>
+          <ul class="main-nav__list">
+            <li class="main-nav__item main-nav__item--search"><a href="#" title="Поиск по сайту">Поиск по сайту</a></li>
+            <li class="main-nav__item main-nav__item--cart"><a href="#">Корзина: пока пуста</a></li>
+          </ul>
+        </div>
       </nav>
-      <p class="page-header__text hidden-mobile">Бесплатная доставка по России</p>
+      <p class="page-header__notice hidden-mobile">Бесплатная доставка по России</p>
     </header>
     <main class="page-main">
       <header class="page-main__header">
@@ -113,29 +115,20 @@
         Разработано <a href="#" class="page-footer__copyright-link"><img src="http://placehold.it/27x34" alt="HTML Academy"></a>
       </p>
     </footer>
-    <section class="add-cart-modal">
-      <div class="add-cart-modal__inner">
-        <h2 class="add-cart-modal__title">Добавить в корзину</h2>
-        <form class="add-cart-modal__form" action="https://echo.htmlacademy.ru/" method="post">
-          <legend class="add-cart-modal__legend">Выберите размер:</legend>
-          <ul class="add-cart-modal__sizes-list">
-            <li class="add-cart-modal__sizes-item">
-              <input class="add-cart-modal__sizes-radio" type="radio" id="order_size_s" name="size" value="S">
-              <label for="order_size_s">S</label>
-            </li>
-            <li class="add-cart-modal__sizes-item">
-              <input class="add-cart-modal__sizes-radio" type="radio" id="order_size_m" name="size" value="M">
-              <label for="order_size_m">M</label>
-            </li>
-            <li class="add-cart-modal__sizes-item">
-              <input class="add-cart-modal__sizes-radio" type="radio" id="order_size_l" name="size" value="L">
-              <label for="order_size_l">L</label>
-            </li>
-          </ul>
-          <button type="submit" class="add-cart-modal__add btn">Добавить</button>
+    <section class="modal-add-cart modal">
+      <div class="modal__inner">
+        <h2 class="modal__title">Добавить в корзину</h2>
+        <form class="modal-add-cart__form" action="https://echo.htmlacademy.ru/" method="post">
+          <legend class="modal-add-cart__legend">Выберите размер:</legend>
+          <p class="modal-add-cart__sizes-toggles">
+              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="S"> S</label>
+              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="M"> M</label>
+              <label class="modal-add-cart__sizes-toggle"><input type="radio" name="size" value="L"> L</label>
+          </p>
+          <button type="submit" class="modal-add-cart__submit btn">Добавить</button>
         </form>
       </div>
-      <div class="add-cart-modal__overlay"></div>
+      <div class="modal__overlay"></div>
     </section>
 
     <!-- TODO: livereload comment/delete -->
