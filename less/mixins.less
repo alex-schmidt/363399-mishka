@@ -1,12 +1,27 @@
 .container() {
   width: @container-sm;
+  padding: 0 @gap-sm;
   margin: auto;
 
   @media (min-width: @screen-md) {
     width: @container-md;
+    padding: 0 @gap-md;
   }
 
   @media (min-width: @screen-lg) {
     width: @container-lg;
+    padding: 0 @gap-lg;
+  }
+}
+
+.row() {
+  margin: 0 -@gap-sm;
+
+  @media (min-width: @screen-md) {
+    margin: 0 -@gap-md;
+  }
+
+  @media (min-width: @screen-lg) {
+    margin: 0 -@gap-lg;
   }
 }
