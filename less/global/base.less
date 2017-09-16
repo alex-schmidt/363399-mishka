@@ -13,15 +13,47 @@ img {
   height: auto;
 }
 
-.container() {
-  width: @screen-sm;
-  margin: auto;
+a {
+  display: inline-block;
+  position: relative;
 
-  @media (min-width: @screen-md) {
+  color: @link-color;
+  text-decoration: none;
 
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 3px;
+
+    height: 1px;
+    background: @link-line-color;
   }
 
-  @media (min-width: @screen-lg) {
+  &:hover {
+    color: @link-color--hover;
 
+    &::after {
+      background-color: @link-color--hover;
+    }
   }
+
+  &:active {
+    color: @link-color--active;
+
+    &::after {
+      background-color: @link-color--active;
+    }
+  }
+
+}
+
+.test-box {
+  width: 300px;
+  height: 300px;
+  padding: 15px;
+  margin: 30px auto;
+
+  box-shadow: 0 0 3px #ccc;
+  outline: 1px solid #ccc;
 }

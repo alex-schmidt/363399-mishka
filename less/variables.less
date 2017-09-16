@@ -2,16 +2,20 @@
 @color-gray: #444;
 @color-black: #000;
 @color-white: #fff;
-@color-downy: #62d1ba;
+@color-aquamarine: #46c1ae;
+@color-aquamarine--light: #62d1ba;
 
 @text-color: @color-gray;
 @heading-color: @color-gray;
 @bg-color: @color-white;
 
-@link-color: @color-gray;
-@link-line-color: @color-downy;
-@link-color--hover: @color-downy;
-@link-color--active: @color-downy;
+@color-main: @color-aquamarine;
+@color-main--light: @color-aquamarine--light;
+
+@link-color: @text-color;
+@link-line-color: @color-main--light;
+@link-color--hover: @color-main;
+@link-color--active: fade(@color-main, 30%);
 
 // Fonts
 @font-size: 15px;
