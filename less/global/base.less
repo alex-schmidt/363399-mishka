@@ -1,4 +1,6 @@
 body {
+  min-width: @screen-sm;
+
   font-size: @font-size;
   line-height: @line-height;
   font-style: normal;
@@ -6,6 +8,9 @@ body {
 
   color: @text-color;
   background: @bg-color;
+
+  // .body-bg(); /* TODO: Сетка */
+  .body-bg(index,"-nav"); /* TODO: Сетка */
 }
 
 img {
@@ -48,12 +53,29 @@ a {
 
 }
 
-.test-box {
-  width: 300px;
-  height: 300px;
-  padding: 15px;
-  margin: 30px auto;
 
-  box-shadow: 0 0 3px #ccc;
-  outline: 1px solid #ccc;
+
+.page-header {
+  .outline-grid(2);
 }
+
+
+
+
+
+
+
+
+/* TODO: Сетка */
+// .page-header,
+.page-main__header,
+.featured-product,
+.advantages,
+.reviews,
+.contacts,
+.page-footer,
+.modal {
+  display: none;
+  // .outline-grid();
+}
+/* EO TODO: Сетка */

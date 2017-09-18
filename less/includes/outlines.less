@@ -1,0 +1,113 @@
+// Тестовый блок
+.body-bg(@page: index, @mob-ver: "", @path: "../img/preview", @min-height: 750px) {
+  background: @bg-color url("@{path}/@{page}-mob@{mob-ver}.jpg") 50% 0 no-repeat;
+  min-height: @min-height;
+
+  @media (min-width: @screen-md) {
+    background-image: url("@{path}/@{page}-tab.jpg");
+  }
+
+  @media (min-width: @screen-lg) {
+    background-image: url("@{path}/@{page}-desk.jpg");
+  }
+}
+
+
+.test-box(@width: 300px, @height: 200px, @outline-color: @color-gray) {
+  width: @width;
+  height: @height;
+  padding: 15px;
+  margin: 15px auto;
+
+  box-shadow: 0 0 3px @outline-color;
+  outline: 1px solid @outline-color;
+}
+
+// Подсветка блока
+.outline(@outline-color: @color-main, @color: @color-white, @pos-x: left, @bg-clip: content-box) {
+  position: relative;
+
+  overflow: hidden;
+  text-indent: -1000px;
+
+  background-color: fade(@outline-color, 40);
+  background-clip: @bg-clip;
+  box-shadow: 0 0 5px @outline-color;
+  outline: 2px solid @outline-color;
+
+  &::before {
+    content: attr(class);
+    position: absolute;
+    @{pos-x}: 0; top: 0;
+    padding: 3px 5px;
+
+    font: bold 13px monospace;
+    text-indent: 0;
+
+    color: @color;
+    background: @outline-color;
+  }
+}
+
+// Сброс подсветки
+.no-outline() {
+  &,
+  & * {
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+  }
+
+  &::before,
+  & *::before {
+    display: none;
+  }
+}
+
+// Подсветка сетки (нескольких вложенных блоков)
+.outline-grid(
+  @levels-count: 5;
+  @positions: left, right, left, right, left;
+  @outline-colors: SeaGreen, OrangeRed, Gold, Aquamarine, BlueViolet;
+  @text-colors: white, white, black, black, white
+) {
+  // Генератор селекторов потомков
+  .generate-child(@i: 1) when (@i < @levels-count) {
+    @outline-color: extract(@outline-colors, @i + 1);
+    @text-color: extract(@text-colors, @i + 1);
+    @position: extract(@positions, @i + 1);
+    > * {
+      .outline(@outline-color, @text-color, @position);
+      .generate-child(@i + 1);
+    }
+  }
+  .generate-child(@i: 1) when (@i = @levels-count) {
+    @outline-color: extract(@outline-colors, @i + 1);
+    @text-color: extract(@text-colors, @i + 1);
+    @position: extract(@positions, @i + 1);
+    > * {
+      display: none;
+    }
+  }
+
+  @outline-color-first: extract(@outline-colors, 1);
+  @text-color-first: extract(@text-colors, 1);
+  @position-first: extract(@positions, 1);
+
+  .outline(@outline-color-first, @text-color-first, @position-first);
+  .generate-child();
+}
+
+// Сброс подсветки
+.no-outline-grid(@levels-count: 5) {
+  // Генератор селекторов потомков
+  .generate-child(@i: 1) when (@i < @levels-count) {
+    > * {
+      .no-outline();
+      .generate-child(@i + 1);
+    }
+  }
+
+  .no-outline();
+  .generate-child();
+}
