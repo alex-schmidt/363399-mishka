@@ -5,6 +5,16 @@
   list-style: none;
 }
 
+// .margin-collapse()
+.margin-collapse() {
+  > *:first-child {
+    margin-top: 0;
+  }
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
 // Контейнер по viewport
 .container(@gap: -1) {
   width: @container-sm;

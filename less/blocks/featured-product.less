@@ -1,0 +1,233 @@
+.featured-product {
+  .outline-grid(5);
+
+  .btn { min-height: 52px; } /* TODO: Сетка */
+
+  &__inner {
+    .container();
+
+    padding-top: 35px;
+    padding-bottom: 40px;
+  }
+
+// Title
+  &__title {
+    margin: 0 0 30px;
+  }
+
+  &__name {
+    display: block;
+    min-height: 20px; /* TODO: Сетка */
+    margin: 0 0 10px;
+  }
+
+  &__badge {
+    display: block;
+    min-height: 18px; /* TODO: Сетка */
+  }
+
+// Content
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__desc {
+    order: 1;
+
+    min-height: 65px; /* TODO: Сетка */
+    margin: 0 0 27px;
+  }
+
+  &__specs {
+    order: 2;
+
+    min-height: 110px; /* TODO: Сетка */
+    margin: 0 0 27px;
+
+    > * { display: none; } /* TODO: Сетка */
+  }
+
+  &__image {
+    order: 3;
+
+    min-height: 315px; /* TODO: Сетка */
+    margin: 0 0 27px;
+  }
+
+  &__price {
+    order: 4;
+
+    margin: 0;
+
+    &-value {
+      display: block;
+      min-height: 21px; /* TODO: Сетка */
+      margin-bottom: 30px;
+    }
+  }
+
+  @media (min-width: @screen-md) {
+    &__inner {
+      padding-top: 50px;
+      padding-bottom: 70px;
+    }
+
+  // Title
+    &__title {
+      position: relative;
+
+      // width: 100%;
+      padding-right: 25%;
+      margin-bottom: 60px;
+    }
+
+    &__name {
+      display: block;
+      min-height: 40px; /* TODO: Сетка */
+      margin: 0;
+    }
+
+    &__badge {
+      position: absolute;
+      bottom: 0; right: 25px;
+      min-width: 72px; /* TODO: Сетка */
+      min-height: 40px; /* TODO: Сетка */
+
+      &::before { display: none; } /* TODO: Сетка */
+    }
+
+  // Content
+    &__content {
+      display: block;
+      &::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+
+    &__image {
+      float: right;
+      width: 50%;
+      min-height: 404px; /* TODO: Сетка */
+      margin: 0;
+
+      img { display: none; } /* TODO: Сетка */
+    }
+
+    &__desc {
+      float: left;
+
+      width: 50%;
+      min-height: 80px; /* TODO: Сетка */
+      padding-right: 45px;
+      margin-bottom: 40px;
+    }
+
+    &__specs {
+      float: left;
+
+      width: 50%;
+      min-height: 120px; /* TODO: Сетка */
+      padding-right: 45px;
+      margin-bottom: 60px;
+
+    }
+
+    &__price {
+      float: left;
+
+      width: 50%;
+      padding-right: 45px;
+
+      &-value {
+        min-height: 21px; /* TODO: Сетка */
+        margin-bottom: 32px;
+      }
+    }
+
+  }
+
+  @media (min-width: @screen-lg) {
+    &__inner {
+      padding-top: 70px;
+      padding-bottom: 95px;
+    }
+
+  // Title
+    &__title {
+      width: 700px;
+      padding: 0;
+      padding-left: 175px;
+      margin: 60px 0 65px;
+    }
+
+    &__name {
+      display: block;
+      min-height: 42px; /* TODO: Сетка */
+    }
+
+    &__badge {
+      right: auto; left: 0;
+      width: 175px;
+      min-height: 42px; /* TODO: Сетка */
+
+      &::before { display: none; } /* TODO: Сетка */
+    }
+
+  // Content
+    &__content {
+      display: block;
+      &::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+
+    &__image {
+      float: right;
+
+      width: 50%;
+      min-height: 635px; /* TODO: Сетка */
+      margin-top: -165px;
+
+      img { display: none; } /* TODO: Сетка */
+    }
+
+    &__desc {
+      float: left;
+
+      width: 50%;
+      min-height: 80px; /* TODO: Сетка */
+      padding-left: 175px;
+      padding-right: 60px;
+      margin-bottom: 50px;
+    }
+
+    &__specs {
+      float: left;
+
+      width: 50%;
+      min-height: 125px; /* TODO: Сетка */
+      padding-left: 175px;
+      padding-right: 60px;
+      margin-bottom: 110px;
+
+    }
+
+    &__price {
+      float: left;
+
+      width: 50%;
+      padding-left: 175px;
+      padding-right: 60px;
+
+      &-value {
+        min-height: 16px; /* TODO: Сетка */
+        margin-bottom: 37px;
+      }
+    }
+  }
+}

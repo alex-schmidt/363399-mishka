@@ -1,8 +1,7 @@
 // Тестовый блок
-.body-bg(@page: index, @mob-ver: "", @path: "../img/preview", @min-height: 750px) {
+.body-bg(@page: index, @mob-ver: "", @path: "../img/preview", @min-height: 1000px) {
   background: @bg-color url("@{path}/@{page}-mob@{mob-ver}.jpg") 50% 0 no-repeat;
-  min-height: @min-height;
-
+  padding-bottom: @min-height;
   @media (min-width: @screen-md) {
     background-image: url("@{path}/@{page}-tab.jpg");
   }

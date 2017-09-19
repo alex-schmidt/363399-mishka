@@ -65,6 +65,23 @@ a {
 
 }
 
+.visually-hiddden {
+  display: none; /* TODO: Сетка */
+}
+
+
+.btn {
+  display: inline-block;
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+
+
+
+
 
 
 
@@ -86,7 +103,8 @@ a {
 
 /* TODO: Сетка */
 
-.page-header {
+.page-header,
+.leading-header {
   .outline(-1);
 }
 
@@ -94,10 +112,14 @@ a {
   // .outline-grid(3);
 }
 
+.leading-header {
+  // .outline-grid(4);
+}
+
 
 // .page-header,
 // .page-main__header,
-.featured-product,
+// .featured-product,
 .advantages,
 .reviews,
 .contacts,
