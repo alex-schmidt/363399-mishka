@@ -24,7 +24,7 @@
 }
 
 // Подсветка блока
-.outline(@outline-color: @color-main, @color: @color-white, @pos-y: top, @pos-x: left, @bg-clip: content-box) {
+.outline(@badge: 1, @outline-color: @bg-grey, @color: @color-white, @pos-y: top, @pos-x: left, @bg-clip: content-box) {
   position: relative;
 
   font-size: 0;
@@ -35,18 +35,23 @@
   box-shadow: 0 0 5px @outline-color;
   outline: 2px solid @outline-color;
 
-  &::before {
-    content: "." attr(class);
-    position: absolute;
-    @{pos-x}: 0; @{pos-y}: 0;
-    padding: 3px 5px;
+  .badge(@badge);
 
-    font: bold 13px monospace;
-    text-indent: 0;
+  .badge(@badge) when (@badge > 0) {
+    &::before {
+      content: "." attr(class);
+      position: absolute;
+      @{pos-x}: 0; @{pos-y}: 0;
+      padding: 3px 5px;
 
-    color: @color;
-    background: @outline-color;
+      font: bold 12px monospace;
+      text-indent: 0;
+
+      color: @color;
+      background: @outline-color;
+    }
   }
+
 }
 
 // Сброс подсветки
@@ -70,6 +75,7 @@
 // Подсветка сетки (нескольких вложенных блоков)
 .outline-grid(
   @levels-count: 5;
+  @badge: 1;
   @positions-x: left, left, right, right, left;
   @positions-y: top, top, top, bottom, bottom;
   @outline-colors: SeaGreen, OrangeRed, Gold, Aquamarine, BlueViolet;
@@ -82,7 +88,7 @@
     @pos-x: extract(@positions-x, @i + 1);
     @pos-y: extract(@positions-y, @i + 1);
     > * {
-      .outline(@outline-color, @text-color, @pos-y, @pos-x);
+      .outline(@badge, @outline-color, @text-color, @pos-y, @pos-x);
       .generate-child(@i + 1);
     }
   }
@@ -95,7 +101,7 @@
   @pos-y-first: extract(@positions-y, 1);
   @pos-x-first: extract(@positions-x, 1);
 
-  .outline(@outline-color-first, @text-color-first, @pos-y-first, @pos-x-first);
+  .outline(@badge, @outline-color-first, @text-color-first, @pos-y-first, @pos-x-first);
   .generate-child();
 }
 

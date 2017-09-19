@@ -1,0 +1,25 @@
+.categories-nav {
+  .container();
+
+  &__list {
+    .reset-list();
+    .row();
+
+  }
+
+  &__item {
+    min-height: 103px; /* TODO: Сетка */
+  }
+
+  @media (min-width: @screen-md) {
+    &__list {
+      display: flex;
+      margin: 0;
+    }
+
+    &__item {
+      width: 50%;
+      min-height: 119px; /* TODO: Сетка */
+    }
+  }
+}
