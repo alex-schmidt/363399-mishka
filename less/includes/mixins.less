@@ -1,19 +1,60 @@
-.container() {
+// Сброс списков
+.reset-list() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Контейнер по viewport
+.container(@gap: -1) {
   width: @container-sm;
-  padding: 0 @gap-sm;
   margin: auto;
 
   @media (min-width: @screen-md) {
     width: @container-md;
-    padding: 0 @gap-md;
   }
 
   @media (min-width: @screen-lg) {
     width: @container-lg;
-    padding: 0 @gap-lg;
+  }
+
+  .container-gap(@gap);
+
+  // Стандартные отступы по viewport
+  .container-gap(@gap) when (@gap < 0) {
+    padding: 0 @gap-sm;
+
+    @media (min-width: @screen-md) {
+      padding: 0 @gap-md;
+    }
+
+    @media (min-width: @screen-lg) {
+      padding: 0 @gap-lg;
+    }
+  }
+
+  // Заданные отступы, напр. 0
+  .container-gap(@gap) when (@gap >= 0) {
+    padding: 0 @gap;
+
+    @media (min-width: @screen-md) {
+      padding: 0 @gap;
+    }
+
+    @media (min-width: @screen-lg) {
+      padding: 0 @gap;
+    }
   }
 }
 
+// Сброс контейнера
+.container-reset() {
+  width: auto;
+  padding: 0;
+  margin: 0;
+}
+
+// Нивилирование отсупов контейнера
 .row() {
   margin: 0 -@gap-sm;
 

@@ -24,21 +24,21 @@
 }
 
 // Подсветка блока
-.outline(@outline-color: @color-main, @color: @color-white, @pos-x: left, @bg-clip: content-box) {
+.outline(@outline-color: @color-main, @color: @color-white, @pos-y: top, @pos-x: left, @bg-clip: content-box) {
   position: relative;
 
-  overflow: hidden;
-  text-indent: -1000px;
+  font-size: 0;
+  line-height: 0;
 
-  background-color: fade(@outline-color, 40);
+  background-color: fade(@outline-color, 30);
   background-clip: @bg-clip;
   box-shadow: 0 0 5px @outline-color;
   outline: 2px solid @outline-color;
 
   &::before {
-    content: attr(class);
+    content: "." attr(class);
     position: absolute;
-    @{pos-x}: 0; top: 0;
+    @{pos-x}: 0; @{pos-y}: 0;
     padding: 3px 5px;
 
     font: bold 13px monospace;
@@ -56,6 +56,9 @@
     background: transparent;
     box-shadow: none;
     outline: none;
+
+    font-size: inherit;
+    line-height: inherit;
   }
 
   &::before,
@@ -67,7 +70,8 @@
 // Подсветка сетки (нескольких вложенных блоков)
 .outline-grid(
   @levels-count: 5;
-  @positions: left, right, left, right, left;
+  @positions-x: left, left, right, right, left;
+  @positions-y: top, top, top, bottom, bottom;
   @outline-colors: SeaGreen, OrangeRed, Gold, Aquamarine, BlueViolet;
   @text-colors: white, white, black, black, white
 ) {
@@ -75,26 +79,23 @@
   .generate-child(@i: 1) when (@i < @levels-count) {
     @outline-color: extract(@outline-colors, @i + 1);
     @text-color: extract(@text-colors, @i + 1);
-    @position: extract(@positions, @i + 1);
+    @pos-x: extract(@positions-x, @i + 1);
+    @pos-y: extract(@positions-y, @i + 1);
     > * {
-      .outline(@outline-color, @text-color, @position);
+      .outline(@outline-color, @text-color, @pos-y, @pos-x);
       .generate-child(@i + 1);
     }
   }
   .generate-child(@i: 1) when (@i = @levels-count) {
-    @outline-color: extract(@outline-colors, @i + 1);
-    @text-color: extract(@text-colors, @i + 1);
-    @position: extract(@positions, @i + 1);
-    > * {
-      display: none;
-    }
+    > * { display: none; }
   }
 
   @outline-color-first: extract(@outline-colors, 1);
   @text-color-first: extract(@text-colors, 1);
-  @position-first: extract(@positions, 1);
+  @pos-y-first: extract(@positions-y, 1);
+  @pos-x-first: extract(@positions-x, 1);
 
-  .outline(@outline-color-first, @text-color-first, @position-first);
+  .outline(@outline-color-first, @text-color-first, @pos-y-first, @pos-x-first);
   .generate-child();
 }
 

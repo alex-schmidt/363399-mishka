@@ -2,6 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <title>HTML Academy: Мишка</title>
@@ -20,21 +21,31 @@
     </div>
   -->
     <header class="page-header">
-      <a class="logo"><img src="http://placehold.it/86x35" alt="Мишка"></a>
-      <nav class="main-nav main-nav--closed">
+      <div class="main-nav">
+        <div class="main-nav__logo">
+          <a class="logo"><img src="http://placehold.it/86x35" alt="Мишка"></a>
+        </div>
         <button class="main-nav__toggle" type="button">Открыть меню</button>
-        <div class="main-nav__inner">
-          <ul class="main-nav__list main-nav__list--site">
+        <nav class="main-nav__list main-nav__list--site">
+          <ul>
             <li class="main-nav__item"><a href="catalog.html">Каталог товаров</a></li>
             <li class="main-nav__item"><a href="order.html">Вязание на заказ</a></li>
           </ul>
-          <ul class="main-nav__list main-nav__list--user">
+        </nav>
+        <nav class="main-nav__list main-nav__list--user">
+          <ul>
             <li class="main-nav__item main-nav__item--search"><a href="#" title="Поиск по сайту">Поиск по сайту</a></li>
             <li class="main-nav__item main-nav__item--cart"><a href="#">Корзина: пока пуста</a></li>
           </ul>
-        </div>
-      </nav>
-      <p class="page-header__notice hidden-mobile">Бесплатная доставка по России</p>
+        </nav>
+        <nav class="main-nav__list main-nav__list--extra">
+          <ul>
+            <li class="main-nav__item"><a href="#">Новые поступления</a></li>
+            <li class="main-nav__item"><a href="#">Распродажа</a></li>
+          </ul>
+        </nav>
+        <p class="page-header__notice">Бесплатная доставка по России</p>
+      </div>
     </header>
     <main class="page-main">
       <header class="page-main__header">
