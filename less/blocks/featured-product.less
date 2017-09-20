@@ -1,5 +1,5 @@
 .featured-product {
-  .outline-grid(6);
+  .outline-grid(5);
 
   .btn { min-height: 52px; } /* TODO: Сетка */
 
@@ -86,23 +86,13 @@
     }
 
   // Content
-    &__content-wrapper {
-      position: relative;
-      height: 0;
-      padding-bottom: 60.479%; // 404 / (@container-md - 2 * @gap-md)
-    }
-
     &__content {
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
       justify-content: space-between;
 
-      position: absolute;
-      left: 0; bottom: 0;
-
-      height: 100%; // height: 404px;
-      width: 100%;
+      height: 404px;
     }
 
     &__desc {
@@ -172,11 +162,8 @@
     }
 
   // Content
-    &__content-wrapper {
-      padding-bottom: 44.76%; // 470 / (@container-lg - 2 * @gap-lg)
-    }
-
     &__content {
+      height: 470px;
       padding-left: 175px;
     }
 
@@ -201,8 +188,8 @@
     }
 
     &__image {
-      height: 135.11%; // 635 / 470 - &__content height
-      margin-top: -18.857%; // -165 / 875 - &__content width
+      height: 635px;
+      margin-top: -165px;
     }
   }
 }

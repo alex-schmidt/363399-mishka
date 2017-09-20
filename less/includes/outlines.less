@@ -75,10 +75,10 @@
 .outline-grid(
   @levels-count: 5;
   @badge: 1;
-  @positions-x: left, left, right, right, left, left;
-  @positions-y: top, top, top, bottom, bottom, top;
-  @outline-colors: SeaGreen, OrangeRed, Gold, Aquamarine, BlueViolet, Green;
-  @text-colors: white, white, black, black, white, white
+  @positions-x: left, left, right, right, left;
+  @positions-y: top, top, top, bottom, bottom;
+  @outline-colors: SeaGreen, OrangeRed, Gold, Aquamarine, BlueViolet;
+  @text-colors: white, white, black, black, white
 ) {
   // Генератор селекторов потомков
   .generate-child(@i: 1) when (@i < @levels-count) {
