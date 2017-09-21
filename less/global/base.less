@@ -20,9 +20,6 @@ body {
 
   color: @text-color;
   background: @bg-color;
-
-  .body-bg(); /* TODO: Сетка */
-  // .body-bg(index,"-nav"); /* TODO: Сетка */
 }
 
 img {
@@ -81,7 +78,70 @@ a {
 
 
 
+.advantages {
+  .outline-grid(4);
 
+  &__inner {
+    .container();
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  &__title {
+    min-height: 29px; /* TODO: Сетка */
+    margin: 0 0 30px;
+  }
+
+  &__list {
+    .list-reset();
+    margin-bottom: -30px;
+  }
+
+  &__item {
+    min-height: 93px; /* TODO: Сетка */
+    padding-top: 55px;
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: @screen-md) {
+    &__inner {
+      padding-top: 52px;
+      padding-bottom: 82px;
+    }
+
+    &__title {
+      min-height: 51px; /* TODO: Сетка */
+      margin-bottom: 45px;
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+
+      margin-bottom: -54px;
+    }
+
+    &__item {
+      width: 50%;
+      min-height: 100px; /* TODO: Сетка */
+      padding-top: 54px;
+      padding-right: 30px;
+      margin-bottom: 54px;
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+    &__inner {
+      padding: 63px 175px 87px;
+    }
+
+    &__title {
+      min-height: 64px; /* TODO: Сетка */
+      margin-bottom: 39px;
+    }
+  }
+
+}
 
 
 
@@ -103,24 +163,35 @@ a {
 
 /* TODO: Сетка */
 
+body {
+  .body-bg(); /* TODO: Сетка */
+  // .body-bg(index,"-nav"); /* TODO: Сетка */
+}
+
 .page-header,
-.leading-header {
+.leading-header,
+.featured-product,
+.test {
   .outline(-1);
 }
 
 .page-header {
-  // .outline-grid(3);
+  // .outline-grid(4);
 }
 
 .leading-header {
   // .outline-grid(4);
 }
 
+.featured-product {
+  // .outline-grid(5);
+}
+
 
 // .page-header,
 // .page-main__header,
 // .featured-product,
-.advantages,
+// .advantages,
 .reviews,
 .contacts,
 .page-footer,

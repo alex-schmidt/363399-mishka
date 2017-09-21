@@ -24,11 +24,11 @@
     left: 50%;
     transform: translateX(-50%);
 
-    min-height: 158px; /* TODO: Сетка */
 
     > ul {
-      .reset-list();
+      .list-reset();
       .row();
+      min-height: 158px; /* TODO: Сетка */
     }
 
     &--extra { display: none; }
@@ -60,7 +60,7 @@
       &--site {
         display: block;
         position: absolute;
-        top: 100%; left: @gap-md;
+        top: 100%; left: 0;
 
         width: 334px;
         min-height: 65px; /* TODO: Сетка */
@@ -83,7 +83,7 @@
       &--extra {
         display: block;
         position: absolute;
-        top: 100%; left: @gap-md;
+        top: 100%; left: 0;
 
         width: 354px;
         min-height: 65px; /* TODO: Сетка */

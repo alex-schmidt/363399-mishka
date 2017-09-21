@@ -36,6 +36,13 @@
 
   .badge(@badge);
 
+
+  // Без бейджа и отсупов
+  .badge(@badge) when (@badge < 0) {
+    background-clip: border-box;
+  }
+
+  // Бейдж
   .badge(@badge) when (@badge > 0) {
     &::before {
       content: "." attr(class);
