@@ -70,10 +70,13 @@ a {
 .btn {
   display: inline-block;
 
+  min-height: 52px; /* TODO: Сетка */
+
   &--full-width {
     width: 100%;
   }
 }
+
 
 
 
@@ -108,6 +111,8 @@ body {
 .page-header,
 .leading-header,
 .featured-product,
+.advantages,
+// .reviews,
 .test {
   .outline(-1);
 }
@@ -125,15 +130,20 @@ body {
 }
 
 .advantages {
-  .outline-grid(4);
+  // .outline-grid(4);
 }
+
+.reviews {
+  .outline-grid(5);
+}
+
 
 
 // .page-header,
 // .page-main__header,
 // .featured-product,
 // .advantages,
-.reviews,
+// .reviews,
 .contacts,
 .page-footer,
 .modal {

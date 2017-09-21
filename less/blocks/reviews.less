@@ -1,0 +1,129 @@
+.reviews {
+  padding-top: 29px;
+  padding-bottom: 50px;
+
+  &__inner {
+    .container();
+  }
+
+  &__title {
+    min-height: 30px; /* TODO: Сетка */
+    margin: 0 0 30px;
+  }
+
+  &__list {
+    .list-reset();
+
+  }
+
+  &__item {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__text {
+    min-height: 259px; /* TODO: Сетка */
+    margin: 0 0 34px;
+  }
+
+  &__author {
+    display: block;
+    min-height: 50px; /* TODO: Сетка */
+    margin: 0 0 33px;
+  }
+
+  &__controls {
+    min-height: 52px; /* TODO: Сетка */
+    margin: 0 0 38px;
+
+    > * { display: none; } /* TODO: Сетка */
+  }
+
+  @media (min-width: @screen-md) {
+    height: 526px; /* TODO: Сетка */
+    padding-top: 80px;
+    padding-bottom: 68px;
+
+    &__inner {
+      position: relative;
+      margin-bottom: 50px;
+    }
+
+    &__title {
+      min-height: 52px; /* TODO: Сетка */
+      margin-right: 200px;
+      margin-bottom: 52px;
+    }
+
+    &__write {
+      position: absolute !important; /* TODO: Сетка */
+      top: 0; right: 0;
+
+      width: 175px; /* TODO: Сетка */
+    }
+
+    &__item {
+      padding: 0;
+      margin: 0;
+    }
+
+    &__text {
+      min-height: 109px; /* TODO: Сетка */
+      margin: 0 0 66px;
+    }
+
+    &__author {
+      width: 334px;
+      margin: 0;
+    }
+
+    &__controls {
+      position: absolute !important; /* TODO: Сетка */
+      bottom: 0; right: 0;
+
+      width: 167px;
+      min-height: 50px; /* TODO: Сетка */
+      margin: 0;
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+    height: 524px; /* TODO: Сетка */
+    padding-top: 73px;
+    padding-bottom: 68px;
+
+    &__inner {
+      padding-left: @guide-gap-lg;
+      margin-bottom: 100px;
+    }
+
+    &__title {
+      min-height: 61px; /* TODO: Сетка */
+      margin-right: 200px;
+      margin-bottom: 47px;
+    }
+
+    &__write {
+      width: 175px;
+    }
+
+    &__text {
+      min-height: 79px; /* TODO: Сетка */
+      margin-bottom: 47px;
+    }
+
+    &__author {
+      width: 350px;
+    }
+
+    &__controls {
+      position: absolute !important; /* TODO: Сетка */
+      bottom: 0; right: 0;
+
+      width: 167px;
+      min-height: 50px; /* TODO: Сетка */
+      margin: 0;
+    }
+  }
+
+}

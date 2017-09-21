@@ -1,9 +1,9 @@
 .advantages {
+  padding-top: 30px;
+  padding-bottom: 29px;
 
   &__inner {
     .container();
-    padding-top: 30px;
-    padding-bottom: 30px;
   }
 
   &__title {
@@ -23,11 +23,8 @@
   }
 
   @media (min-width: @screen-md) {
-
-    &__inner {
-      padding-top: 52px;
-      padding-bottom: 82px;
-    }
+    padding-top: 52px;
+    padding-bottom: 80px;
 
     &__title {
       min-height: 51px; /* TODO: Сетка */
@@ -43,7 +40,7 @@
 
     &__item {
       width: 50%;
-      min-height: 100px; /* TODO: Сетка */
+      min-height: 102px; /* TODO: Сетка */
       padding-top: 54px;
       padding-right: 30px;
       margin-bottom: 54px;
@@ -51,8 +48,11 @@
   }
 
   @media (min-width: @screen-lg) {
+    padding-top: 63px;
+    padding-bottom: 87px;
+
     &__inner {
-      padding: 63px @guide-gap 87px;
+      padding: 0 @guide-gap-lg;
     }
 
     &__title {
