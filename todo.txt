@@ -1,7 +1,6 @@
 /*
 * TODO - Вынести!!!
 *
-* TODO: Сетка Футер
 *
 * TODO: Спека + критерии
 * TODO: Photoshop text box auto
