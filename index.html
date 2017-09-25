@@ -3,25 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <title>HTML Academy: Мишка</title>
   </head>
   <body>
-
-  <!-- TODO: Remove
-    <div class="outline-box">
-      <div class="level2">
-        <div class="level3">
-          <div class="level4">
-            <div class="level5"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  -->
     <header class="page-header">
-      <div class="main-nav">
+      <div class="main-nav main-nav--closed">
         <div class="page-header__logo">
           <a><img src="http://placehold.it/86x35" alt="Мишка"></a>
         </div>
@@ -154,15 +141,15 @@
         </p>
       </div>
     </footer>
-    <section class="modal">
+    <section class="modal add-to-cart">
       <div class="modal__inner">
         <h2 class="modal__title">Добавить в корзину</h2>
-        <form class="add-cart" action="https://echo.htmlacademy.ru/" method="post">
-          <legend class="add-cart__legend">Выберите размер:</legend>
-          <p class="add-cart__sizes radio-button-group">
-              <label class="radio-button"><input type="radio" name="size" value="S"> S</label>
-              <label class="radio-button"><input type="radio" name="size" value="M"> M</label>
-              <label class="radio-button"><input type="radio" name="size" value="L"> L</label>
+        <form class="add-to-cart__form modal__content" action="https://echo.htmlacademy.ru/" method="post">
+          <legend class="add-to-cart__legend">Выберите размер:</legend>
+          <p class="radio-button-group add-to-cart__sizes">
+            <label class="radio-button"><input type="radio" name="size" value="S"> S</label>
+            <label class="radio-button"><input type="radio" name="size" value="M"> M</label>
+            <label class="radio-button"><input type="radio" name="size" value="L"> L</label>
           </p>
           <button type="submit" class="btn btn--primary btn--full-width">Добавить</button>
         </form>

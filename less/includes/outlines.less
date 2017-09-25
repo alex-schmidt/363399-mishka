@@ -1,13 +1,13 @@
 // Тестовый блок
-.body-bg(@page: index, @mob-ver: "", @path: "../img/preview", @min-height: 1000px) {
-  background: @bg-color url("@{path}/@{page}-mob@{mob-ver}.png") 50% 0 no-repeat;
+.body-bg(@page: index, @ver: "", @path: "../img/preview", @min-height: 1000px) {
+  background: @bg-color url("@{path}/@{page}-mob@{ver}.png") 50% 0 no-repeat;
   padding-bottom: @min-height;
   @media (min-width: @screen-md) {
-    background-image: url("@{path}/@{page}-tab.png");
+    background-image: url("@{path}/@{page}-tab@{ver}.png");
   }
 
   @media (min-width: @screen-lg) {
-    background-image: url("@{path}/@{page}-desk.png");
+    background-image: url("@{path}/@{page}-desk@{ver}.png");
   }
 }
 
