@@ -45,3 +45,15 @@
     margin: 0;
   }
 }
+
+.row(@last-screen) when (@last-screen = md) {
+  margin: 0 -@gap-sm;
+
+  @media (min-width: @screen-md) {
+    margin: 0 -@gap-md;
+  }
+
+  @media (min-width: @screen-lg) {
+    margin: 0;
+  }
+}

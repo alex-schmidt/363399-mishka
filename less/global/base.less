@@ -69,19 +69,16 @@ a {
 
 .btn {
   display: inline-block;
-
   min-height: 52px; /* TODO: Сетка */
+
+  &::after {
+    display: none;
+  }
 
   &--full-width {
     width: 100%;
   }
 }
-
-
-
-
-
-
 
 
 
@@ -112,7 +109,8 @@ body {
 .leading-header,
 .featured-product,
 .advantages,
-// .reviews,
+.reviews,
+// .contacts,
 .test {
   .outline(-1);
 }
@@ -134,9 +132,12 @@ body {
 }
 
 .reviews {
-  .outline-grid(5);
+  // .outline-grid(5);
 }
 
+.contacts {
+  .outline-grid(4);
+}
 
 
 // .page-header,
@@ -144,7 +145,7 @@ body {
 // .featured-product,
 // .advantages,
 // .reviews,
-.contacts,
+// .contacts,
 .page-footer,
 .modal {
   display: none;

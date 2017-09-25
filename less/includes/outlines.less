@@ -1,13 +1,13 @@
 // Тестовый блок
 .body-bg(@page: index, @mob-ver: "", @path: "../img/preview", @min-height: 1000px) {
-  background: @bg-color url("@{path}/@{page}-mob@{mob-ver}.jpg") 50% 0 no-repeat;
+  background: @bg-color url("@{path}/@{page}-mob@{mob-ver}.png") 50% 0 no-repeat;
   padding-bottom: @min-height;
   @media (min-width: @screen-md) {
-    background-image: url("@{path}/@{page}-tab.jpg");
+    background-image: url("@{path}/@{page}-tab.png");
   }
 
   @media (min-width: @screen-lg) {
-    background-image: url("@{path}/@{page}-desk.jpg");
+    background-image: url("@{path}/@{page}-desk.png");
   }
 }
 
@@ -31,8 +31,9 @@
 
   background-color: fade(@outline-color, 30);
   background-clip: @bg-clip;
-  box-shadow: 0 0 5px @outline-color;
-  outline: 2px solid @outline-color;
+  // box-shadow: 0 0 3px @outline-color;
+  outline: 1px solid @outline-color;
+  outline-offset: -1px;
 
   .badge(@badge);
 
@@ -40,6 +41,7 @@
   // Без бейджа и отсупов
   .badge(@badge) when (@badge < 0) {
     background-clip: border-box;
+    outline: none;
   }
 
   // Бейдж
