@@ -1,20 +1,56 @@
 .page-main {
 
   &__title {
+    // paddingPSD: 76px 0 81px;
     min-height: 88px; /* TODO: Сетка */
+
+    // font-size: 27px;
+    // line-height: 30px;
+
+    &-inner {
+      .container();
+      min-height: 177px; /* TODO: Сетка */
+    }
+  }
+
+  &__content {
+    .container();
+    padding-top: @gap-sm;
+    padding-bottom: 58px;
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
   }
 
   @media (min-width: @screen-md) {
 
     &__title {
       min-height: 95px; /* TODO: Сетка */
+
+      &-inner {
+        min-height: 225px;
+      }
+    }
+
+    &__content {
+      padding-top: 80px;
+      padding-bottom: 63px;
     }
   }
 
   @media (min-width: @screen-lg) {
+    &__content {
+      padding-top: 128px;
+      padding-bottom: 105px;
+    }
 
     &__title {
       min-height: 110px; /* TODO: Сетка */
+
+      &-inner {
+        min-height: 255px;
+      }
     }
   }
 }

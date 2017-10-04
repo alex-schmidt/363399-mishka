@@ -1,0 +1,130 @@
+.promo {
+  @gap: 34px;
+
+  padding: 24px @gap 33px;
+  margin-bottom: @gap-sm;
+
+  &__title {
+    min-height: 48px; /* TODO: Сетка */
+    margin: 0 0 24px;
+
+    // font-size: 17px;
+    // line-height: 24px;
+    // offset: 6.05;
+  }
+
+  &__video {
+    min-height: 150px; /* TODO: Сетка */
+    margin: 0 -@gap 27px;
+  }
+
+  &__pic {
+    display: none; /* TODO: Сетка */
+  }
+
+  &__play {
+    display: none; /* TODO: Сетка */
+  }
+
+  &__desc {
+
+    p {
+      min-height: 120px; /* TODO: Сетка */
+      margin-bottom: 24px;
+
+      // font-size: 13px;
+      // line-height: 24px;
+      // offset: 7.45;
+    }
+  }
+
+
+  @media (min-width: @screen-md) {
+    display: flex;
+    flex-direction: column;
+
+    @gap: 42px;
+
+    padding: 0 @gap 46px;
+    margin-bottom: 60px;
+
+    &__video {
+      order: 1;
+
+      min-height: 455px; /* TODO: Сетка */
+      margin: 0 -@gap 39px;
+    }
+
+    &__title {
+      order: 2;
+
+      min-height: 24px; /* TODO: Сетка */
+      margin-bottom: 32px;
+
+      // font-size: 20px;
+      // line-height: 24px;
+      // offset: 5;
+    }
+
+    &__desc {
+      order: 3;
+
+      p {
+        min-height: 60px; /* TODO: Сетка */
+        margin-bottom: 34px;
+
+        // font-size: 15px;
+        // line-height: 30px;
+        // offset: 9.75;
+      }
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+    @gap: 30px;
+    @text-width: 230px;
+
+    flex-wrap: wrap;
+
+    height: 455px; // По высоте картинки
+    min-height: 0; /* TODO: Сетка */
+    padding: @gap 0;
+    padding-right: 57px;
+
+    &__video {
+      order: 1;
+
+      width: 682px;
+      height: 100%;
+      margin: -@gap 0;
+      margin-right: 77px;
+    }
+
+    &__title {
+      order: 2;
+
+      width: @text-width;
+      min-height: 114px; /* TODO: Сетка */
+      padding-top: 17px;
+      margin-bottom: 34px;
+
+      // font-size: 20px;
+      // line-height: 24px;
+      // offset: 4;
+    }
+
+    &__desc {
+      order: 3;
+      width: @text-width;
+
+      p {
+        min-height: 120px; /* TODO: Сетка */
+        margin-bottom: 45px;
+
+        // font-size: 15px;
+        // line-height: 30px;
+        // offset: 9.75;
+      }
+    }
+  }
+}

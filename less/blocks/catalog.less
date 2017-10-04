@@ -1,0 +1,75 @@
+.catalog {
+  &__item {
+    margin-bottom: @gap-sm;
+
+    &-pic {
+      display: block;
+      min-height: 195px; /* TODO: Сетка */
+    }
+
+    &-info {
+      min-height: 179px; /* TODO: Сетка */
+    }
+
+    /* TODO: Сетка */
+    &:last-child { min-height: 399px; }
+    /* EO TODO: Сетка */
+  }
+
+  @media (min-width: @screen-md) {
+
+    &__item {
+      display: flex;
+      margin-bottom: 54px;
+
+      &-pic {
+        width: 50%;
+        min-height: 334px; /* TODO: Сетка */
+      }
+
+      &-info {
+        width: 50%;
+        min-height: 334px; /* TODO: Сетка */
+      }
+
+
+      /* TODO: Сетка */
+      &:last-child { min-height: 0; }
+      /* EO TODO: Сетка */
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &__item {
+      display: block;
+      float: left;
+
+      width: 316px;
+      // min-height: 659px; /* TODO: Сетка */
+      margin-right: @gap-lg;
+      margin-bottom: 57px;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+
+      &-pic {
+        width: auto;
+        min-height: 462px; /* TODO: Сетка */
+      }
+
+      &-info {
+        width: auto;
+        min-height: 197px; /* TODO: Сетка */
+      }
+
+      /* TODO: Сетка */
+      &:last-child { min-height: 659px; }
+      /* EO TODO: Сетка */
+    }
+  }
+}

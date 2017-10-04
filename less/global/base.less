@@ -100,26 +100,43 @@ a {
 
 
 
+
+
 /* TODO: Сетка */
 
 body {
-  .body-bg(); /* TODO: Сетка */
+  .body-bg();
   // .body-bg(index,"-nav"); /* TODO: Сетка */
-  .body-bg(index,"-modal"); /* TODO: Сетка */
+  // .body-bg(index,"-modal"); /* TODO: Сетка */
+}
+
+.catalog-page {
+  .body-bg(catalog); /* TODO: Сетка */
 }
 
 .page-header,
+.page-footer,
+// .page-main,
+.catalog,
 .leading-header,
 .featured-product,
 .advantages,
 .reviews,
 .contacts,
-.page-footer,
+.promo,
 // .modal,
 .test {
   .outline(-1);
 }
 
+
+.page-main__title {
+  .outline-grid(2);
+}
+
+.page-main__content {
+  .outline-grid(4);
+}
 
 
 /* Index Page */
@@ -128,7 +145,6 @@ body {
 }
 
 .leading-header {
-  opacity: 0;
   // .outline-grid(4);
 }
 
@@ -153,7 +169,7 @@ body {
 }
 
 .modal {
-  .outline-grid(3);
+  // .outline-grid(3);
 }
 
 
