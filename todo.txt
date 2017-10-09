@@ -1,14 +1,10 @@
 /*
 * TODO - Вынести!!!
 *
+* TODO: Страница Заказ: подготовка шаблона, макета, сетка.
 *
-* TODO: Спека + критерии
-* TODO: Photoshop text box auto
-size|dimensions|height
-Fit Text Frame to Content
 *
 *** Стилизация
-* TODO: Поменял миксин .container() и все связанные стили на использование без отсупов.
 * TODO: Возврат к фиксированным сеткам - убрал все нецелые % величины с правкой связанных стилей.
 * TODO: Навигация open/closed/no-js. Без дополнительного контейнера (Barber flex).
 * TODO: Leading Header - без фиксированного отсупа + bg-size cover (Barber flex)

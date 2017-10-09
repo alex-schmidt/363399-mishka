@@ -83,28 +83,30 @@
 // Подсветка сетки (нескольких вложенных блоков)
 .outline-grid(
   @levels-count: 5;
+  @hide-last: 1;
+  @start-level: 1;
   @badge: 1;
-  @positions-x: left, left, right, right, left;
-  @positions-y: top, top, top, bottom, bottom;
-  @outline-colors: SeaGreen, OrangeRed, Gold, Aquamarine, BlueViolet;
-  @text-colors: white, white, black, black, white
+  @positions-x: left, left, right, right, left, left;
+  @positions-y: top, top, top, bottom, bottom, top;
+  @outline-colors: SeaGreen, OrangeRed, SkyBlue, Gold, Aquamarine, BlueViolet;
+  @text-colors: white, white, black, black, black, white
 ) {
   // Генератор селекторов потомков
-  .generate-child(@i: 1) when (@i < @levels-count) {
-    @outline-color: extract(@outline-colors, @i + 1);
-    @text-color: extract(@text-colors, @i + 1);
-    @pos-x: extract(@positions-x, @i + 1);
-    @pos-y: extract(@positions-y, @i + 1);
+  .generate-child(@i: 1, @hide: @hide-last) when (@i < @levels-count) {
+    @outline-color: extract(@outline-colors, @i + @start-level);
+    @text-color: extract(@text-colors, @i + @start-level);
+    @pos-x: extract(@positions-x, @i + @start-level);
+    @pos-y: extract(@positions-y, @i + @start-level);
     > * {
       .outline(@badge, @outline-color, @text-color, @pos-y, @pos-x);
       .generate-child(@i + 1);
     }
   }
-  .generate-child(@i: 1) when (@i = @levels-count) {
+  .generate-child(@i: 1, @hide: @hide-last) when (@i = @levels-count) and (@hide > 0) {
     > * { display: none; }
   }
 
-  @outline-color-first: extract(@outline-colors, 1);
+  @outline-color-first: extract(@outline-colors, @start-level);
   @text-color-first: extract(@text-colors, 1);
   @pos-y-first: extract(@positions-y, 1);
   @pos-x-first: extract(@positions-x, 1);
