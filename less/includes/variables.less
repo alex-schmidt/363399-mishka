@@ -1,0 +1,79 @@
+// Colors
+@color-gray: #444;
+@color-black: #000;
+@color-white: #fff;
+@color-aquamarine: #46c1ae;
+@color-aquamarine--light: #62d1ba;
+
+@bg-grey: #292929;
+@bg-grey--lighter: #f1f1f1;
+@bg-grey--lightest: #f9f9f9;
+
+@text-color: @color-gray;
+@heading-color: @color-gray;
+@bg-color: @color-white;
+
+@color-main: @color-aquamarine;
+@color-main--light: @color-aquamarine--light;
+
+@link-color: @text-color;
+@link-line-color: @color-main--light;
+@link-color--hover: @color-main;
+@link-color--active: fade(@color-main, 30%);
+
+// Fonts
+@font-size: 15px;
+@font-size--small: 13px;
+@font-size--large: 17px;
+@font-size--x-large: 19px;
+
+@line-height: 30px;
+@line-height--small: 24px;
+
+@font-family: "Open Sans", Arial, sans-serif;
+
+// Gaps & breakpoints & containers
+@gap-sm: 30px;
+@gap-md: 50px;
+@gap-lg: @gap-md;
+
+@col-md: 167px;
+@col-lg: 175px;
+
+@screen-sm: 320px;
+@screen-md: 768px;
+@screen-lg: 1150px;
+@screen-sm-max: (@screen-md - 1);
+@screen-md-max: (@screen-lg - 1);
+
+@container-sm: @screen-sm;
+@container-md: @screen-md - @gap-md * 2;
+@container-lg: @screen-lg - @gap-lg * 2;
+
+
+/*
+Пересчет отступа текста PS > CSS
+1. Convert to Point text + back to Paragraph
+2. line-height = (height + leading) / 2
+3. offset = line-height - font-size
+4. margin = marginPS - offset
+
+offset = (height + leading) / 2 - font-size
+margin = marginPS - (height + leading) / 2 + font-size
+
+inaccuracy = height - font-size
+
+- считается только offset top, т.к. в PS отсуп внутри Paragraph вниз есть
+- но используется обычно margin-bottom - у предыдущего элемента
+
+
+
+
+
+
+
+
+
+
+
+*/

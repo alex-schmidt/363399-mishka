@@ -1,4 +1,19 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
 body {
+  position: relative;
+  min-width: @screen-sm;
+
   font-size: @font-size;
   line-height: @line-height;
   font-style: normal;
@@ -48,12 +63,252 @@ a {
 
 }
 
-.test-box {
-  width: 300px;
-  height: 300px;
-  padding: 15px;
-  margin: 30px auto;
-
-  box-shadow: 0 0 3px #ccc;
-  outline: 1px solid #ccc;
+.visually-hidden {
+  display: none; /* TODO: Сетка */
 }
+
+
+.btn {
+  display: inline-block;
+  min-height: 52px; /* TODO: Сетка */
+
+  &::after {
+    display: none;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+
+
+
+
+.form {
+
+  &, &:last-child {
+    margin-bottom: 55px;
+  }
+
+  &__fieldset {
+    padding: 0;
+    margin: 0 0 31px;
+    border: none;
+
+    /* TODO: Сетка */
+    .outline-grid(3);
+
+    &:nth-of-type(1) .form__field { min-height: 99px; }
+    &:nth-of-type(2) .form__field { min-height: 345px; }
+    &:nth-of-type(3) .form__field { min-height: 258px; }
+    &:nth-of-type(4) .form__field { min-height: 52px; }
+    &:nth-of-type(5) .form__field { min-height: 142px; }
+    /* TODO: EO Сетка */
+  }
+
+  &__fields-wrapper {
+
+    & + & {
+      margin-top: 31px;
+    }
+  }
+
+  &__title {
+    display: block;
+    min-height: 17px; /* TODO: Сетка */
+    margin: 0 0 24px;
+
+    // font-size: 17px;
+    // line-height: 17px;
+    // offset: 2.55;
+
+    &--low {
+      margin-bottom: 7px;
+    }
+  }
+
+  &__field {
+    display: block;
+  }
+
+  &__footer {
+    .outline-grid(3);
+  }
+
+  &__notice {
+    min-height: 16px; /* TODO: Сетка */
+    margin: 15px 0 31px;
+    // margin: 15px 0 31px;
+
+    // font-size: 14px;
+    // line-height: 16px;
+    // offset: 3.1px;
+
+    &--bottom {
+      margin: -15px 0 31px;
+    }
+  }
+
+  &__submit {
+
+    &:only-child { width: 100%; }
+  }
+
+
+  @media (min-width: @screen-md) {
+
+    &__fieldset {
+      padding: 50px @gap-md;
+      margin: 0 -@gap-md;
+
+      &:first-child {
+        margin-top: -50px;
+      }
+
+      /* TODO: Сетка */
+      &:nth-of-type(1) .form__field { min-height: 128px; }
+      &:nth-of-type(2) .form__field { min-height: 205px; }
+      &:nth-of-type(3) .form__field { min-height: 205px; }
+      &:nth-of-type(4) .form__field { min-height: 52px; }
+      &:nth-of-type(5) .form__field { min-height: 142px; }
+      /* TODO: EO Сетка */
+    }
+
+    &--responsive & {
+
+      &__fields-wrapper {
+        display: flex;
+
+        &:not(:first-of-type) { margin-top: 24px; }
+      }
+
+      &__title {
+        width: @col-md * 1;
+      }
+
+      &__field {
+        width: @col-md * 3;
+      }
+
+      &__footer {
+        display: flex;
+      }
+
+      &__actions {
+        order: 1;
+        width: @col-md * 2;
+      }
+
+      &__notice--bottom {
+        order: 2;
+        width: @col-md * 2;
+        margin: 0;
+      }
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+
+    &__fieldset {
+
+      /* TODO: Сетка */
+      &:nth-of-type(1) .form__field { min-height: 128px; }
+      &:nth-of-type(2) .form__field { min-height: 128px; }
+      &:nth-of-type(3) .form__field { min-height: 205px; }
+      &:nth-of-type(4) .form__field { min-height: 52px; }
+      &:nth-of-type(5) .form__field { min-height: 142px; }
+      /* TODO: EO Сетка */
+    }
+  }
+}
+
+
+
+
+
+
+
+
+/* TODO: Сетка */
+
+
+body {
+  .body-bg();
+  // .body-bg(index,"-nav"); /* TODO: Сетка */
+  // .body-bg(index,"-modal"); /* TODO: Сетка */
+}
+
+.catalog-page {
+  .body-bg("catalog"); /* TODO: Сетка */
+}
+
+.order-page {
+  .body-bg("form"); /* TODO: Сетка */
+}
+
+.page-header,
+.page-footer,
+// .page-main,
+.page-main__title,
+.page-main__intro,
+.catalog,
+.leading-header,
+.featured-product,
+.advantages,
+.reviews,
+.contacts,
+.catalog,
+.promo,
+// .modal,
+.test {
+  .outline(-1);
+}
+
+/* Index Page */
+.page-header {
+  // .outline-grid(4);
+}
+
+.leading-header {
+  // .outline-grid(4);
+}
+
+.featured-product {
+  // .outline-grid(5);
+}
+
+.advantages {
+  // .outline-grid(4);
+}
+
+.reviews {
+  // .outline-grid(5);
+}
+
+.contacts {
+  // .outline-grid(4);
+}
+
+.page-footer {
+  // .outline-grid(3);
+}
+
+.modal {
+  // .outline-grid(3);
+}
+
+
+// .page-header,
+// .page-main__header,
+// .featured-product,
+// .advantages,
+// .reviews,
+// .contacts,
+// .page-footer,
+// .modal,
+.test {
+  display: none;
+  // .outline-grid();
+}
+/* EO TODO: Сетка */

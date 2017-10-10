@@ -2,30 +2,41 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/normalize.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>HTML Academy: Мишка</title>
   </head>
   <body>
-      <a class="logo"><img src="http://placehold.it/86x35" alt="Мишка"></a>
-      <nav class="main-nav main-nav--closed">
+    <header class="page-header">
+      <div class="main-nav main-nav--closed">
+        <div class="page-header__logo">
+          <a><img src="http://placehold.it/86x35" alt="Мишка"></a>
+        </div>
         <button class="main-nav__toggle" type="button">Открыть меню</button>
-        <div class="main-nav__inner">
-          <ul class="main-nav__list main-nav__list--site">
+        <nav class="main-nav__list main-nav__list--site">
+          <ul>
             <li class="main-nav__item"><a href="catalog.html">Каталог товаров</a></li>
             <li class="main-nav__item"><a href="order.html">Вязание на заказ</a></li>
           </ul>
-          <ul class="main-nav__list main-nav__list--user">
+        </nav>
+        <nav class="main-nav__list main-nav__list--user">
+          <ul>
             <li class="main-nav__item main-nav__item--search"><a href="#" title="Поиск по сайту">Поиск по сайту</a></li>
             <li class="main-nav__item main-nav__item--cart"><a href="#">Корзина: пока пуста</a></li>
           </ul>
-        </div>
-      </nav>
-      <p class="page-header__notice hidden-mobile">Бесплатная доставка по России</p>
+        </nav>
+        <nav class="main-nav__list main-nav__list--extra">
+          <ul>
+            <li class="main-nav__item"><a href="#">Новые поступления</a></li>
+            <li class="main-nav__item"><a href="#">Распродажа</a></li>
+          </ul>
+        </nav>
+        <p class="page-header__notice">Бесплатная доставка по России</p>
+      </div>
     </header>
     <main class="page-main">
-      <header class="page-main__header">
-        <h1 class="page-main__title">Милые штуки ручной работы для дома</h1>
+      <header class="leading-header">
+        <h1 class="leading-header__title page-main__title">Милые штуки ручной работы для дома</h1>
         <nav class="categories-nav">
           <ul class="categories-nav__list">
             <li class="categories-nav__item"><a href="catalog.hmtl#toys">Детские игрушки</a></li>
@@ -36,24 +47,28 @@
       <section class="featured-product">
         <div class="featured-product__inner">
           <h2 class="featured-product__title">
-            <b class="feautured-product__name">Вязаные корзинки</b>
+            <b class="featured-product__name">Вязаные корзинки</b>
             <span class="visually-hiddden">&ndash;</span>
-            <i class="feautured-product__badge">Товар недели</i>
+            <i class="featured-product__badge">Товар недели</i>
           </h2>
-          <p>Экологически чистая пряжа, ручная работа. Доступны в шести расцветках, и трех размерах.</p>
-          <dl class="featured-product__specs">
-            <dt class="featured-product__specs-name">Цвет:</dt>
-            <dd class="featured-product__specs-value">«Тиффани»/серый</dd>
-            <dt class="featured-product__specs-name">Диаметр:</dt>
-            <dd class="featured-product__specs-value">25 см</dd>
-            <dt class="featured-product__specs-name">Высота:</dt>
-            <dd class="featured-product__specs-value">15 см</dd>
-          </dl>
-          <img src="http://placehold.it/260x315" alt="Три вязаные корзинки на руках" class="featured-product__image">
-          <p class="featured-product__price">
-            <strong class="featured-product__price-text">Цена: 990 руб.</strong>
-            <a href="#" class="btn btn--full-width">Заказать</a>
-          </p>
+          <div class="featured-product__content">
+            <p class="featured-product__desc">Экологически чистая пряжа, ручная работа. Доступны в шести расцветках, и трех размерах.</p>
+            <dl class="featured-product__specs">
+              <dt class="featured-product__specs-name">Цвет:</dt>
+              <dd class="featured-product__specs-value">«Тиффани»/серый</dd>
+              <dt class="featured-product__specs-name">Диаметр:</dt>
+              <dd class="featured-product__specs-value">25 см</dd>
+              <dt class="featured-product__specs-name">Высота:</dt>
+              <dd class="featured-product__specs-value">15 см</dd>
+            </dl>
+            <p class="featured-product__image">
+              <img src="http://placehold.it/260x315" alt="Три вязаные корзинки на руках">
+            </p>
+            <p class="featured-product__price">
+              <strong class="featured-product__price-value">Цена: 990 руб.</strong>
+              <a href="#" class="btn btn--full-width">Заказать</a>
+            </p>
+          </div>
         </div>
       </section>
       <section class="advantages">
@@ -74,7 +89,7 @@
           <h2 class="reviews__title">Отзывы</h2>
           <div class="reviews__list">
             <blockquote class="reviews__item slider-item">
-              <p>Я молодая мама, но всё равно фотографии не набирали и близко такого количества лайков, как у популярных инстамамочек. В отчаянии, я накупила аксессуаров и игрушек в мишке, и мои фотографии сразу стали более стильными, а также набирают больше лайков!</p>
+              <p class="reviews__text">Я молодая мама, но всё равно фотографии не набирали и близко такого количества лайков, как у популярных инстамамочек. В отчаянии, я накупила аксессуаров и игрушек в мишке, и мои фотографии сразу стали более стильными, а также набирают больше лайков!</p>
               <cite class="reviews__author">
                 <b class="reviews__author-name">Анастасия красильникова</b>
                 <i class="reviews__author-nick">@Misssssiskras</i>
@@ -85,50 +100,56 @@
             <button type="button" class="reviews__prev slider__prev">Предыдущий отзыв</button>
             <button type="button" class="reviews__next slider__next">Следующий отзыв</button>
           </p>
+          <a href="reviews-add.html" class="reviews__write btn btn--full-width">Написать</a>
         </div>
-        <a href="reviews-add.html" class="reviews__write btn">Написать</a>
       </section>
       <section class="contacts">
         <div class="contacts__inner">
-          <h2 class="contacts__title">Контакты</h2>
-          <dl class="contacts__list">
-            <dt class="contacts__name">E-mail:</dt>
-            <dd class="contacts__value">info@mimimishkashop.ru</dd>
-            <dt class="contacts__name">Адрес:</dt>
-            <dd class="contacts__value">
-              г. Санкт-петербург,<br>
-              ул. Большая конюшенная,<br>
-              д. 19/8, офис 101
-            </dd>
-          </dl>
+          <div class="contacts__content">
+            <h2 class="contacts__title">Контакты</h2>
+            <dl class="contacts__list">
+              <dt class="contacts__name">e-mail:</dt>
+              <dd class="contacts__value">info@mimimishkashop.ru</dd>
+              <dt class="contacts__name">адрес:</dt>
+              <dd class="contacts__value">
+                г. Санкт-петербург,<br>
+                ул. Большая конюшенная,<br>
+                д. 19/8, офис 101
+              </dd>
+            </dl>
+          </div>
           <p class="contacts__map">
             <img src="http://placehold.it/320x460" alt="Карта проезда" class="contacts__map-image">
           </p>
-          <a href="contact.html" class="contacts__write btn">Напишите нам</a>
+          <p class="contacts__write">
+            <a href="contact.html" class="contacts__write-link btn">Напишите нам</a>
+          </p>
         </div>
       </section>
     </main>
     <footer class="page-footer">
-      <p class="page-footer__logo hidden-mobile"><img src="http://placehold.it/102x34" alt="Мишка"></p>
-      <p class="page-footer__social social-links">
-        <span class="visually-hidden">Присоединяйтесь к нам в соцсетях:</span>
-        <a href="#" class="social-link social-link--inst">Instagram</a><span class="visually-hidden">,</span>
-        <a href="#" class="social-link social-link--fb">Facebook</a><span class="visually-hidden">,</span>
-        <a href="#" class="social-link social-link--tw">Twitter</a>
-      </p>
-      <p class="page-footer__copyright">
-        Разработано <a href="#" class="page-footer__copyright-link"><img src="http://placehold.it/27x34" alt="HTML Academy"></a>
-      </p>
+      <div class="page-footer__inner">
+        <p class="page-footer__logo"><img src="http://placehold.it/102x34" alt="Мишка"></p>
+        <p class="page-footer__copyright">
+          Разработано <a href="#" class="page-footer__copyright-link"><img src="http://placehold.it/27x34" alt="HTML Academy"></a>
+        </p>
+        <p class="page-footer__social social-links">
+          <span class="visually-hidden">Присоединяйтесь к нам в соцсетях:</span>
+          <a href="#" class="social-link social-link--inst">Instagram</a><span class="visually-hidden">,</span>
+          <a href="#" class="social-link social-link--fb">Facebook</a><span class="visually-hidden">,</span>
+          <a href="#" class="social-link social-link--tw">Twitter</a>
+        </p>
+      </div>
     </footer>
-    <section class="modal">
+    <section class="modal add-to-cart">
       <div class="modal__inner">
         <h2 class="modal__title">Добавить в корзину</h2>
-        <form class="add-cart" action="https://echo.htmlacademy.ru/" method="post">
-          <legend class="add-cart__legend">Выберите размер:</legend>
-          <p class="add-cart__sizes radio-button-group">
-              <label class="radio-button"><input type="radio" name="size" value="S"> S</label>
-              <label class="radio-button"><input type="radio" name="size" value="M"> M</label>
-              <label class="radio-button"><input type="radio" name="size" value="L"> L</label>
+        <form class="add-to-cart__form modal__content" action="https://echo.htmlacademy.ru/" method="post">
+          <legend class="add-to-cart__legend">Выберите размер:</legend>
+          <p class="radio-button-group add-to-cart__sizes">
+            <label class="radio-button"><input type="radio" name="size" value="S"> S</label>
+            <label class="radio-button"><input type="radio" name="size" value="M"> M</label>
+            <label class="radio-button"><input type="radio" name="size" value="L"> L</label>
           </p>
           <button type="submit" class="btn btn--primary btn--full-width">Добавить</button>
         </form>

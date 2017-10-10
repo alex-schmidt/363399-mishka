@@ -1,0 +1,36 @@
+.page-header {
+
+  &__logo {
+    .container();
+    min-height: 80px; /* TODO: Сетка */
+
+    a { display: block; }
+    img { display: none; } /* TODO: Сетка */
+  }
+
+  &__notice { display: none; }
+
+  @media (min-width: @screen-md) {
+    &__logo {
+      .container-reset();
+      order: 1;
+      width: 120px;
+    }
+
+    &__notice {
+      display: block;
+      position: absolute;
+      top: 100%; right: 0;
+
+      width: 265px;
+      min-height: 65px; /* TODO: Сетка */
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+    &__logo {
+      order: 2;
+      width: 150px; /* TODO: Сетка */
+    }
+  }
+}

@@ -1,0 +1,100 @@
+.main-nav {
+  position: relative;
+
+  &--show &__list {
+    &--site,
+    &--user { display: block; }
+  }
+
+  &__toggle {
+    display: none; /* TODO: Сетка */
+    position: absolute;
+    top: 0; right: @gap-sm;
+
+    &::before { display: none; } /* TODO: Сетка */
+  }
+
+  &__list {
+    .container();
+    display: none;
+    clear: both;
+    float: left;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    > ul {
+      .list-reset();
+      .row();
+      min-height: 158px; /* TODO: Сетка */
+    }
+
+    &--extra { display: none; }
+  }
+
+  @media (min-width: @screen-md) {
+    .container();
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    &__toggle { display: none; }
+
+    &__list {
+      .container-reset();
+      float: none;
+      left: 0;
+      transform: translateX(0);
+
+      /* TODO: Сетка */
+      > ul {
+        margin: 0;
+        min-height: auto;
+      }
+      /* EO TODO: Сетка */
+
+      &--user {
+        display: block;
+        order: 2;
+        width: 350px;
+        min-height: 88px; /* TODO: Сетка */
+      }
+
+      &--site {
+        display: block;
+        position: absolute;
+        top: 100%; left: 0;
+
+        width: 334px;
+        min-height: 65px; /* TODO: Сетка */
+      }
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+    &__list {
+
+      &--site {
+        order: 1;
+        position: static;
+        left: 0;
+
+        width: 410px;
+        margin-right: -55px;
+      }
+
+      &--extra {
+        display: block;
+        position: absolute;
+        top: 100%; left: 0;
+
+        width: 354px;
+        min-height: 65px; /* TODO: Сетка */
+      }
+
+    }
+
+  }
+}

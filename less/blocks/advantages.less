@@ -1,0 +1,64 @@
+.advantages {
+  padding-top: 30px;
+  padding-bottom: 29px;
+
+  &__inner {
+    .container();
+  }
+
+  &__title {
+    min-height: 29px; /* TODO: Сетка */
+    margin: 0 0 30px;
+  }
+
+  &__list {
+    .list-reset();
+    margin-bottom: -30px;
+  }
+
+  &__item {
+    min-height: 93px; /* TODO: Сетка */
+    padding-top: 55px;
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: @screen-md) {
+    padding-top: 52px;
+    padding-bottom: 80px;
+
+    &__title {
+      min-height: 51px; /* TODO: Сетка */
+      margin-bottom: 45px;
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+
+      margin-bottom: -54px;
+    }
+
+    &__item {
+      width: 50%;
+      min-height: 102px; /* TODO: Сетка */
+      padding-top: 54px;
+      padding-right: 30px;
+      margin-bottom: 54px;
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+    padding-top: 63px;
+    padding-bottom: 87px;
+
+    &__inner {
+      padding: 0 @col-lg;
+    }
+
+    &__title {
+      min-height: 64px; /* TODO: Сетка */
+      margin-bottom: 39px;
+    }
+  }
+
+}

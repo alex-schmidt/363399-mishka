@@ -1,0 +1,130 @@
+// Тестовый блок
+.body-bg(@page: index, @ver: "", @path: "../img/preview", @min-height: 1000px) {
+  background: @bg-color url("@{path}/@{page}-mob@{ver}.png") 50% 0 no-repeat;
+  padding-bottom: @min-height;
+  @media (min-width: @screen-md) {
+    background-image: url("@{path}/@{page}-tab@{ver}.png");
+  }
+
+  @media (min-width: @screen-lg) {
+    background-image: url("@{path}/@{page}-desk@{ver}.png");
+  }
+}
+
+
+.test-box(@width: 300px, @height: 200px, @outline-color: @color-gray) {
+  width: @width;
+  height: @height;
+  padding: 15px;
+  margin: 15px auto;
+
+  box-shadow: 0 0 3px @outline-color;
+  outline: 1px solid @outline-color;
+}
+
+// Подсветка блока
+.outline(@badge: 1, @outline-color: @bg-grey, @color: @color-white, @pos-y: top, @pos-x: left, @bg-clip: content-box) {
+  position: relative;
+
+  font-size: 0;
+  line-height: 0;
+
+  background-color: fade(@outline-color, 30);
+  background-clip: @bg-clip;
+  // box-shadow: 0 0 3px @outline-color;
+  outline: 1px solid @outline-color;
+  outline-offset: -1px;
+
+  .badge(@badge);
+
+
+  // Без бейджа и отсупов
+  .badge(@badge) when (@badge < 0) {
+    background-clip: border-box;
+    outline: none;
+  }
+
+  // Бейдж
+  .badge(@badge) when (@badge > 0) {
+    &::before {
+      content: "." attr(class);
+      position: absolute;
+      @{pos-x}: 0; @{pos-y}: 0;
+      padding: 3px 5px;
+
+      font: bold 12px monospace;
+      text-indent: 0;
+
+      color: @color;
+      background: @outline-color;
+    }
+  }
+
+}
+
+// Сброс подсветки
+.no-outline() {
+  &,
+  & * {
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  &::before,
+  & *::before {
+    display: none;
+  }
+}
+
+// Подсветка сетки (нескольких вложенных блоков)
+.outline-grid(
+  @levels-count: 5;
+  @hide-last: 1;
+  @start-level: 1;
+  @badge: 1;
+  @positions-x: left, left, right, right, left, left;
+  @positions-y: top, top, top, bottom, bottom, top;
+  @outline-colors: SeaGreen, OrangeRed, SkyBlue, Gold, Aquamarine, BlueViolet;
+  @text-colors: white, white, black, black, black, white
+) {
+  // Генератор селекторов потомков
+  .generate-child(@i: 1, @hide: @hide-last) when (@i < @levels-count) {
+    @outline-color: extract(@outline-colors, @i + @start-level);
+    @text-color: extract(@text-colors, @i + @start-level);
+    @pos-x: extract(@positions-x, @i + @start-level);
+    @pos-y: extract(@positions-y, @i + @start-level);
+    > * {
+      .outline(@badge, @outline-color, @text-color, @pos-y, @pos-x);
+      .generate-child(@i + 1);
+    }
+  }
+  .generate-child(@i: 1, @hide: @hide-last) when (@i = @levels-count) and (@hide > 0) {
+    > * { display: none; }
+  }
+
+  @outline-color-first: extract(@outline-colors, @start-level);
+  @text-color-first: extract(@text-colors, 1);
+  @pos-y-first: extract(@positions-y, 1);
+  @pos-x-first: extract(@positions-x, 1);
+
+  .outline(@badge, @outline-color-first, @text-color-first, @pos-y-first, @pos-x-first);
+  .generate-child();
+}
+
+// Сброс подсветки
+.no-outline-grid(@levels-count: 5) {
+  // Генератор селекторов потомков
+  .generate-child(@i: 1) when (@i < @levels-count) {
+    > * {
+      .no-outline();
+      .generate-child(@i + 1);
+    }
+  }
+
+  .no-outline();
+  .generate-child();
+}
