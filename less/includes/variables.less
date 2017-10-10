@@ -49,31 +49,3 @@
 @container-sm: @screen-sm;
 @container-md: @screen-md - @gap-md * 2;
 @container-lg: @screen-lg - @gap-lg * 2;
-
-
-/*
-Пересчет отступа текста PS > CSS
-1. Convert to Point text + back to Paragraph
-2. line-height = (height + leading) / 2
-3. offset = line-height - font-size
-4. margin = marginPS - offset
-
-offset = (height + leading) / 2 - font-size
-margin = marginPS - (height + leading) / 2 + font-size
-
-inaccuracy = height - font-size
-
-- считается только offset top, т.к. в PS отсуп внутри Paragraph вниз есть
-- но используется обычно margin-bottom - у предыдущего элемента
-
-
-
-
-
-
-
-
-
-
-
-*/
