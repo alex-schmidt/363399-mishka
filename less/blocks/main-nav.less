@@ -1,65 +1,231 @@
 .main-nav {
+  @block: ~".main-nav";
+  @icon-color: @color-gray--darker;
+  @icon-color--hover: @color-aquamarine--light;
+  @border-color: @border-gray;
+  @top-item-gap: 32px;
+  @bottom-item-gap: 18px 0 10px;
+
+  .container();
   position: relative;
 
-  &--show &__list {
-    &--site,
-    &--user { display: block; }
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 22px 0;
   }
 
-  &__toggle {
-    display: none; /* TODO: Сетка */
-    position: absolute;
-    top: 0; right: @gap-sm;
+  // Стилизовано для @screen-sm-max
+  &__toggle { display: none; }
 
-    &::before { display: none; } /* TODO: Сетка */
-  }
+  &__notice { display: none; }
 
-  &__list {
-    .container();
-    display: none;
-    clear: both;
+  &__items {
     float: left;
+    width: 100%;
 
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-
-
-    > ul {
-      .list-reset();
-      .row();
-      min-height: 158px; /* TODO: Сетка */
-    }
+    &:first-of-type { border-top: 1px solid transparent; }
 
     &--extra { display: none; }
   }
 
+  &__list {
+    .list-reset();
+    .row();
+  }
+
+  &__item {
+    display: block;
+  }
+
+  &__link {
+    display: block;
+
+    padding: 27px 50px;
+    padding-left: 75px;
+    margin: 0 -1px;
+
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 24px;
+    text-decoration: none;
+
+    color: @color-black;
+    background: @color-white;
+
+    border: 1px solid @border-color;
+    border-width: 0 1px 1px;
+
+    &::after { display: none; }
+
+    &:hover @{block}__link-icon {
+      fill: @icon-color--hover;
+      opacity: 1;
+    }
+
+    &:active @{block}__link-icon {
+      fill: @icon-color--hover;
+      opacity: 0.3;
+    }
+  }
+
+  &__link-icon {
+    position: absolute;
+    top: 50%; left: @gap-sm;
+    transform: translateY(-50%);
+
+    background-repeat: no-repeat;
+    fill: @icon-color;
+    opacity: 0.2;
+  }
+
+
+  @media (max-width: @screen-sm-max) {
+    @toggle-gap: 5px;
+
+    &__toggle {
+      display: block;
+      box-sizing: content-box;
+      position: relative;
+
+      width: 21px;
+      height: 20px;
+      padding: @toggle-gap;
+      margin-left: -21px;
+
+      text-indent: -1000px;
+      overflow: hidden;
+
+      background: none;
+      border: none;
+
+      &:hover { opacity: 0.6; }
+      &:active { opacity: 0.3; }
+    }
+
+    &--closed {
+
+      @{block}__list {
+        display: none;
+        clear: both;
+        float: left;
+
+        width: 100%;
+      }
+
+      @{block}__toggle {
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 0 + @toggle-gap;
+          right: 0 + @toggle-gap;
+          top: 3px + @toggle-gap;
+
+          height: 2px;
+          background-color: @icon-color;
+
+          box-shadow:
+            0 6px 0 @icon-color,
+            0 12px 0 @icon-color;
+        }
+      }
+    }
+
+    &--opened {
+
+      @{block}__list {
+
+        &--site,
+        &--user {
+          display: block;
+        }
+      }
+
+      @{block}__toggle {
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%; left: @toggle-gap - 3px;
+
+          width: 100%;
+
+          width: 28px;
+          height: 2px;
+
+          background: @icon-color;
+        }
+
+        &::before { transform: translateY(-50%) rotate(45deg); }
+        &::after { transform: translateY(-50%) rotate(-45deg); }
+      }
+    }
+
+    .no-js {
+      @{block}__toggle { display: none; }
+
+      @{block}__list {
+        &--site,
+        &--user {
+          display: block;
+          float: none;
+        }
+      }
+    }
+  }
+
   @media (min-width: @screen-md) {
     .container();
+
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
     position: relative;
 
-    &__toggle { display: none; }
+    &__logo {
+      display: block;
+      order: 1;
 
-    &__list {
+      width: @col-md;
+      padding: 0;
+      margin: 0;
+
+      /* TODO: Картинки */
+      img {
+        width: 113px;
+        height: 46px;
+      }
+      /* EO TODO: Картинки */
+    }
+
+    &__notice {
+      display: block;
+      position: absolute;
+      top: 100%; right: 0;
+
+      width: 265px;
+      margin: @bottom-item-gap;
+    }
+
+    &__items {
       .container-reset();
+
       float: none;
       left: 0;
-      transform: translateX(0);
-
-      /* TODO: Сетка */
-      > ul {
-        margin: 0;
-        min-height: auto;
-      }
-      /* EO TODO: Сетка */
+      transform: none;
 
       &--user {
-        display: block;
         order: 2;
         width: 350px;
-        min-height: 88px; /* TODO: Сетка */
+
+        @{block}__item:last-child { padding-right: 0; }
+        @{block}__list { justify-content: flex-end; }
       }
 
       &--site {
@@ -68,13 +234,66 @@
         top: 100%; left: 0;
 
         width: 334px;
-        min-height: 65px; /* TODO: Сетка */
+
+        @{block}__item {
+          padding: @bottom-item-gap;
+          padding-right: 37px;
+          border-width: 0;
+        }
+
+        @{block}__item:last-child { padding-right: 0; }
+
+        @{block}__link {
+          font-size: 15px;
+          background: none;
+        }
       }
+    }
+
+    &__list {
+      display: flex;
+    }
+
+    &__item {
+      display: flex;
+      margin: 0;
+      padding: @top-item-gap;
+
+      border-left: 1px solid @border-color;
+
+      &--search {
+        @{block}__link-text { display: none; }
+      }
+    }
+
+    &__link {
+      display: flex;
+      padding: 0;
+      border-width: 0;
+    }
+
+    &__link-icon {
+      position: static;
+      transform: none;
+    }
+
+    &__link-text {
+      margin-left: 32px;
     }
   }
 
   @media (min-width: @screen-lg) {
-    &__list {
+
+    &__logo {
+      order: 2;
+
+      width: 205px;
+      padding-right: 55px;
+
+      text-align: center;
+    }
+
+    &__items {
 
       &--site {
         order: 1;
@@ -82,7 +301,20 @@
         left: 0;
 
         width: 410px;
-        margin-right: -55px;
+
+        @{block}__item {
+          padding: @top-item-gap;
+          border-left-width: 1px;
+        }
+
+        @{block}__item:first-child {
+          padding-left: 0;
+          border-left-width: 0;
+        }
+
+        @{block}__item:last-child { padding-right: 0; }
+
+        @{block}__link { font-size: 17px; }
       }
 
       &--extra {
@@ -92,9 +324,20 @@
 
         width: 354px;
         min-height: 65px; /* TODO: Сетка */
+
+        @{block}__item {
+          padding: @bottom-item-gap;
+          padding-right: 60px;
+          border-width: 0;
+        }
+
+        @{block}__item:last-child { padding-right: 0; }
+
+        @{block}__link {
+          font-size: 15px;
+          background: none;
+        }
       }
-
     }
-
   }
 }
