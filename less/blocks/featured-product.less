@@ -1,8 +1,9 @@
 .featured-product {
+  @specs-padding: 10px 15px;
+  @specs-border: 1px solid @color-gray--lightest;
+
   padding-top: 35px;
   padding-bottom: 40px;
-
-  .btn { min-height: 52px; } /* TODO: Сетка */
 
   &__inner {
     .container();
@@ -15,44 +16,83 @@
 
   &__name {
     display: block;
-    min-height: 20px; /* TODO: Сетка */
+
     margin: 0 0 10px;
+
+    color: @heading-color;
+    font-size: 25px;
+    line-height: 30px;
   }
 
   &__badge {
     display: block;
-    min-height: 18px; /* TODO: Сетка */
+
+    color: @color-main--light;
+    font-size: 17px;
+    line-height: 20px;
+    font-style: normal;
+    text-transform: uppercase;
+
+    br { display: none; }
   }
 
 // Content
   &__desc {
-    min-height: 65px; /* TODO: Сетка */
     margin: 0 0 27px;
+    line-height: 24px;
   }
 
   &__specs {
-    min-height: 110px; /* TODO: Сетка */
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 0 27px;
 
-    > * { display: none; } /* TODO: Сетка */
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  &__specs-name {
+    width: 85px;
+    padding: @specs-padding;
+    padding-left: 0;
+    margin: 0;
+
+    border-bottom: @specs-border;
+  }
+
+  &__specs-value {
+    width: 175px;
+    padding: @specs-padding;
+    margin: 0;
+
+    border-bottom: @specs-border;
   }
 
   &__image {
-    min-height: 315px; /* TODO: Сетка */
     margin: 0 0 27px;
+
+    img { display: block; }
   }
 
-  &__price {
-    margin: 0;
+  &__price { margin: 0; }
 
-    &-value {
-      display: block;
-      min-height: 21px; /* TODO: Сетка */
-      margin-bottom: 30px;
-    }
+  &__price-value {
+    display: block;
+
+    margin-bottom: 30px;
+
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: bold;
+    text-align: center;
   }
 
   @media (min-width: @screen-md) {
+    @content-left:   50%;
+    @content-right:  50%;
+    @content-gap:    45px;
+    @image-height:   404px;
+
     padding-top: 50px;
     padding-bottom: 70px;
 
@@ -60,24 +100,28 @@
     &__title {
       position: relative;
 
-      // width: 100%;
-      padding-right: 25%;
+      padding-right: @col-md;
       margin-bottom: 60px;
     }
 
     &__name {
       display: block;
-      min-height: 40px; /* TODO: Сетка */
       margin: 0;
+
+      font-size: 43px;
+      line-height: 50px;
     }
 
     &__badge {
       position: absolute;
-      bottom: 0; right: 25px;
-      min-width: 72px; /* TODO: Сетка */
-      min-height: 40px; /* TODO: Сетка */
+      top: 50%;
+      right: 25px;
+      transform: translateY(-50%);
 
-      &::before { display: none; } /* TODO: Сетка */
+      margin: auto;
+      text-align: center;
+
+      br { display: inline; }
     }
 
   // Content
@@ -87,102 +131,105 @@
       flex-wrap: wrap;
       justify-content: space-between;
 
-      height: 404px;
+      height: @image-height;
     }
 
     &__desc {
       order: 1;
-      width: 50%;
-      min-height: 80px; /* TODO: Сетка */
-      padding-right: 45px;
+
+      width: @content-left;
+      padding-right: @content-gap;
+
+      font-size: 17px;
     }
 
     &__specs {
       order: 2;
 
-      width: 50%;
-      min-height: 120px; /* TODO: Сетка */
-      padding-right: 45px;
+      width: @content-left;
+      padding-right: @content-gap;
     }
 
     &__price {
       order: 3;
 
-      width: 50%;
-      padding-right: 45px;
-
-      &-value {
-        min-height: 21px; /* TODO: Сетка */
-      }
+      width: @content-left;
+      padding-right: @content-gap;
     }
+
+    &__price-value { font-size: 20px; }
 
     &__image {
       order: 4;
 
-      width: 50%;
+      width: @content-right;
       margin: 0;
 
       height: 100%;
 
-      img { display: none; } /* TODO: Сетка */
+      /* TODO: Картинки */
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      /* EO TODO: Картинки */
     }
 
   }
 
   @media (min-width: @screen-lg) {
+    @title-width:     @col-lg * 5;
+    @content-offset:  @col-lg;
+    @content-gap:     60px;
+    @content-height:  470px;
+    @image-offset:    165px;
+
     padding-top: 70px;
     padding-bottom: 95px;
 
   // Title
     &__title {
-      width: 700px;
+      z-index: 10;
+
+      width: @title-width;
       padding: 0;
-      padding-left: @col-lg;
+      padding-left: @content-offset;
       margin: 60px 0 65px;
     }
 
     &__name {
       display: block;
-      min-height: 42px; /* TODO: Сетка */
+
+      font-size: 53px;
+      line-height: 57px;
     }
 
     &__badge {
       right: auto; left: 0;
-      width: @col-lg;
-      min-height: 42px; /* TODO: Сетка */
-
-      &::before { display: none; } /* TODO: Сетка */
+      width: @content-offset;
     }
 
   // Content
-    &__content {
-      height: 470px;
-      padding-left: @col-lg;
-    }
+    &__content { height: @content-height; }
 
     &__desc {
-      min-height: 80px; /* TODO: Сетка */
-      padding-right: 60px;
+      padding-left: @content-offset;
+      padding-right: @content-gap;
     }
 
     &__specs {
-      width: 50%;
-      min-height: 125px; /* TODO: Сетка */
-      padding-right: 60px;
+      padding-left: @content-offset;
+      padding-right: @content-gap;
     }
 
     &__price {
-      width: 50%;
-      padding-right: 60px;
-
-      &-value {
-        min-height: 16px; /* TODO: Сетка */
-      }
+      padding-left: @content-offset;
+      padding-right: @content-gap;
     }
 
     &__image {
-      height: 635px;
-      margin-top: -165px;
+      height: @content-height + @image-offset; /* TODO: Картинки */
+      margin-top: -@image-offset;
     }
   }
 }
