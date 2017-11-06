@@ -7,8 +7,10 @@
   }
 
   &__title {
-    min-height: 29px; /* TODO: Сетка */
     margin: 0 0 30px;
+
+    font-size: 25px;
+    font-weight: normal;
   }
 
   &__list {
@@ -17,9 +19,21 @@
   }
 
   &__item {
-    min-height: 93px; /* TODO: Сетка */
+    position: relative;
+
     padding-top: 55px;
     margin-bottom: 30px;
+
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: bold;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0; left: 0;
+
+    fill: @color-main--light;
   }
 
   @media (min-width: @screen-md) {
@@ -27,23 +41,32 @@
     padding-bottom: 80px;
 
     &__title {
-      min-height: 51px; /* TODO: Сетка */
       margin-bottom: 45px;
+
+      font-size: 43px;
+      line-height: 50px;
+      font-weight: bold;
     }
 
     &__list {
-      display: flex;
-      flex-wrap: wrap;
-
+      // display: flex;
+      // flex-wrap: wrap;
+      column-count: 2;
       margin-bottom: -54px;
     }
 
     &__item {
-      width: 50%;
-      min-height: 102px; /* TODO: Сетка */
+      // width: 50%;
       padding-top: 54px;
       padding-right: 30px;
       margin-bottom: 54px;
+
+      font-size: 20px;
+      line-height: 22px;
+
+      &:nth-child(2) {
+
+      }
     }
   }
 
@@ -56,8 +79,10 @@
     }
 
     &__title {
-      min-height: 64px; /* TODO: Сетка */
       margin-bottom: 39px;
+
+      font-size: 53px;
+      line-height: 57px;
     }
   }
 
