@@ -1,0 +1,36 @@
+.page-hero {
+  display: flex;
+  flex-direction: column;
+  // .outline-grid(4, -1, -1, -1);
+
+  background: #f8f8f8 url(../img/hero-mobile@1x.jpg) 50% -18px no-repeat;
+  background-size: cover; /* TODO: Картинки */
+  background-origin: content-box;
+
+  &__title {
+    .container();
+    margin-top: 75px;
+    margin-bottom: 120px;
+    color: @heading-color;
+  }
+
+  @media (min-width: @screen-md) {
+    // background-image: url(); /* TODO: Картинки */
+    background-position: 50% 0;
+
+    &__title {
+      margin-top: 160px;
+      margin-bottom: 370px;
+
+      font-size: 43px;
+      line-height: 50px;
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+
+    &__title {
+      margin-bottom: 355px;
+    }
+  }
+}

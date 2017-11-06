@@ -34,7 +34,7 @@
 ) {
   position: relative;
 
-  background-color: fade(@outline-color, 30);
+  background-color: fade(@outline-color, 30%);
   background-clip: @bg-clip;
   // box-shadow: 0 0 3px @outline-color;
   outline: 1px solid @outline-color;
@@ -51,7 +51,7 @@
 
   // Без бейджа и отсупов
   .badge(@badge) when (@badge < 0) {
-    background-clip: border-box;
+    // background-clip: border-box;
     // outline: none;
   }
 
