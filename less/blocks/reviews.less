@@ -1,4 +1,7 @@
 .reviews {
+  @controls-border: @color-gray--lightest;
+  @controls-color: @color-black;
+
   padding-top: 29px;
   padding-bottom: 50px;
 
@@ -7,13 +10,12 @@
   }
 
   &__title {
-    min-height: 30px; /* TODO: Сетка */
     margin: 0 0 30px;
+    font-size: 25px;
   }
 
   &__list {
     .list-reset();
-
   }
 
   &__item {
@@ -21,27 +23,125 @@
     margin: 0;
   }
 
-  &__text {
-    min-height: 259px; /* TODO: Сетка */
-    margin: 0 0 34px;
-  }
+  &__text { margin: 0 0 34px; }
 
   &__author {
     display: block;
-    min-height: 50px; /* TODO: Сетка */
     margin: 0 0 33px;
+    font-style: normal;
+  }
+
+  &__author-name {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+  }
+
+  &__author-nick {
+    font-size: 17px;
+    font-style: normal;
   }
 
   &__controls {
-    min-height: 52px; /* TODO: Сетка */
+    display: flex;
+    position: relative;
+
     margin: 0 0 38px;
 
-    > * { display: none; } /* TODO: Сетка */
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+
+      height: 100%;
+      width: 1px;
+      margin-left: -0.5px;
+      background: @controls-border;
+    }
+  }
+
+  &__btn {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    width: 50%;
+    height: 52px;
+    padding: 0;
+
+    text-indent: -1000px;
+
+    border: 1px solid @controls-border;
+    background: none;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      right: 0; left: 0;
+
+      width: 51px;
+      height: 0;
+      margin: auto;
+
+      border-bottom: 4px solid @controls-color;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+
+      width: 18px;
+      height: 18px;
+      margin-top: -9px;
+
+      border: 4px solid @controls-color;
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        border-color: lighten(@controls-color, 30%);
+      }
+    }
+
+    &:active {
+      &::before,
+      &::after {
+        border-color: lighten(@controls-color, 60%);
+      }
+    }
+
+    &--prev {
+      border-right: 0;
+
+      &::after {
+        left: 50%;
+        margin-left: -25px;
+
+        border-top: none;
+        border-right: none;
+      }
+    }
+
+    &--next {
+      border-left: 0;
+
+      &::after {
+        right: 50%;
+        margin-right: -25px;
+
+        border-bottom: none;
+        border-left: none;
+      }
+    }
   }
 
   @media (min-width: @screen-md) {
     padding-top: 80px;
-    // padding-bottom: 85px;
     padding-bottom: 83px;
 
     &__inner {
@@ -50,41 +150,41 @@
     }
 
     &__title {
-      min-height: 52px; /* TODO: Сетка */
       margin-right: 200px;
       margin-bottom: 52px;
+
+      font-size: 43px;
+      line-height: 50px;
     }
 
     &__write {
-      position: absolute !important; /* TODO: Сетка */
+      position: absolute;
       top: 0; right: 0;
 
-      width: 175px; /* TODO: Сетка */
-    }
-
-    &__item {
-      padding: 0;
-      margin: 0;
+      width: auto;
     }
 
     &__text {
-      min-height: 109px; /* TODO: Сетка */
       margin: 0 0 66px;
+      font-size: 17px;
     }
 
     &__author {
-      width: 334px;
+      width: @col-md * 2;
       margin: 0;
     }
 
     &__controls {
-      position: absolute !important; /* TODO: Сетка */
+      position: absolute;
       bottom: 0; right: 0;
 
-      width: 167px;
-      min-height: 50px; /* TODO: Сетка */
+      width: @col-md;
       margin: 0;
+
+      &::after { display: none; }
     }
+
+    &__btn { border: none; }
   }
 
   @media (min-width: @screen-lg) {
@@ -97,32 +197,17 @@
     }
 
     &__title {
-      min-height: 61px; /* TODO: Сетка */
-      margin-right: 200px;
       margin-bottom: 47px;
+
+      font-size: 53px;
+      line-height: 57px;
     }
 
-    &__write {
-      width: 175px;
-    }
+    &__text { margin-bottom: 47px; }
 
-    &__text {
-      min-height: 79px; /* TODO: Сетка */
-      margin-bottom: 47px;
-    }
+    &__author { width: @col-lg * 2; }
 
-    &__author {
-      width: 350px;
-    }
-
-    &__controls {
-      position: absolute !important; /* TODO: Сетка */
-      bottom: 0; right: 0;
-
-      width: 167px;
-      min-height: 50px; /* TODO: Сетка */
-      margin: 0;
-    }
+    &__controls { width: @col-lg; }
   }
 
 }
