@@ -1,18 +1,24 @@
 // Кнопки
+@btn-height:       52px;
+@btn-line-height:  20px;
+@btn-border-width: 2px;
+@btn-padding-x:    40px;
+@btn-padding-y:    (@btn-height - @btn-line-height - @btn-border-width * 2) / 2;
+
 .btn {
   display: inline-block;
 
-  padding: 14px 40px;
+  padding: @btn-padding-y @btn-padding-x;
 
   font: inherit;
   font-size: 17px;
-  line-height: 20px;
+  line-height: @btn-line-height;
   font-weight: bold;
   text-transform: uppercase;
 
   color: @text-color;
   background: none;
-  border: 2px solid @text-color;
+  border: @btn-border-width solid @text-color;
 
   &::after {
     display: none;
