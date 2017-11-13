@@ -1,58 +1,119 @@
 .page-footer {
+  @block: ~".page-footer";
+  background: @bg-gray--lighter;
 
   &__inner {
-    display: flex;
-    flex-direction: column;
     .container();
+
+    > *:not(:first-child) {
+      border-top: 1px solid @color-gray--lighter;
+    }
   }
 
-  &__logo { order: 1; }
+  &__logo {
+    display: none;
+
+    a {
+      vertical-align: middle;
+      &::after { display: none; }
+    }
+
+    a[href] {
+      cursor: pointer;
+
+      &:hover {
+        svg { fill: @color-aquamarine; }
+      }
+
+      &:active {
+        opacity: 0.3;
+        svg { fill: @color-aquamarine; }
+      }
+    }
+
+    svg { display: block; }
+  }
 
   &__social {
-    order: 2;
-    min-height: 81px; /* TODO: Сетка */
+    padding: 24px 0 27px;
+    margin: 0;
+
+    text-align: center;
   }
 
   &__copyright {
-    order: 3;
-    min-height: 81px; /* TODO: Сетка */
+    padding: 25px 0 33px;
+    margin: 0;
 
-    img { display: none; } /* TODO: Сетка */
+    font-size: 19px;
+    line-height: 19px;
+    font-weight: bold;
+    text-align: center;
   }
 
-  @media (max-width: @screen-sm-max) {
-    &__logo { display: none; }
+  &__copyright-link {
+    display: inline-block;
+
+    color: inherit;
+    font: inherit;
+    text-decoration: inherit;
+
+    &::after { display: none; }
+
+    &:hover {
+      color: inherit;
+      @{block}__copyright-icon { fill: @color-aquamarine; }
+    }
+
+    &:active {
+      color: inherit;
+      opacity: 0.3;
+
+      @{block}__copyright-icon { fill: @color-aquamarine; }
+    }
+  }
+
+  &__copyright-icon {
+    display: inline-block;
+
+    margin-left: 19px;
+
+    line-height: 1;
+    vertical-align: middle;
+
+    fill: @color-aquamarine--light;
   }
 
   @media (min-width: @screen-md) {
+    padding: 50px 0;
 
     &__inner {
-      flex-direction: row;
+      display: flex;
       justify-content: space-between;
+      align-items: center;
+
+      > *:not(:first-child) { border: none; }
     }
 
     &__logo {
+      display: block;
       float: left;
-      width: @col-md;
-      min-height: 143px; /* TODO: Сетка */
 
-      img {
-        display: none; /* TODO: Сетка */
-      }
+      width: @col-md;
+      margin: 0;
     }
 
     &__social {
       max-width: 300px;
-      min-width: 144px; /* TODO: Сетка */
-      min-height: 143px; /* TODO: Сетка */
+      padding: 0;
       margin: 0 auto;
     }
 
     &__copyright {
       float: right;
+
       max-width: 200px;
-      min-width: 182px; /* TODO: Сетка */
-      min-height: 143px; /* TODO: Сетка */
+      padding: 0;
       margin-left: -10px;
     }
   }
@@ -68,7 +129,6 @@
     }
 
     &__copyright {
-      min-width: 185px; /* TODO: Сетка */
       margin-left: -5px;
     }
   }

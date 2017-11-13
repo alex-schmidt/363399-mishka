@@ -1,0 +1,26 @@
+.social-link {
+  @block: ~".social-link";
+
+  display: inline-block;
+
+  margin: 0px 20px;
+
+  line-height: 1;
+  vertical-align: middle;
+
+  &::after { display: none; }
+
+  &:first-child { margin-left: 0;}
+  &:last-child { margin-right: 0;}
+
+  &:hover {
+    @{block}__icon { fill: @color-aquamarine; }
+  }
+
+  &:active {
+    opacity: 0.3;
+    @{block}__icon { fill: @color-aquamarine; }
+  }
+
+  &__icon { fill: @color-black; }
+}
