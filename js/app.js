@@ -40,8 +40,8 @@ mainNavToggle.addEventListener("click", function(e){
 modalAddToCartShow.addEventListener("click", function(e) {
   e.preventDefault();
 
-  if (!modalAddToCart.classList.contains("modal--show")) {
-    modalAddToCart.classList.add("modal--show")
+  if (!modalAddToCart.classList.contains("modal--shown")) {
+    modalAddToCart.classList.add("modal--shown")
   }
 })
 
@@ -53,8 +53,8 @@ page.addEventListener("click", function(e) {
   // Клик не на модальном окне Добавить в корзину
   if (path && !path.indexOf(modalAddToCart)) {
     // Прячем модальное окно Добавить в корзину
-    if (modalAddToCart.classList.contains("modal--show")) {
-      modalAddToCart.classList.remove("modal--show");
+    if (modalAddToCart.classList.contains("modal--shown")) {
+      modalAddToCart.classList.remove("modal--shown");
     }
   }
 })
