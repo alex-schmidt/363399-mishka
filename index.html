@@ -103,9 +103,9 @@
             <p class="featured-product__image">
               <img src="http://placehold.it/260x315" alt="Три вязаные корзинки на руках">
             </p>
-            <p class="featured-product__price">
-              <strong class="featured-product__price-value">Цена: 990 руб.</strong>
-              <a href="#" class="btn btn--full-width">Заказать</a>
+            <p class="featured-product__order">
+              <strong class="featured-product__order-price">Цена: 990 руб.</strong>
+              <a href="#" class="featured-product__order-link btn btn--full-width js-add-to-cart-show">Заказать</a>
             </p>
           </div>
         </div>
@@ -243,20 +243,28 @@
         </p>
       </div>
     </footer>
-    <section class="modal add-to-cart">
+    <section class="add-to-cart modal">
       <div class="modal__inner">
-        <h2 class="modal__title">Добавить в корзину</h2>
-        <form class="add-to-cart__form modal__content" action="https://echo.htmlacademy.ru/" method="post">
+        <h2 class="add-to-cart__title modal__title">Добавить <br> в корзину</h2>
+        <form class="add-to-cart__form" action="https://echo.htmlacademy.ru/" method="post">
           <legend class="add-to-cart__legend">Выберите размер:</legend>
-          <p class="radio-button-group add-to-cart__sizes">
-            <label class="radio-button"><input type="radio" name="size" value="S"> S</label>
-            <label class="radio-button"><input type="radio" name="size" value="M"> M</label>
-            <label class="radio-button"><input type="radio" name="size" value="L"> L</label>
+          <p class="add-to-cart__sizes">
+            <label class="radio-btn add-to-cart__sizes-item">
+              <input class="radio-btn__input" type="radio" name="size" value="S">
+              <span class="radio-btn__text">S</span>
+            </label>
+            <label class="radio-btn add-to-cart__sizes-item">
+              <input class="radio-btn__input" type="radio" name="size" value="M">
+              <span class="radio-btn__text">M</span>
+            </label>
+            <label class="radio-btn add-to-cart__sizes-item">
+              <input class="radio-btn__input" type="radio" name="size" value="L">
+              <span class="radio-btn__text">L</span>
+            </label>
           </p>
           <button type="submit" class="btn btn--primary btn--full-width">Добавить</button>
         </form>
       </div>
-      <div class="modal__overlay"></div>
     </section>
     <script src="js/app.js"></script>
   </body>

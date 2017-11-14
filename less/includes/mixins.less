@@ -58,3 +58,20 @@
     margin: 0;
   }
 }
+
+// Миксин флекс-списка с отступами и выравниванием
+.flex-list(@item-margin-left: 5px, @justify-content: center, @item-margin-top: @item-margin-left) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: @justify-content;
+
+  margin: 0;
+  margin-top: -@item-margin-top;
+  margin-left: -@item-margin-left;
+
+  &-item {
+    margin: 0;
+    margin-top: @item-margin-top;
+    margin-left: @item-margin-left;
+  }
+}
