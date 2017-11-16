@@ -1,0 +1,173 @@
+.form {
+  .row();
+
+  &, &:last-child {
+    margin-bottom: 55px;
+  }
+
+  /* TODO: Сетка */
+
+  &__fieldset,
+  &__footer {
+    // .outline-grid(3);
+    // .outline-grid(3, -1, -1, -1);
+  }
+
+  &__fieldset {
+    &:nth-of-type(1) .form__field { min-height: 99px; }
+    &:nth-of-type(2) .form__field { min-height: 345px; }
+    &:nth-of-type(3) .form__field { min-height: 258px; }
+    &:nth-of-type(4) .form__field { min-height: 52px; }
+    &:nth-of-type(5) .form__field { min-height: 142px; }
+  }
+
+  /* TODO: EO Сетка */
+
+  &__fieldset {
+    padding: 0 @gap-sm;
+    margin: 0 0 31px;
+    border: none;
+  }
+
+
+
+  &__fieldset-inner {
+    margin: 0;
+
+    & + & {
+      margin-top: 31px;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin: 0 0 24px;
+
+    color: @color-main--light;
+    font-size: 17px;
+    line-height: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    span {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &::after {
+        content: '';
+        flex-grow: 1;
+
+        width: 50px;
+        max-width: 198px;
+        height: 1px;
+        margin-left: 20px;
+
+        background: @color-main--light;
+      }
+    }
+
+
+    &--low {
+      margin-bottom: 7px;
+    }
+  }
+
+  &__field {
+    display: block;
+  }
+
+  &__footer {
+
+  }
+
+  &__notice {
+    min-height: 16px; /* TODO: Сетка */
+    margin: 15px 0 31px;
+    // margin: 15px 0 31px;
+
+    // font-size: 14px;
+    // line-height: 16px;
+    // offset: 3.1px;
+
+    &--bottom {
+      margin: -15px 0 31px;
+    }
+  }
+
+  &__submit {
+
+    &:only-child { width: 100%; }
+  }
+
+
+  @media (min-width: @screen-md) {
+
+    &__fieldset {
+      padding: 50px @gap-md;
+      margin: 0 -@gap-md;
+
+      &:first-child {
+        margin-top: -50px;
+      }
+
+      &:nth-of-type(2n) {
+        background: @bg-gray--lighter;
+      }
+
+      /* TODO: Сетка */
+      &:nth-of-type(1) .form__field { min-height: 128px; }
+      &:nth-of-type(2) .form__field { min-height: 205px; }
+      &:nth-of-type(3) .form__field { min-height: 205px; }
+      &:nth-of-type(4) .form__field { min-height: 52px; }
+      &:nth-of-type(5) .form__field { min-height: 142px; }
+      /* TODO: EO Сетка */
+    }
+
+    &--responsive & {
+
+      &__fieldset-inner {
+        display: flex;
+
+        &:not(:first-of-type) { margin-top: 24px; }
+      }
+
+      &__title {
+        width: @col-md * 1;
+      }
+
+      &__field {
+        width: @col-md * 3;
+      }
+
+      &__footer {
+        display: flex;
+      }
+
+      &__actions {
+        order: 1;
+        width: @col-md * 2;
+      }
+
+      &__notice--bottom {
+        order: 2;
+        width: @col-md * 2;
+        margin: 0;
+      }
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+
+    &__fieldset {
+
+      /* TODO: Сетка */
+      &:nth-of-type(1) .form__field { min-height: 128px; }
+      &:nth-of-type(2) .form__field { min-height: 128px; }
+      &:nth-of-type(3) .form__field { min-height: 205px; }
+      &:nth-of-type(4) .form__field { min-height: 52px; }
+      &:nth-of-type(5) .form__field { min-height: 142px; }
+      /* TODO: EO Сетка */
+    }
+  }
+}

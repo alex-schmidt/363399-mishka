@@ -1,0 +1,54 @@
+.btn {
+  display: inline-block;
+
+  padding: @btn-padding-y @btn-padding-x;
+
+  font: inherit;
+  font-size: 17px;
+  line-height: @btn-line-height;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: @text-color;
+  background: none;
+  border: @btn-border-width solid @text-color;
+
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    color: @color-white;
+    background-color: @text-color;
+  }
+
+  &:checked,
+  &:active {
+    color: fade(@color-white, 30%);
+    background-color: @text-color;
+  }
+
+  &--full-width {
+    width: 100%;
+    text-align: center;
+  }
+
+  &--primary {
+    color: @color-white;
+    background-color: @color-main--light;
+    border-color: @color-main--light;
+
+    &:hover {
+      color: @color-white;
+      background-color: @color-main;
+      border-color: @color-main;
+    }
+
+    &:active {
+      color: fade(@color-white, 30%);
+      background-color: @color-main--light;
+      border-color: @color-main--light;
+    }
+  }
+}
