@@ -1,42 +1,31 @@
 .form {
+  @block: ~".form";
   .row();
 
   &, &:last-child {
     margin-bottom: 55px;
   }
 
-  /* TODO: Сетка */
+  &__intro {
+    .container();
 
-  &__fieldset,
-  &__footer {
-    // .outline-grid(3);
-    // .outline-grid(3, -1, -1, -1);
+    font-size: 13px;
+    line-height: 24px;
+
+    p { margin: 0 0 23px; }
   }
 
-  &__fieldset {
-    &:nth-of-type(1) .form__field { min-height: 99px; }
-    &:nth-of-type(2) .form__field { min-height: 345px; }
-    &:nth-of-type(3) .form__field { min-height: 258px; }
-    &:nth-of-type(4) .form__field { min-height: 52px; }
-    &:nth-of-type(5) .form__field { min-height: 142px; }
-  }
-
-  /* TODO: EO Сетка */
 
   &__fieldset {
-    padding: 0 @gap-sm;
+    padding: 0;
     margin: 0 0 31px;
     border: none;
   }
 
-
-
   &__fieldset-inner {
-    margin: 0;
+    .container();
 
-    & + & {
-      margin-top: 31px;
-    }
+    & + & { margin-top: 31px; }
   }
 
   &__title {
@@ -67,107 +56,141 @@
       }
     }
 
-
-    &--low {
-      margin-bottom: 7px;
-    }
+    &--low { margin-bottom: 7px; }
   }
 
-  &__field {
-    display: block;
-  }
+  &__field { display: block; }
 
   &__footer {
-
+    .container();
   }
 
   &__notice {
-    min-height: 16px; /* TODO: Сетка */
     margin: 15px 0 31px;
-    // margin: 15px 0 31px;
 
-    // font-size: 14px;
-    // line-height: 16px;
-    // offset: 3.1px;
+    font-size: 14px;
+    line-height: 16px;
 
-    &--bottom {
-      margin: -15px 0 31px;
-    }
+    &--bottom { margin: -15px 0 31px; }
   }
 
-  &__submit {
+  &__actions { margin: 0; }
 
-    &:only-child { width: 100%; }
-  }
+  &__submit:only-child { width: 100%; }
 
 
   @media (min-width: @screen-md) {
 
-    &__fieldset {
-      padding: 50px @gap-md;
-      margin: 0 -@gap-md;
+    &__intro {
+      margin-top: -9px;
+      margin-bottom: 57px;
 
-      &:first-child {
-        margin-top: -50px;
+      font-size: 17px;
+
+      p {
+        margin: 0 0 30px;
       }
-
-      &:nth-of-type(2n) {
-        background: @bg-gray--lighter;
-      }
-
-      /* TODO: Сетка */
-      &:nth-of-type(1) .form__field { min-height: 128px; }
-      &:nth-of-type(2) .form__field { min-height: 205px; }
-      &:nth-of-type(3) .form__field { min-height: 205px; }
-      &:nth-of-type(4) .form__field { min-height: 52px; }
-      &:nth-of-type(5) .form__field { min-height: 142px; }
-      /* TODO: EO Сетка */
     }
 
-    &--responsive & {
+    &__title {
+      margin-bottom: 50px;
 
-      &__fieldset-inner {
+      span:after {
+        max-width: none;
+      }
+    }
+
+    &__fieldset {
+      padding: 50px 0;
+      margin: 0;
+
+      &:first-of-type { margin-top: -50px; }
+    }
+
+    &--stripped {
+
+      @{block}__fieldset {
+        &:nth-of-type(2n) { background: @bg-gray--lighter; }
+      }
+    }
+
+    &--responsive {
+
+      @{block}__fieldset-inner {
         display: flex;
+        align-items: baseline;
 
         &:not(:first-of-type) { margin-top: 24px; }
       }
 
-      &__title {
+      @{block}__title {
         width: @col-md * 1;
+        margin-bottom: 0;
+
+        span {
+          display: block;
+          &::after { display: none; }
+        }
       }
 
-      &__field {
+      @{block}__field {
         width: @col-md * 3;
       }
 
-      &__footer {
+      @{block}__footer {
         display: flex;
+        align-items: baseline;
       }
 
-      &__actions {
+      @{block}__actions {
         order: 1;
         width: @col-md * 2;
       }
 
-      &__notice--bottom {
+      @{block}__submit { width: auto; }
+
+      @{block}__notice--bottom {
         order: 2;
+
         width: @col-md * 2;
         margin: 0;
+        padding-left: @gap-sm;
+
+        font-size: 17px;
+        text-align: right;
       }
     }
   }
 
   @media (min-width: @screen-lg) {
 
-    &__fieldset {
+    &--responsive {
 
-      /* TODO: Сетка */
-      &:nth-of-type(1) .form__field { min-height: 128px; }
-      &:nth-of-type(2) .form__field { min-height: 128px; }
-      &:nth-of-type(3) .form__field { min-height: 205px; }
-      &:nth-of-type(4) .form__field { min-height: 52px; }
-      &:nth-of-type(5) .form__field { min-height: 142px; }
-      /* TODO: EO Сетка */
+      @{block}__intro {
+        padding-left: @col-lg;
+        padding-right: @col-lg;
+      }
+
+      @{block}__title {
+        width: @col-lg * 1;
+        padding-left: 63px;
+      }
+
+      @{block}__field {
+        width: @col-lg * 4;
+      }
+
+      @{block}__footer {
+        padding-left: @col-lg;
+      }
+
+      @{block}__actions {
+        width: @col-lg * 2;
+      }
+
+      @{block}__notice--bottom {
+        width: @col-lg * 2;
+      }
     }
   }
 }

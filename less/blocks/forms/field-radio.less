@@ -1,11 +1,12 @@
-.field-checkbox {
-  @block: ~".field-checkbox";
-  @width: 40px;
-  @height: 39px;
+.field-radio {
+  @block: ~".field-radio";
+  @size: 38px;
   @bg-color: transparent;
   @border-color: @color-black;
   @border-color--focus: @color-main--light;
   @border-color--active: fade(@color-gray, 30%);
+  @point-size: 15px;
+  @point-color: @color-main--light;
 
   & + & {
     margin-top: 22px;
@@ -25,33 +26,35 @@
     align-items: center;
     position: relative;
 
-    height: @height;
-    padding-left: @width + @label-gap;
+    height: @size;
+    padding-left: @size + @label-gap;
 
     &::before {
       content: '';
       position: absolute;
       top: 0; left: 0;
 
-      width: @width;
-      height: @height;
+      width: @size;
+      height: @size;
 
       background: @bg-color;
       border: 2px solid @border-color;
+      border-radius: 50%;
     }
 
     &::after {
       content: '';
       display: none;
       position: absolute;
-      top: 12px;
-      left: 9px;
+      left: @size/2;
+      top: 50%;
+      transform: translate(-50%, -50%);
 
-      width: 22px;
-      height: 16px;
+      width: @point-size;
+      height: @point-size;
 
-      background: url(../img/icon-tick.svg) 0 0 no-repeat;
-      background-size: cover;
+      background: @point-color;
+      border-radius: 50%;
     }
   }
 
@@ -60,8 +63,8 @@
     z-index: -1;
     top: 0; left: 0;
 
-    width: @width;
-    height: @height;
+    width: @size;
+    height: @size;
 
     opacity: 0;
 
@@ -87,30 +90,29 @@
   }
 
   @media (min-width: @screen-md) {
-    @width: 54px;
-    @height: 52px;
+    @size: 51px;
+    @point-size: 20px;
+
+    &__name {
+      font-size: 19px;
+      line-height: 21px;
+    }
 
     &__name-text {
-      height: @height;
-      padding-left: @width + @label-gap;
+      height: @size;
+      padding-left: @size + @label-gap;
 
       &::before {
-        width: @width;
-        height: @height;
+        width: @size;
+        height: @size;
       }
 
       &::after {
-        top: 16px;
-        left: 11px;
+        left: @size/2;
 
-        width: 33px;
-        height: 22px;
+        width: @point-size;
+        height: @point-size;
       }
-    }
-
-    &__input {
-      width: @width;
-      height: @height;
     }
   }
 }
