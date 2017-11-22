@@ -26,7 +26,7 @@ page.classList.remove("no-js");
 
 mainNavToggle.addEventListener("click", function(e){
   e.preventDefault();
-
+  console.log("123");
   // Переключаем открытое/закрытое состояние навигации
   if (mainNav.classList.contains("main-nav--closed")) {
     mainNav.classList.remove("main-nav--closed")
@@ -37,13 +37,16 @@ mainNavToggle.addEventListener("click", function(e){
   }
 });
 
-modalAddToCartShow.addEventListener("click", function(e) {
-  e.preventDefault();
 
-  if (!modalAddToCart.classList.contains("modal--shown")) {
-    modalAddToCart.classList.add("modal--shown")
-  }
-})
+if (modalAddToCartShow) {  
+  modalAddToCartShow.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    if (!modalAddToCart.classList.contains("modal--shown")) {
+      modalAddToCart.classList.add("modal--shown")
+    }
+  })
+}
 
 
 page.addEventListener("click", function(e) {
