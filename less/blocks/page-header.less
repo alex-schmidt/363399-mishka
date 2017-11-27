@@ -1,19 +1,22 @@
 .page-header {
   position: relative;
   z-index: 10;
+
+  height: 80px;
+
   border-bottom: 1px solid @border-gray;
 
   &__logo {
-    margin: 0 auto;
+    vertical-align: middle;
 
-    a {
-      vertical-align: middle;
+    &::after { display: none; }
 
-      &::after { display: none; }
-
-      img { display: block; }
-    }
+    svg { display: block; }
   }
 
   &__notice { line-height: 24px; }
+
+  @media (min-width: @screen-md) {
+    height: auto;
+  }
 }
