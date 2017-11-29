@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  width: 100vw;
+  // width: 100vw;
   overflow-x: hidden;
 }
 
@@ -25,7 +25,8 @@ body {
   background: @bg-color;
 }
 
-img {
+img,
+svg {
   max-width: 100%;
   height: auto;
 }
@@ -71,6 +72,68 @@ a {
 }
 
 
+.flex {
+  @block: ~".flex";
+  .container();
+  // padding: 10px !important;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  outline: 1px solid red;
+  outline-offset: 5px;
+  ////////////////////
+
+  // .clearfix();
+  display: flex;
+  justify-content: space-between;
+
+  &__container {
+    .list-reset();
+    // padding: 10px;
+
+    outline: 1px solid green;
+    outline-offset: 0;
+    ////////////////
+
+
+    &--left {
+      display: flex;
+      width: 50%;
+      flex-shrink: 0;
+
+      @{block}__item:nth-child(n + 2) {
+        display: none;
+      }
+    }
+
+    &--right {
+      display: flex;
+      flex-wrap: wrap;
+      // flex-shrink: 0;
+      // justify-content: flex-end;
+
+      // width: 50%;
+
+      @{block}__item {
+        // float: right;
+      }
+    }
+  }
+
+  &__item {
+    padding: 5px;
+    outline: 1px solid blue;
+    outline-offset: -5px;
+
+    color: #fff;
+    background-color: fade(blue, 50%);
+    background-clip: content-box;
+    ////////////////
+
+
+
+  }
+}
 
 
 
@@ -136,6 +199,7 @@ body {
 
 .main-nav {
   // .outline-grid(3);
+  // .outline-grid(3, -1, -1, -1);
   // position: relative;
   // animation: appearance 0.7s;
 }

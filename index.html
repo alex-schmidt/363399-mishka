@@ -7,6 +7,22 @@
     <title>HTML Academy: Мишка</title>
   </head>
   <body class="no-js">
+    <!-- <div class="flex">
+      <ul class="flex__container flex__container--left">
+        <li class="flex__item">Item 001</li>
+        <li class="flex__item">Item 002</li>
+        <li class="flex__item">Item 003</li>
+        <li class="flex__item">Item 004</li>
+        <li class="flex__item">Item 005</li>
+      </ul>
+      <ul class="flex__container flex__container--right">
+        <li class="flex__item">Item 001</li>
+        <li class="flex__item">Item 002</li>
+        <li class="flex__item">Item 003</li>
+        <li class="flex__item">Item 004</li>
+        <li class="flex__item">Item 005</li>
+      </ul>
+    </div> -->
     <header class="page-header">
       <div class="main-nav main-nav--closed">
         <div class="main-nav__logo">
@@ -25,14 +41,26 @@
           <button class="main-nav__toggle" type="button">Открыть меню</button>
         </div>
         <nav class="main-nav__items main-nav__items--site">
-          <ul class="main-nav__list">
-            <li class="main-nav__item">
-              <a class="main-nav__link" href="catalog.html">Каталог товаров</a>
-            </li>
-            <li class="main-nav__item">
-              <a class="main-nav__link" href="order.html">Вязание на заказ</a>
-            </li>
-          </ul>
+          <div class="main-nav__list-wrap">
+            <ul class="main-nav__list">
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="catalog.html">Каталог товаров</a>
+              </li>
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="order.html">Вязание на заказ</a>
+              </li>
+            </ul>
+          <!-- Для добавления пунктов
+            <ul class="main-nav__list">
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="order.html">Вязание на заказ</a>
+              </li>
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="catalog.html">Каталог товаров</a>
+              </li>
+            </ul>
+          -->
+          </div>
         </nav>
         <nav class="main-nav__items main-nav__items--user">
           <ul class="main-nav__list">

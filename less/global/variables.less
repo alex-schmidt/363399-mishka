@@ -50,6 +50,10 @@
 @col-md: 167px;
 @col-lg: 175px;
 
+@col-fluid-sm: 50%;
+@col-fluid-md: 25%;
+@col-fluid-lg: 16.666667%;
+
 @screen-sm: 320px;
 @screen-md: 768px;
 @screen-lg: 1150px;
@@ -57,8 +61,12 @@
 @screen-md-max: (@screen-lg - 1);
 
 @container-sm: @screen-sm;
-@container-md: @screen-md - @gap-md * 2;
-@container-lg: @screen-lg - @gap-lg * 2;
+@container-md: @screen-md - @gap-md * 2; // 668
+@container-lg: @screen-lg - @gap-lg * 2; // 1050
+
+@container-fluid: 100% * (@container-md / @screen-md);
+@gap-fuild: 100% * (@gap-md / @screen-md);
+@offset-fluid: 100% * (@gap-md / @container-md);
 
 // Buttons
 @btn-height:       52px;

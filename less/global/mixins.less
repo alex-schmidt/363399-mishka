@@ -47,10 +47,14 @@
   padding: 0 @gap-sm;
 
   @media (min-width: @screen-md) {
-    width: 100% * (@container-md / @screen-md);
-    max-width: @container-lg;
-    padding: 0;
+    // width: 100% * (@container-md / @screen-md);
+    max-width: @screen-lg;
+    padding: 0 @gap-md;
     margin: 0 auto;
+  }
+
+  @media (min-width: @screen-lg) {
+    padding: 0 @gap-lg;
   }
 }
 
