@@ -6,10 +6,9 @@
 *
 *
 *
-*
 *** Стилизация
+* TODO: Навигация Пользователя - граница для второго ряда.
 * TODO: Состояния Главной Навигации.
-* TODO: Page Hero - без фиксированного отсупа + bg-size cover (Barber flex)
 * TODO: Featured product title на флексах
 * TODO: Featured product без фиксированной высоты/без дополнительного контейнера (Mishka spoiler)
 * TODO: Использовать шаблонизатор HTML
