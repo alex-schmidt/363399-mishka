@@ -1,12 +1,13 @@
 .featured-product {
   @specs-padding: 10px 15px;
   @specs-border: 1px solid @color-gray--lightest;
+  @specs-name-width: 85px;
 
   padding-top: 35px;
   padding-bottom: 40px;
 
   &__inner {
-    .container();
+    .container-fluid();
   }
 
 // Title
@@ -52,7 +53,8 @@
   }
 
   &__specs-name {
-    width: 85px;
+    width: 32.69%;
+    width: calc(@specs-name-width);
     padding: @specs-padding;
     padding-left: 0;
     margin: 0;
@@ -61,7 +63,8 @@
   }
 
   &__specs-value {
-    width: 175px;
+    width: 67.31%;
+    width: calc(~"100% -" @specs-name-width);
     padding: @specs-padding;
     margin: 0;
 
@@ -71,7 +74,10 @@
   &__image {
     margin: 0 0 27px;
 
-    img { display: block; }
+    img {
+      display: block;
+      margin: 0 auto;
+    }
   }
 
   &__order { margin: 0; }
@@ -88,24 +94,38 @@
   }
 
   @media (min-width: @screen-md) {
-    @content-left:   50%;
-    @content-right:  50%;
-    @content-gap:    45px;
     @image-height:   404px;
+    @aspect-ratio:   100% * @image-height / @container-md;
 
     padding-top: 50px;
     padding-bottom: 70px;
 
+
+    &__inner {
+      display: flex;
+      flex-wrap: wrap;
+
+      // Резиновая распорка
+      &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        padding-bottom: @aspect-ratio;
+      }
+    }
+
   // Title
     &__title {
-      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-      padding-right: @col-md;
+      width: 100%;
       margin-bottom: 60px;
     }
 
     &__name {
-      display: block;
+      flex-grow: 1;
       margin: 0;
 
       font-size: 43px;
@@ -113,12 +133,7 @@
     }
 
     &__badge {
-      position: absolute;
-      top: 50%;
-      right: 25px;
-      transform: translateY(-50%);
-
-      margin: auto;
+      padding: 0 25px;
       text-align: center;
 
       br { display: inline; }
@@ -130,42 +145,27 @@
       flex-direction: column;
       flex-wrap: wrap;
       justify-content: space-between;
+      position: relative;
 
-      height: @image-height;
+      width: 50%;
+      padding-right: 45px;
     }
 
-    &__desc {
-      order: 1;
+    &__desc { order: 1; font-size: 17px; }
 
-      width: @content-left;
-      padding-right: @content-gap;
+    &__specs { order: 2; }
 
-      font-size: 17px;
-    }
-
-    &__specs {
-      order: 2;
-
-      width: @content-left;
-      padding-right: @content-gap;
-    }
-
-    &__order {
-      order: 3;
-
-      width: @content-left;
-      padding-right: @content-gap;
-    }
-
+    &__order { order: 3; }
     &__order-price { font-size: 20px; }
 
     &__image {
       order: 4;
+      position: absolute;
+      top: 0; left: 100%;
 
-      width: @content-right;
-      margin: 0;
-
+      width: 100%;
       height: 100%;
+      margin: 0;
 
       /* TODO: Картинки */
       img {
@@ -178,58 +178,52 @@
   }
 
   @media (min-width: @screen-lg) {
-    @title-width:     @col-lg * 5;
-    @content-offset:  @col-lg;
-    @content-gap:     60px;
-    @content-height:  470px;
     @image-offset:    165px;
+    @image-height:    636px;
+    @aspect-ratio:    100% * @image-height / @container-lg;
 
     padding-top: 70px;
     padding-bottom: 95px;
+
+    &__inner {
+      &:after {
+        padding-bottom: @aspect-ratio;
+        margin-top: -@image-offset;
+      }
+    }
 
   // Title
     &__title {
       z-index: 10;
 
-      width: @title-width;
       padding: 0;
-      padding-left: @content-offset;
       margin: 60px 0 65px;
     }
 
+    &__badge {
+      order: 1;
+
+      width: @col-lg;
+      padding-top: 6px;
+    }
+
     &__name {
-      display: block;
+      order: 2;
 
       font-size: 53px;
       line-height: 57px;
     }
 
-    &__badge {
-      right: auto; left: 0;
-      width: @content-offset;
-    }
-
   // Content
-    &__content { height: @content-height; }
-
-    &__desc {
-      padding-left: @content-offset;
-      padding-right: @content-gap;
-    }
-
-    &__specs {
-      padding-left: @content-offset;
-      padding-right: @content-gap;
-    }
-
-    &__order {
-      padding-left: @content-offset;
-      padding-right: @content-gap;
+    &__content {
+      padding-top: @image-offset;
+      padding-left: @col-lg;
+      padding-right: 60px;
+      margin-top: -@image-offset;
     }
 
     &__image {
-      height: @content-height + @image-offset; /* TODO: Картинки */
-      margin-top: -@image-offset;
+      // margin-top: -@image-offset;
     }
   }
 }
