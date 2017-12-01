@@ -56,17 +56,17 @@
 
 @screen-sm: 320px;
 @screen-md: 768px;
-@screen-lg: 1150px;
+@screen-lg: 1150px; // Будет уменьшено
 @screen-sm-max: (@screen-md - 1);
 @screen-md-max: (@screen-lg - 1);
 
 @container-sm: @screen-sm;
 @container-md: @screen-md - @gap-md * 2; // 668
 @container-lg: @screen-lg - @gap-lg * 2; // 1050
+@container-fluid: @screen-lg; // max-width
 
-@container-fluid: 100% * (@container-md / @screen-md);
-@gap-fuild: 100% * (@gap-md / @screen-md);
-@offset-fluid: 100% * (@gap-md / @container-md);
+// Уменьшаем вьюпорт - раньше переход на Десктоп версию
+// @screen-lg: 980px;
 
 // Buttons
 @btn-height:       52px;
