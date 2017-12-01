@@ -2,7 +2,7 @@
   padding: 35px 0px 39px;
 
   &__inner {
-    .container();
+    .container-fluid();
   }
 
   &__title {
@@ -20,13 +20,15 @@
   }
 
   &__name {
-    width: 80px;
+    width: 30.77%;
+    width: calc(80px);
     padding: 0;
     padding-right: 10px;
   }
 
   &__value {
-    width: 180px;
+    width: 69.23%;
+    width: calc(~"100% -" 80px);
     margin: 0 0 30px;
 
     &:last-child { margin-bottom: 0; }
@@ -37,6 +39,7 @@
 
     img {
       display: block;
+      margin: 0 auto;
     }
   }
 
@@ -46,6 +49,7 @@
   }
 
   @media (min-width: @screen-md) {
+    @map-ratio: 100% * 457px / @screen-md;
     padding: 61px 0 57px;
 
     &__inner { text-align: center; }
@@ -81,22 +85,26 @@
       line-height: 30px;
     }
 
-    &__map {
-      min-height: 457px; /* TODO: Сетка */
-      margin: 0 -@gap-md 55px;
+    &__name {
+      width: 11.23%;
+      width: calc(75px);
+    }
 
-      /* TODO: Картинки */
-      > img {
-        width: 768px;
-        height: 457px;
-      }
-      /* EO TODO: Картинки */
+    &__value {
+      width: 38.77%;
+      width: calc(~"50% -" 75px);
+    }
+
+    &__map {
+      .embed-fluid(@map-ratio);
+      margin: 0 -@gap-md 55px;
     }
 
     &__write { width: auto; }
   }
 
   @media (min-width: @screen-lg) {
+    @map-ratio: 100% * 457px / (@col-lg * 3);
     padding: 71px 0 105px;
 
     &__inner {
@@ -108,12 +116,9 @@
       width: 50%;
       margin: 0;
 
-      /* TODO: Картинки */
-      img {
-        width: 525px;
-        height: 457px;
+      &::before {
+        padding-bottom: @map-ratio;
       }
-      /* EO TODO: Картинки */
     }
 
     &__content {
@@ -149,7 +154,6 @@
       line-height: 57px;
     }
 
-
     &__list {
       margin-bottom: 79px;
 
@@ -157,8 +161,15 @@
       line-height: 30px;
     }
 
-    &__name { width: 75px; }
-    &__value { width: 225px; }
+    &__name {
+      width: 25%;
+      width: calc(75px);
+    }
+
+    &__value {
+      width: 75%;
+      width: calc(~"100% -" 75px);
+    }
 
     &__write {
       position: absolute;

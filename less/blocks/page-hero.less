@@ -1,5 +1,5 @@
 .page-hero {
-
+  background: #f8f8f8 url(../img/hero-mobile@1x.jpg) 50% -18px no-repeat;
 
   &__title {
     .container-fluid();
@@ -8,23 +8,22 @@
     padding-bottom: 120px;
 
     color: @heading-color;
-    background: #f8f8f8 url(../img/hero-mobile@1x.jpg) 50% -18px no-repeat;
+    background: none;
   }
 
   @media (min-width: @screen-md) {
 
     // background-image: url(); /* TODO: Картинки */
     background-position: 50% 0;
+    background-size: cover; /* TODO: Картинки */
 
     &__title {
       padding-top: 160px;
       padding-bottom: 370px;
-      background-size: cover; /* TODO: Картинки */
     }
   }
 
   @media (min-width: @screen-lg) {
-
     &__title {
       padding-bottom: 355px;
     }

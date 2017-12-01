@@ -213,7 +213,7 @@
     padding-bottom: 90px;
 
     &__inner {
-      padding-left: @col-fluid-lg;
+      padding-left: @col-lg;
       margin-bottom: 100px;
     }
 
@@ -229,9 +229,12 @@
 
     &__text { margin-bottom: 47px; }
 
-    &__author { width: @col-fluid-lg * 2; }
+    &__author { width: @col-lg * 2; }
 
-    &__controls { width: @col-lg; }
+    &__controls {
+      right: 0;
+      width: @col-lg;
+    }
   }
 
 }

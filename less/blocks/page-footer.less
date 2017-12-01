@@ -3,7 +3,7 @@
   background: @bg-gray--lighter;
 
   &__inner {
-    .container();
+    .container-fluid();
 
     > *:not(:first-child) {
       border-top: 1px solid @color-gray--lighter;
@@ -97,25 +97,25 @@
 
     &__logo {
       display: block;
-      float: left;
 
       width: @col-md;
       margin: 0;
     }
 
     &__social {
-      max-width: 300px;
-      padding: 0;
-      margin: 0 auto;
+      width: @col-fluid-md * 2;
+      padding: 0 30px;
     }
 
     &__copyright {
-      float: right;
+      display: flex;
+      flex-direction: row-reverse;
 
-      max-width: 200px;
+      width: @col-md;
       padding: 0;
-      margin-left: -10px;
     }
+
+    &__copyright-link { flex-shrink: 0; }
   }
 
   @media (min-width: @screen-lg) {
@@ -125,11 +125,11 @@
     }
 
     &__social {
-      max-width: @col-lg * 2;
+      width: @col-lg * 3;
     }
 
     &__copyright {
-      margin-left: -5px;
+      width: @col-lg;
     }
   }
 }

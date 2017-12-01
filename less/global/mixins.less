@@ -47,13 +47,16 @@
   padding: 0 @gap-sm;
 
   @media (min-width: @screen-md) {
-    max-width: @container-fluid;
+    // max-width: @container-fluid;
+    // margin: 0 auto;
     padding: 0 @gap-md;
-    margin: 0 auto;
   }
 
   @media (min-width: @screen-lg) {
-    padding: 0 @gap-lg;
+    // padding: 0 @gap-lg;
+    padding: 0;
+    width: @container-lg;
+    margin: 0 auto;
   }
 }
 
@@ -62,6 +65,7 @@
   width: auto;
   max-width: none;
   margin: 0;
+  padding: 0;
 }
 
 // Сброс отступов контейнера-родителя
@@ -107,4 +111,24 @@
   position: absolute;
   top: 0; bottom: 0;
   left: 0; right: 0;
+}
+
+.embed-fluid(@ratio: 75%) {
+  // default: 75% - 3|4
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    padding-bottom: @ratio;
+  }
+
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
