@@ -6,7 +6,7 @@
   padding-bottom: 50px;
 
   &__inner {
-    .container();
+    .container-fluid();
   }
 
   &__title {
@@ -32,15 +32,19 @@
   }
 
   &__author-name {
+    display: block;
     font-size: 18px;
     line-height: 24px;
     font-weight: bold;
   }
 
   &__author-nick {
+    display: block;
     font-size: 17px;
     font-style: normal;
   }
+
+  &__write { margin: 0; }
 
   &__controls {
     display: flex;
@@ -145,12 +149,20 @@
     padding-bottom: 83px;
 
     &__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
       position: relative;
+
       margin-bottom: 50px;
     }
 
     &__title {
-      margin-right: 200px;
+      order: 1;
+      flex-grow: 1;
+
+      padding-right: 30px;
+      margin-right: 10px;
       margin-bottom: 52px;
 
       font-size: 43px;
@@ -158,10 +170,17 @@
     }
 
     &__write {
-      position: absolute;
-      top: 0; right: 0;
+      display: flex;
+      flex-direction: row-reverse;
+      order: 2;
 
-      width: auto;
+      width: @col-md;
+
+      a { width: auto; }
+    }
+
+    &__list {
+      order: 3;
     }
 
     &__text {
@@ -170,15 +189,17 @@
     }
 
     &__author {
-      width: @col-md * 2;
+      order: 4;
+      width: @col-fluid-md * 3;
       margin: 0;
     }
 
     &__controls {
       position: absolute;
-      bottom: 0; right: 0;
+      bottom: 0; right: @gap-md;
 
       width: @col-md;
+      // width: @col-calc-md;
       margin: 0;
 
       &::after { display: none; }
@@ -192,20 +213,23 @@
     padding-bottom: 90px;
 
     &__inner {
-      padding-left: @col-lg;
+      padding-left: @col-fluid-lg;
       margin-bottom: 100px;
     }
 
     &__title {
+      margin-right: 0;
       margin-bottom: 47px;
 
       font-size: 53px;
       line-height: 57px;
     }
 
+    &__write { width: @col-lg; }
+
     &__text { margin-bottom: 47px; }
 
-    &__author { width: @col-lg * 2; }
+    &__author { width: @col-fluid-lg * 2; }
 
     &__controls { width: @col-lg; }
   }
