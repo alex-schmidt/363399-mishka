@@ -2,6 +2,8 @@
 @block: ~".catalog";
 
   &__item {
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: @gap-sm;
 
     a {
@@ -25,14 +27,24 @@
   }
 
   &__item-pic {
+    display: block;
+    flex-grow: 1;
 
-    &,
-    & > img { display: block; }
+    width: @container-sm--in;
 
     &:after { display: none; }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      min-width: 75%;
+    }
   }
 
   &__item-info {
+    flex-grow: 1000;
+
+    width: @container-sm--in;
     padding: 27px 28px;
     border: 1px solid @border-gray;
   }
@@ -95,7 +107,9 @@
     }
 
     &__item-pic {
-      width: 50%;
+      flex-grow: 0;
+      // width: 50%;
+      width: @col-md * 2;
 
       /* TODO: Картинки */
       img {
@@ -107,8 +121,11 @@
 
     &__item-info {
       display: flex;
+      flex-grow: 1;
       flex-direction: column;
-      width: 50%;
+
+      // width: 50%;
+      width: @col-md * 2;
     }
 
     &__item-name { font-size: 20px; }
@@ -154,7 +171,6 @@
     }
 
     &__item-info {
-      flex-grow: 1;
       width: auto;
     }
   }

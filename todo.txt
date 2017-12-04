@@ -1,7 +1,7 @@
 /*
 * TODO - Вынести!!!
 *
-* TODO: Респонсив для блока Contacts, Footer. FIX - изменил миксин контейнера для Десктоп-вьюпорта - Main Nav, Hero, Reviews фиксы.
+* TODO: Респонсив для страницы Catalog (блоки - Page-Main, Catalog, Promo).
 *
 *
 *

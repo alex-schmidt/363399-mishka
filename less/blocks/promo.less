@@ -4,6 +4,8 @@
   @border: 1px;
   @hover-shadow: 0 6px 10px fade(@color-black, 10%);
   @active-shadow: 0 3px 5px fade(@color-black, 10%);
+  @video-ratio: 100% * 150px / 260px;
+
   @image-height: 455px; // for md and lg
   @image-width: 682px; // for md and lg
 
@@ -57,10 +59,8 @@
   }
 
   &__video {
-    position: relative;
+    .embed-fluid(@video-ratio);
     margin: 0 -@border;
-
-    img { display: block; }
   }
 
   &__play {
@@ -123,6 +123,8 @@
 
 
   @media (min-width: @screen-md) {
+    @video-ratio: 100% * 455px / 668px;
+
     display: flex;
     flex-direction: column;
 
@@ -146,12 +148,7 @@
     &__video {
       order: 1;
 
-      /* TODO: Картинки */
-      img {
-        width: 668px;
-        height: 455px;
-      }
-      /* EO TODO: Картинки */
+      &::before { padding-bottom: @video-ratio; }
     }
 
     &__title {
@@ -179,6 +176,7 @@
   @media (min-width: @screen-lg) {
     @gap-vert: 30px;
     @text-width: 230px;
+    @video-ratio: 100% * 455px / 682px;
 
     flex-wrap: wrap;
 
@@ -194,7 +192,6 @@
 
     &__video {
       order: 1;
-      position: relative;
       z-index: 1;
 
       width: @image-width;
@@ -202,12 +199,7 @@
       margin-left: -@border;
       margin-right: 77px;
 
-      /* TODO: Картинки */
-      img {
-        width: 682px;
-        height: 455px;
-      }
-      /* EO TODO: Картинки */
+      &::before { padding-bottom: @video-ratio; }
     }
 
     &__title {
