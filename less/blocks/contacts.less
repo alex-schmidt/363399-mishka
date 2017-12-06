@@ -2,111 +2,123 @@
   padding: 35px 0px 39px;
 
   &__inner {
-    .container();
+    .container-fluid();
   }
 
   &__title {
-    min-height: 30px; /* TODO: Сетка */
     margin: 0 0 26px;
 
-    // font-size: 18px;
-    // line-height: 30px;
-
-    // 5 - Poin text
-    // marginPSD: 44;
-    // offset = (line-height - font-size) / 2
-    // e = 0.15 * font-size
-    // marginTOP = marginPSD - e - offset
-    //           = 44 - 0.15 * 18 - (30 - 18)/2 = 35.3
-
+    font-size: 18px;
   }
 
-
   &__list {
-    min-height: 180px; /* TODO: Сетка */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
     margin: 0 0 36px;
+  }
 
-    // font-size: 15px;
-    // line-height: 30px;
+  &__name {
+    width: 30.77%;
+    width: calc(80px);
+    padding: 0;
+    padding-right: 10px;
+  }
 
-    // 5 - Poin text
-    // marginPSD: 45 0 46;
-    // offset = (line-height - font-size) / 2
-    // e = 0.15 * font-size
-    // marginTOP = marginPS_TOP - e1 - offset1 - e2 - offset2
-    //           = 45 - 0.15*18 - (30-18)/2 - 0.15*15 - (30-15)/2 = 26.55
-    // marginBOT = marginPS_BOT - e2 - offset2
-    //           = 46 - 0.15*15 - (30-15)/2 = 36.25
+  &__value {
+    width: 69.23%;
+    width: calc(~"100% -" 80px);
+    margin: 0 0 30px;
+
+    &:last-child { margin-bottom: 0; }
   }
 
   &__map {
-    min-height: 457px; /* TODO: Сетка */
     margin: 0 -@gap-sm 40px;
 
-    > img { display: none; } /* TODO: Сетка */
+    img {
+      display: block;
+      margin: 0 auto;
+    }
   }
 
   &__write {
-    margin: 0;
-    &-link {
-      width: 100%;
-    }
+    width: 100%;
+    text-align: center;
   }
 
   @media (min-width: @screen-md) {
+    @map-ratio: 100% * 457px / @screen-md;
     padding: 61px 0 57px;
 
-    &__title {
-      min-height: 50px;  /* TODO: Сетка */
-      margin-bottom: 48px;
+    &__inner { text-align: center; }
 
-      // font-size: 43px;
-      // line-height: 50px;
+    &__content {
+      position: relative;
+      text-align: left;
 
-      // 5 - Poin text
-      // marginPSD: 71;
-      // offset = (line-height - font-size) / 2
-      // e = 0.15 * font-size
-      // marginTOP = marginPSD - e - offset
-      //           = 71 - 0.15*43 - (50-43)/2 = 61.05
+      &::before {
+        content: '';
+        position: absolute;
+        top: -15px; right: 0;
+
+        width: 47px;
+        height: 81px;
+
+        background: url(../img/icon-flag.svg) 0 0 no-repeat;
+      }
     }
 
+    &__title {
+      padding-right: @col-md;
+      margin-bottom: 48px;
+
+      font-size: 43px;
+      line-height: 50px;
+    }
 
     &__list {
-      min-height: 90px; /* TODO: Сетка */
       margin-bottom: 56px;
 
-      // font-size: 17px;
-      // line-height: 30px;
+      font-size: 17px;
+      line-height: 30px;
+    }
 
-      // 5 - Poin text
-      // marginPSD: 67 0 65;
-      // offset = (line-height - font-size) / 2
-      // e = 0.15 * font-size
-      // marginTOP = marginPS_TOP - e1 - offset1 - e2 - offset2
-      //           = 67 - 0.15*43 - (50-43)/2  - 0.15*17 - (30-17)/2 = 48
-      // marginBOT = marginPS_BOT - e2 - offset2
-      //           = 65 - 0.15*17 - (30-17)/2 = 55.95
+    &__name {
+      width: 11.23%;
+      width: calc(75px);
+    }
+
+    &__value {
+      width: 38.77%;
+      width: calc(~"50% -" 75px);
     }
 
     &__map {
-      min-height: 457px; /* TODO: Сетка */
+      .embed-fluid(@map-ratio);
       margin: 0 -@gap-md 55px;
-
-      > img { display: none; } /* TODO: Сетка */
     }
+
+    &__write { width: auto; }
   }
 
   @media (min-width: @screen-lg) {
+    @map-ratio: 100% * 457px / (@col-lg * 3);
     padding: 71px 0 105px;
 
     &__inner {
       display: flex;
+      position: relative;
     }
 
     &__map {
       width: 50%;
       margin: 0;
+
+      &::before {
+        padding-bottom: @map-ratio;
+      }
     }
 
     &__content {
@@ -116,63 +128,52 @@
       position: relative;
 
       width: 50%;
-      padding: 73px 0 0;
+      padding: 72px 0 0;
       padding-left: @col-lg;
       padding-right: @gap-lg;
-      // padding: 73px @gap-lg 0 @col-lg;
 
+      &::before {
+        top: 65px;
+        left: 65px;
+        right: 0;
+      }
+
+      /* Place for Write btn */
       &::after {
         content: '';
         display: block;
-
-        min-height: 52px; /* TODO: Сетка */
-        outline: 1px dashed #000; /* TODO: Сетка */
+        height: @btn-height;
       }
     }
 
     &__title {
-      min-height: 57px; /* TODO: Сетка */
+      padding: 0;
       margin-bottom: 46px;
-      margin: 0; /* TODO: Сетка */
 
-      // font-size: 53px;
-      // line-height: 57px;
-
-      // 5 - Poin text
-      // marginPSD: 83;
-      // offset = (line-height - font-size) / 2
-      // e = 0.15 * font-size
-      // marginTOP = marginPSD - e - offset
-      //           = 83 - 0.15*53 - (57-53)/2 = 73.05
+      font-size: 53px;
+      line-height: 57px;
     }
 
-
     &__list {
-      min-height: 150px; /* TODO: Сетка */
       margin-bottom: 79px;
-      margin: 0; /* TODO: Сетка */
 
-      // font-size: 17px;
-      // line-height: 30px;
+      font-size: 17px;
+      line-height: 30px;
+    }
 
-      // 5 - Poin text
-      // marginPSD: 65 0 88;
-      // offset = (line-height - font-size) / 2
-      // e = 0.15 * font-size
-      // marginTOP = marginPS_TOP - e1 - offset1 - e2 - offset2
-      //           = 65 - 0.15*53 - (57-53)/2 - 0.15*17 - (30-17)/2 = 46
-      // marginBOT = marginPS_BOT - e2 - offset2
-      //           = 88 - 0.15*17 - (30-17)/2 = 78.95
+    &__name {
+      width: 25%;
+      width: calc(75px);
+    }
+
+    &__value {
+      width: 75%;
+      width: calc(~"100% -" 75px);
     }
 
     &__write {
       position: absolute;
-      bottom: 0; left: 0;
-      width: 50%;
-      padding: 0;
-      padding-left: @col-lg;
-      padding-right: @gap-lg;
+      bottom: 0; left: @col-lg;
     }
-
   }
 }

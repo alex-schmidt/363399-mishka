@@ -1,0 +1,118 @@
+.field-radio {
+  @block: ~".field-radio";
+  @size: 38px;
+  @bg-color: transparent;
+  @border-color: @color-black;
+  @border-color--focus: @color-main--light;
+  @border-color--active: fade(@color-gray, 30%);
+  @point-size: 15px;
+  @point-color: @color-main--light;
+
+  & + & {
+    margin-top: 22px;
+  }
+
+  &__name {
+    display: block;
+    position: relative;
+
+    font-size: 17px;
+    line-height: 18px;
+    font-weight: bold;
+  }
+
+  &__name-text {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    height: @size;
+    padding-left: @size + @label-gap;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+
+      width: @size;
+      height: @size;
+
+      background: @bg-color;
+      border: 2px solid @border-color;
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: '';
+      display: none;
+      position: absolute;
+      left: @size/2;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      width: @point-size;
+      height: @point-size;
+
+      background: @point-color;
+      border-radius: 50%;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    z-index: -1;
+    top: 0; left: 0;
+
+    width: @size;
+    height: @size;
+
+    opacity: 0;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      ~ @{block}__name-text:before {
+        border-color: @border-color--focus;
+      }
+    }
+
+    &:active {
+      ~ @{block}__name-text:before {
+        border-color: @border-color--active;
+      }
+    }
+
+    &:checked {
+      ~ @{block}__name-text:after {
+        display: block;
+      }
+    }
+  }
+
+  @media (min-width: @screen-md) {
+    @size: 51px;
+    @point-size: 20px;
+
+    &__name {
+      font-size: 19px;
+      line-height: 21px;
+    }
+
+    &__name-text {
+      height: @size;
+      padding-left: @size + @label-gap;
+
+      &::before {
+        width: @size;
+        height: @size;
+      }
+
+      &::after {
+        left: @size/2;
+
+        width: @point-size;
+        height: @point-size;
+      }
+    }
+  }
+}

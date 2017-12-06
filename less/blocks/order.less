@@ -1,0 +1,43 @@
+.order {
+
+  &__content {
+    .container-reset();
+    padding-bottom: 50px;
+  }
+
+  &__intro { margin-top: -8px; }
+
+  @media (min-width: @screen-md) {
+
+    &__part {
+
+      &--color {
+
+        .form__field {
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: -@label-gap;
+        }
+
+        .field-checkbox {
+          width: 50%;
+          margin-top: @label-gap;
+        }
+      }
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+
+    &__part {
+
+      &--color {
+
+        .field-checkbox {
+          width: 33.33333%;
+        }
+      }
+    }
+
+  }
+}

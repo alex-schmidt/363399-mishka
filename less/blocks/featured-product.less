@@ -1,11 +1,13 @@
 .featured-product {
+  @specs-padding: 10px 15px;
+  @specs-border: 1px solid @color-gray--lightest;
+  @specs-name-width: 85px;
+
   padding-top: 35px;
   padding-bottom: 40px;
 
-  .btn { min-height: 52px; } /* TODO: Сетка */
-
   &__inner {
-    .container();
+    .container-fluid();
   }
 
 // Title
@@ -15,69 +17,128 @@
 
   &__name {
     display: block;
-    min-height: 20px; /* TODO: Сетка */
+
     margin: 0 0 10px;
+
+    color: @heading-color;
+    font-size: 25px;
+    line-height: 30px;
   }
 
   &__badge {
     display: block;
-    min-height: 18px; /* TODO: Сетка */
+
+    color: @color-main--light;
+    font-size: 17px;
+    line-height: 20px;
+    font-style: normal;
+    text-transform: uppercase;
+
+    br { display: none; }
   }
 
 // Content
   &__desc {
-    min-height: 65px; /* TODO: Сетка */
     margin: 0 0 27px;
+    line-height: 24px;
   }
 
   &__specs {
-    min-height: 110px; /* TODO: Сетка */
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 0 27px;
 
-    > * { display: none; } /* TODO: Сетка */
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  &__specs-name {
+    width: 32.69%;
+    width: calc(@specs-name-width);
+    padding: @specs-padding;
+    padding-left: 0;
+    margin: 0;
+
+    border-bottom: @specs-border;
+  }
+
+  &__specs-value {
+    width: 67.31%;
+    width: calc(~"100% -" @specs-name-width);
+    padding: @specs-padding;
+    margin: 0;
+
+    border-bottom: @specs-border;
   }
 
   &__image {
-    min-height: 315px; /* TODO: Сетка */
     margin: 0 0 27px;
-  }
 
-  &__price {
-    margin: 0;
-
-    &-value {
+    img {
       display: block;
-      min-height: 21px; /* TODO: Сетка */
-      margin-bottom: 30px;
+      margin: 0 auto;
     }
   }
 
+  &__order { margin: 0; }
+
+  &__order-price {
+    display: block;
+
+    margin-bottom: 30px;
+
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
   @media (min-width: @screen-md) {
+    @image-height:   404px;
+    @aspect-ratio:   100% * @image-height / @container-md;
+
     padding-top: 50px;
     padding-bottom: 70px;
 
+
+    &__inner {
+      display: flex;
+      flex-wrap: wrap;
+
+      // Резиновая распорка
+      &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        padding-bottom: @aspect-ratio;
+      }
+    }
+
   // Title
     &__title {
-      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-      // width: 100%;
-      padding-right: 25%;
+      width: 100%;
       margin-bottom: 60px;
     }
 
     &__name {
-      display: block;
-      min-height: 40px; /* TODO: Сетка */
+      flex-grow: 1;
       margin: 0;
+
+      font-size: 43px;
+      line-height: 50px;
     }
 
     &__badge {
-      position: absolute;
-      bottom: 0; right: 25px;
-      min-width: 72px; /* TODO: Сетка */
-      min-height: 40px; /* TODO: Сетка */
+      max-width: @col-md;
+      padding: 0 25px;
 
-      &::before { display: none; } /* TODO: Сетка */
+      text-align: center;
+
+      br { display: inline; }
     }
 
   // Content
@@ -86,103 +147,84 @@
       flex-direction: column;
       flex-wrap: wrap;
       justify-content: space-between;
-
-      height: 404px;
-    }
-
-    &__desc {
-      order: 1;
-      width: 50%;
-      min-height: 80px; /* TODO: Сетка */
-      padding-right: 45px;
-    }
-
-    &__specs {
-      order: 2;
-
-      width: 50%;
-      min-height: 120px; /* TODO: Сетка */
-      padding-right: 45px;
-    }
-
-    &__price {
-      order: 3;
+      position: relative;
 
       width: 50%;
       padding-right: 45px;
-
-      &-value {
-        min-height: 21px; /* TODO: Сетка */
-      }
     }
+
+    &__desc { order: 1; font-size: 17px; }
+
+    &__specs { order: 2; }
+
+    &__order { order: 3; }
+    &__order-price { font-size: 20px; }
 
     &__image {
       order: 4;
+      position: absolute;
+      top: 0; left: 100%;
 
-      width: 50%;
+      width: 100%;
+      height: 100%;
       margin: 0;
 
-      height: 100%;
-
-      img { display: none; } /* TODO: Сетка */
+      /* TODO: Картинки */
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      /* EO TODO: Картинки */
     }
 
   }
 
   @media (min-width: @screen-lg) {
+    @image-offset:    165px;
+    @image-height:    636px;
+    @aspect-ratio:    100% * @image-height / @container-lg;
+
     padding-top: 70px;
     padding-bottom: 95px;
 
+    &__inner {
+      &:after {
+        padding-bottom: @aspect-ratio;
+        margin-top: -@image-offset;
+      }
+    }
+
   // Title
     &__title {
-      width: 700px;
-      padding: 0;
-      padding-left: @col-lg;
+      z-index: 10;
       margin: 60px 0 65px;
     }
 
-    &__name {
-      display: block;
-      min-height: 42px; /* TODO: Сетка */
+    &__badge {
+      order: 1;
+
+      width: @col-lg;
+      max-width: none;
+      padding-top: 6px;
     }
 
-    &__badge {
-      right: auto; left: 0;
-      width: @col-lg;
-      min-height: 42px; /* TODO: Сетка */
+    &__name {
+      order: 2;
 
-      &::before { display: none; } /* TODO: Сетка */
+      font-size: 53px;
+      line-height: 57px;
     }
 
   // Content
     &__content {
-      height: 470px;
+      padding-top: @image-offset;
       padding-left: @col-lg;
-    }
-
-    &__desc {
-      min-height: 80px; /* TODO: Сетка */
       padding-right: 60px;
-    }
-
-    &__specs {
-      width: 50%;
-      min-height: 125px; /* TODO: Сетка */
-      padding-right: 60px;
-    }
-
-    &__price {
-      width: 50%;
-      padding-right: 60px;
-
-      &-value {
-        min-height: 16px; /* TODO: Сетка */
-      }
+      margin-top: -@image-offset;
     }
 
     &__image {
-      height: 635px;
-      margin-top: -165px;
+      // margin-top: -@image-offset;
     }
   }
 }

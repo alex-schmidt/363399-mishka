@@ -1,15 +1,28 @@
 /*
 * TODO - Вынести!!!
 *
-* TODO: Страница Заказ: подготовка шаблона, макета, сетка.
+* TODO: 
+*
+*
 *
 *
 *** Стилизация
-* TODO: Возврат к фиксированным сеткам - убрал все нецелые % величины с правкой связанных стилей.
-* TODO: Навигация open/closed/no-js. Без дополнительного контейнера (Barber flex).
-* TODO: Leading Header - без фиксированного отсупа + bg-size cover (Barber flex)
+* TODO: Навигация Пользователя - граница для второго ряда.
+* TODO: Состояния Главной Навигации.
 * TODO: Featured product title на флексах
 * TODO: Featured product без фиксированной высоты/без дополнительного контейнера (Mishka spoiler)
+* TODO: Использовать шаблонизатор HTML
+*
+* TODO: Посмотреть .container + .row в bootstrap 4|3
+* TODO: SVG иконки фоном - вопрос на HTML Academy (Миксины less)
+*
+* TODO: Размеры шрифта/высота - через переменные.
+* TODO: Проверить переменные (в частности, .color-main, .border-gray).
+*
+* TODO: Респонсив - уменьшить screen-lg, но не max-width. Соответственно @col-lg заменить на @col-fluid-lg
+* TODO: Ширина вьюпорта без скроллбара для media-выражений
+* TODO: Placeholder в префиксере
 * TODO: W3C Валидация
+* TODO: Delete TODO's
 *
 */

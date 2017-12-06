@@ -1,0 +1,26 @@
+.add-to-cart {
+  @block: ~".add-to-cart";
+
+  &__legend {
+    margin: 0 0 18px;
+    text-align: center;
+  }
+
+  &__sizes {
+    .flex-list(7px);
+    margin-bottom: 31px;
+  }
+
+  &__sizes-item { width: 82px; }
+
+  @media (min-width: @screen-md) {
+    &__title {
+      margin-left: -2px;
+      margin-right: -2px;
+    }
+
+    &__legend { font-size: 17px; }
+    
+    &__sizes-item { width: 112px; }
+  }
+}

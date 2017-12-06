@@ -23,25 +23,36 @@
 }
 
 // Подсветка блока
-.outline(@badge: 1, @outline-color: @bg-grey, @color: @color-white, @pos-y: top, @pos-x: left, @bg-clip: content-box) {
+.outline(
+  @badge: 1,
+  @hide-text: 1,
+  @outline-color: @bg-gray,
+  @color: @color-white,
+  @pos-y: top,
+  @pos-x: left,
+  @bg-clip: content-box
+) {
   position: relative;
 
-  font-size: 0;
-  line-height: 0;
-
-  background-color: fade(@outline-color, 30);
+  background-color: fade(@outline-color, 30%);
   background-clip: @bg-clip;
   // box-shadow: 0 0 3px @outline-color;
   outline: 1px solid @outline-color;
   outline-offset: -1px;
 
+  .hide-text(@hide-text);
   .badge(@badge);
 
+  // Прячем текст
+  .hide-text(@hide-text) when (@hide-text > 0) {
+    font-size: 0;
+    line-height: 0;
+  }
 
   // Без бейджа и отсупов
   .badge(@badge) when (@badge < 0) {
-    background-clip: border-box;
-    outline: none;
+    // background-clip: border-box;
+    // outline: none;
   }
 
   // Бейдж
@@ -83,9 +94,10 @@
 // Подсветка сетки (нескольких вложенных блоков)
 .outline-grid(
   @levels-count: 5;
-  @hide-last: 1;
-  @start-level: 1;
   @badge: 1;
+  @hide-last: 1;
+  @hide-text: 1;
+  @start-level: 1;
   @positions-x: left, left, right, right, left, left;
   @positions-y: top, top, top, bottom, bottom, top;
   @outline-colors: SeaGreen, OrangeRed, SkyBlue, Gold, Aquamarine, BlueViolet;
@@ -98,7 +110,7 @@
     @pos-x: extract(@positions-x, @i + @start-level);
     @pos-y: extract(@positions-y, @i + @start-level);
     > * {
-      .outline(@badge, @outline-color, @text-color, @pos-y, @pos-x);
+      .outline(@badge, @hide-text, @outline-color, @text-color, @pos-y, @pos-x);
       .generate-child(@i + 1);
     }
   }
@@ -111,7 +123,7 @@
   @pos-y-first: extract(@positions-y, 1);
   @pos-x-first: extract(@positions-x, 1);
 
-  .outline(@badge, @outline-color-first, @text-color-first, @pos-y-first, @pos-x-first);
+  .outline(@badge, @hide-text, @outline-color-first, @text-color-first, @pos-y-first, @pos-x-first);
   .generate-child();
 }
 
@@ -127,4 +139,68 @@
 
   .no-outline();
   .generate-child();
+}
+
+// Flex playground
+.flex {
+  @block: ~".flex";
+  .container();
+  // padding: 10px !important;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  outline: 1px solid red;
+  outline-offset: 5px;
+  ////////////////////
+
+  // .clearfix();
+  display: flex;
+  justify-content: space-between;
+
+  &__container {
+    .list-reset();
+    // padding: 10px;
+
+    outline: 1px solid green;
+    outline-offset: 0;
+    ////////////////
+
+
+    &--left {
+      display: flex;
+      width: 50%;
+      flex-shrink: 0;
+
+      @{block}__item:nth-child(n + 2) {
+        display: none;
+      }
+    }
+
+    &--right {
+      display: flex;
+      flex-wrap: wrap;
+      // flex-shrink: 0;
+      // justify-content: flex-end;
+
+      // width: 50%;
+
+      @{block}__item {
+        // float: right;
+      }
+    }
+  }
+
+  &__item {
+    padding: 5px;
+    outline: 1px solid blue;
+    outline-offset: -5px;
+
+    color: #fff;
+    background-color: fade(blue, 50%);
+    background-clip: content-box;
+    ////////////////
+
+
+
+  }
 }

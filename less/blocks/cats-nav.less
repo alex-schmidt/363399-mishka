@@ -1,0 +1,134 @@
+.cats-nav {
+  @block: ~".cats-nav";
+  .container-fluid();
+
+  &__list {
+    .list-reset();
+    .row();
+  }
+
+  &__item {
+    position: relative;
+
+    &:nth-child(even) {
+      @{block}__link {
+        background-color: @color-aquamarine;
+      }
+    }
+
+    &--interior {
+      @{block}__icon {
+        width: 41px;
+        height: 62px;
+      }
+    }
+
+    &--toys {
+      @{block}__icon {
+        width: 61px;
+        height: 61px;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+
+    padding: 25px @gap-sm 30px;
+
+    font-size: 19px;
+    line-height: 24px;
+    font-weight: bold;
+
+    color: @color-white;
+    background: @color-aquamarine--light;
+
+    &::after { display: none; }
+
+    &:hover { color: @color-white; }
+    &:active {
+      color: fade(@color-white, 30%);
+
+      @{block}__icon { opacity: 0.3; }
+    }
+  }
+
+  &__name {
+    display: block;
+    width: @col-sm;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 57px;
+    transform: translate(50%, -50%);
+
+    height: auto;
+
+    fill: @color-aquamarine--dark;
+    opacity: 0.5;
+  }
+
+  @media (min-width: @screen-md) {
+    @gap-top: 28px;
+    @gap-bottom: 31px;
+    @offset: 5px;
+    @row-separator: ~"3px solid fade(#fff, 85%)";
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__item {
+      flex-grow: 1;
+      flex-shrink: 0;
+
+      width: @col-md * 2;
+
+      &:nth-child(n+3) {
+        border-top: 3px solid fade(@color-white, 85%);
+      }
+    }
+
+    &__link {
+      padding: @gap-top 35px @gap-bottom;
+
+      font-size: 20px;
+      line-height: 30px;
+
+      &:hover {
+        margin-top: -@offset;
+        padding-top: @gap-top;
+        padding-bottom: (@gap-bottom + @offset);
+
+        @{block}__icon { opacity: 0.5; }
+      }
+    }
+
+    &__name { width: @col-md; }
+  }
+
+  @media (min-width: @screen-lg) {
+
+    &__item {
+      width: @col-lg * 2;
+
+      &:nth-child(n+3) {
+        border-top: none;
+      }
+
+      &:nth-child(n+4) {
+        border-top: 3px solid fade(@color-white, 85%);
+      }
+    }
+
+    &__link {
+      padding-left: 38px;
+      padding-right: 38px;
+    }
+
+    &__name { width: @col-lg; }
+  }
+}
