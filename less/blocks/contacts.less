@@ -5,6 +5,8 @@
     .container-fluid();
   }
 
+  &__icon { display: none; }
+
   &__title {
     margin: 0 0 26px;
 
@@ -57,17 +59,12 @@
     &__content {
       position: relative;
       text-align: left;
+    }
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: -15px; right: 0;
-
-        width: 47px;
-        height: 81px;
-
-        background: url(../img/icon-flag.svg) 0 0 no-repeat;
-      }
+    &__icon {
+      display: block;
+      position: absolute;
+      top: -15px; right: 0;
     }
 
     &__title {
@@ -121,6 +118,13 @@
       }
     }
 
+    &__map-pin {
+      position: absolute;
+      z-index: 2;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
     &__content {
       display: flex;
       flex-direction: column;
@@ -132,18 +136,18 @@
       padding-left: @col-lg;
       padding-right: @gap-lg;
 
-      &::before {
-        top: 65px;
-        left: 65px;
-        right: 0;
-      }
-
       /* Place for Write btn */
       &::after {
         content: '';
         display: block;
         height: @btn-height;
       }
+    }
+
+    &__icon {
+      top: 65px;
+      left: 65px;
+      right: 0;
     }
 
     &__title {

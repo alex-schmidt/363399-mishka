@@ -8,8 +8,24 @@
 
     &::after { display: none; }
 
-    svg { display: block; }
+    img { display: block; }
   }
 
   &__notice { line-height: 24px; }
+
+  @media (min-width: @screen-md) {
+
+    &__logo img {
+         width: 113px;
+         height: 46px;
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+
+    &__logo img {
+         width: 149px;
+         height: 72px;
+    }
+  }
 }
