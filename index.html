@@ -138,7 +138,11 @@
               <dd class="featured-product__specs-value">15 см</dd>
             </dl>
             <p class="featured-product__image">
-              <img src="http://placehold.it/260x315" alt="Три вязаные корзинки на руках">
+              <picture>
+                <source media="(min-width: 1150px)" srcset="img/triple-set-desktop@1x.jpg, img/triple-set-desktop@2x.jpg 2x">
+                <source media="(min-width: 768px)" srcset="img/triple-set-tablet@1x.jpg, img/triple-set-tablet@2x.jpg 2x">
+                <img src="img/triple-set-mobile@1x.jpg" srcset="img/triple-set-mobile@2x.jpg 2x" alt="Три вязаные корзинки на руках">
+              </picture>
             </p>
             <p class="featured-product__order">
               <strong class="featured-product__order-price">Цена: 990 руб.</strong>
@@ -215,10 +219,17 @@
             </dl>
             <svg class="contacts__icon" width="47" height="81"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-flag"></svg>
           </div>
-          <p class="contacts__map">
-            <img src="http://placehold.it/320x460" alt="Карта проезда">
+          <div class="contacts__map">
+            <div class="contacts__map-content">
+              <!-- For embed map -->
+            </div>
+            <picture>
+              <source media="(min-width: 1150px)" srcset="img/map-desktop@1x.jpg, img/map-desktop@2x.jpg 2x">
+              <source media="(min-width: 768px)" srcset="img/map-tablet@1x.jpg, img/map-tablet@2x.jpg 2x">
+              <img class="contacts__map-image" src="img/map-mobile@1x.jpg" srcset="img/map-mobile@2x.jpg 2x" alt="Карта проезда">
+            </picture>
             <svg class="contacts__map-pin" width="67" height="100"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-icon-map-pin"></svg>
-          </p>
+          </div>
           <a href="contact.html" class="contacts__write btn">Напишите нам</a>
         </div>
       </section>
