@@ -1,28 +1,23 @@
 /*
-* TODO - Вынести!!!
 *
-* TODO: Адаптивная графика, Главная: растры Товар недели, Контакты + фиксы этих блоков. Фикс лого.
+* TODO: Адаптивная графика - страницы Заказ, Каталог - растры, SVG, обновленный Header|Footer + фиксы. Add to Cart modal js фикс. Contacts Map, миксин embed фиксы.
 *
 *
 *
 *
 *** Стилизация
-* TODO: Навигация Пользователя - граница для второго ряда.
 * TODO: Состояния Главной Навигации.
-* TODO: Featured product title на флексах
-* TODO: Featured product без фиксированной высоты/без дополнительного контейнера (Mishka spoiler)
-* TODO: Использовать шаблонизатор HTML
-*
-* TODO: Посмотреть .container + .row в bootstrap 4|3
-* TODO: SVG иконки фоном - вопрос на HTML Academy (Миксины less)
-*
+* TODO: Placeholder в префиксере
 * TODO: Размеры шрифта/высота - через переменные.
 * TODO: Проверить переменные (в частности, .color-main, .border-gray).
+* TODO: less конкатенация (@prefix в embed миксине)
+* TODO: use без xmlns:xlink, svg-load, svg4everybody
+*
+* TODO: SVG иконки фоном - вопрос на HTML Academy (Миксины less)
+* TODO: Использовать шаблонизатор HTML
+* TODO: Посмотреть .container + .row в bootstrap 4|3
 *
 * TODO: Delete outlines.less
-* TODO: Респонсив - уменьшить screen-lg, но не max-width. Соответственно @col-lg заменить на @col-fluid-lg
-* TODO: Ширина вьюпорта без скроллбара для media-выражений
-* TODO: Placeholder в префиксере
 * TODO: W3C Валидация
 * TODO: Delete TODO's
 *

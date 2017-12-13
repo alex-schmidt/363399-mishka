@@ -2,8 +2,6 @@
 @block: ~".catalog";
 
   &__item {
-    display: flex;
-    flex-wrap: wrap;
     margin-bottom: @gap-sm;
 
     a {
@@ -28,23 +26,17 @@
 
   &__item-pic {
     display: block;
-    flex-grow: 1;
-
-    width: @container-sm--in;
+    background-color: @border-gray;
 
     &:after { display: none; }
 
     img {
       display: block;
       margin: 0 auto;
-      min-width: 75%;
     }
   }
 
   &__item-info {
-    flex-grow: 1000;
-
-    width: @container-sm--in;
     padding: 27px 28px;
     border: 1px solid @border-gray;
   }
@@ -106,25 +98,13 @@
       margin-bottom: 54px;
     }
 
-    &__item-pic {
-      flex-grow: 0;
-      // width: 50%;
-      width: @col-md * 2;
-
-      /* TODO: Картинки */
-      img {
-        width: 334px;
-        height: 334px;
-      }
-      /* EO TODO: Картинки */
-    }
+    &__item-pic { width: @col-md * 2; }
 
     &__item-info {
       display: flex;
       flex-grow: 1;
       flex-direction: column;
 
-      // width: 50%;
       width: @col-md * 2;
     }
 
@@ -148,7 +128,6 @@
 
     &__item {
       flex-direction: column;
-      float: left;
 
       width: 316px;
       margin-right: @gap-lg;
@@ -159,19 +138,8 @@
       }
     }
 
-    &__item-pic {
-      width: auto;
+    &__item-pic {width: auto;}
 
-      /* TODO: Картинки */
-      > img {
-        width: 316px;
-        height: 462px;
-      }
-      /* TODO: EO Картинки */
-    }
-
-    &__item-info {
-      width: auto;
-    }
+    &__item-info {width: auto;}
   }
 }

@@ -114,6 +114,27 @@
   left: 0; right: 0;
 }
 
+.embed(@prefix) {
+  position: relative;
+
+  @{prefix}content {
+    // For embed map/video etc.
+    position: absolute;
+    z-index: 1;
+    top: 0; bottom: 0;
+    right: 0; left: 0;
+  }
+
+  @{prefix}image {
+    // For preview image
+    display: block;
+    position: relative;
+    z-index: 0;
+
+    margin: auto;
+  }
+}
+
 .embed-fluid(@ratio: 75%) {
   // default: 75% - 3|4
   position: relative;

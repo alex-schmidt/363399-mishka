@@ -2,7 +2,7 @@ var page = document.querySelector("body");
 var mainNav = document.querySelector(".main-nav");
 var mainNavToggle = document.querySelector(".main-nav__toggle");
 var modalAddToCart = document.querySelector(".add-to-cart");
-var modalAddToCartShow = document.querySelector(".js-add-to-cart-show");
+var modalAddToCartShow = document.querySelectorAll(".js-add-to-cart-show");
 
 // Получение пути к цели события
 function composedPath (el) {
@@ -37,9 +37,8 @@ mainNavToggle.addEventListener("click", function(e){
   }
 });
 
-
-if (modalAddToCartShow) {  
-  modalAddToCartShow.addEventListener("click", function(e) {
+for (var i = 0; i < modalAddToCartShow.length; i++) {
+  modalAddToCartShow[i].addEventListener("click", function(e) {
     e.preventDefault();
 
     if (!modalAddToCart.classList.contains("modal--shown")) {
