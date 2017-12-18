@@ -59,9 +59,12 @@
   }
 
   &__video {
-    .embed-fluid(@video-ratio);
+    @prefix: ~".promo__";;
+    .embed(@prefix);
+
     margin: 0 -@border;
   }
+
 
   &__play {
     position: absolute;
@@ -73,13 +76,14 @@
     padding: 0;
     margin: auto;
 
-    overflow: hidden;
-    text-indent: -1000px;
-
-    background: url(../img/icon-play.svg) 0 0 no-repeat;
-    background-size: cover;
+    background: none;
     border: none;
     transition: all 0.3s;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
 
     &:hover {
       outline: none;

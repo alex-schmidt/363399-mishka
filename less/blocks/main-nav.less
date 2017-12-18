@@ -3,6 +3,7 @@
   @icon-color: @color-gray--darker;
   @icon-color--hover: @color-aquamarine--light;
   @border-color: @border-gray;
+  @logo-gap-sm: 30px;
   @top-item-gap: 32px;
   @bottom-item-gap: 18px 0 5px;
 
@@ -14,7 +15,8 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 22px 0;
+    height: 100%;
+    padding: 10px @logo-gap-sm;
   }
 
   // Стилизовано для @screen-sm-max
@@ -94,7 +96,7 @@
       width: 21px;
       height: 20px;
       padding: @toggle-gap;
-      margin-left: -21px;
+      margin-right: -@logo-gap-sm;
 
       text-indent: -1000px;
       overflow: hidden;

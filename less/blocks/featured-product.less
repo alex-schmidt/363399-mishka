@@ -3,6 +3,8 @@
   @specs-border: 1px solid @color-gray--lightest;
   @specs-name-width: 85px;
 
+  .bg-zigzag();
+
   padding-top: 35px;
   padding-bottom: 40px;
 
@@ -94,24 +96,14 @@
   }
 
   @media (min-width: @screen-md) {
-    @image-height:   404px;
-    @aspect-ratio:   100% * @image-height / @container-md;
+    @image-height: 404px;
 
     padding-top: 50px;
     padding-bottom: 70px;
 
-
     &__inner {
       display: flex;
       flex-wrap: wrap;
-
-      // Резиновая распорка
-      &::after {
-        content: '';
-        width: 0;
-        height: 0;
-        padding-bottom: @aspect-ratio;
-      }
     }
 
   // Title
@@ -150,33 +142,23 @@
       position: relative;
 
       width: 50%;
+      min-height: @image-height;
       padding-right: 45px;
     }
 
-    &__desc { order: 1; font-size: 17px; }
+    &__desc { font-size: 17px; }
 
-    &__specs { order: 2; }
-
-    &__order { order: 3; }
     &__order-price { font-size: 20px; }
 
     &__image {
-      order: 4;
       position: absolute;
       top: 0; left: 100%;
+      overflow: hidden;
 
       width: 100%;
       height: 100%;
       margin: 0;
-
-      /* TODO: Картинки */
-      img {
-        width: 100%;
-        height: 100%;
-      }
-      /* EO TODO: Картинки */
     }
-
   }
 
   @media (min-width: @screen-lg) {
@@ -188,10 +170,7 @@
     padding-bottom: 95px;
 
     &__inner {
-      &:after {
-        padding-bottom: @aspect-ratio;
-        margin-top: -@image-offset;
-      }
+
     }
 
   // Title
@@ -217,14 +196,11 @@
 
   // Content
     &__content {
+      min-height: @image-height;
       padding-top: @image-offset;
       padding-left: @col-lg;
       padding-right: 60px;
       margin-top: -@image-offset;
-    }
-
-    &__image {
-      // margin-top: -@image-offset;
     }
   }
 }

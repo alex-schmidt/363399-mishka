@@ -5,6 +5,8 @@
     .container-fluid();
   }
 
+  &__icon { display: none; }
+
   &__title {
     margin: 0 0 26px;
 
@@ -35,12 +37,17 @@
   }
 
   &__map {
-    margin: 0 -@gap-sm 40px;
+    @prefix: ~".contacts__map-";;
+    .embed(@prefix);
 
-    img {
-      display: block;
-      margin: 0 auto;
-    }
+    margin: 0 -@gap-sm 40px;
+  }
+
+  &__map-pin {
+    position: absolute;
+    z-index: 2;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &__write {
@@ -49,7 +56,6 @@
   }
 
   @media (min-width: @screen-md) {
-    @map-ratio: 100% * 457px / @screen-md;
     padding: 61px 0 57px;
 
     &__inner { text-align: center; }
@@ -57,17 +63,12 @@
     &__content {
       position: relative;
       text-align: left;
+    }
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: -15px; right: 0;
-
-        width: 47px;
-        height: 81px;
-
-        background: url(../img/icon-flag.svg) 0 0 no-repeat;
-      }
+    &__icon {
+      display: block;
+      position: absolute;
+      top: -15px; right: 0;
     }
 
     &__title {
@@ -96,7 +97,6 @@
     }
 
     &__map {
-      .embed-fluid(@map-ratio);
       margin: 0 -@gap-md 55px;
     }
 
@@ -104,7 +104,6 @@
   }
 
   @media (min-width: @screen-lg) {
-    @map-ratio: 100% * 457px / (@col-lg * 3);
     padding: 71px 0 105px;
 
     &__inner {
@@ -113,18 +112,17 @@
     }
 
     &__map {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       width: 50%;
       margin: 0;
-
-      &::before {
-        padding-bottom: @map-ratio;
-      }
     }
 
     &__content {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       position: relative;
 
       width: 50%;
@@ -132,18 +130,19 @@
       padding-left: @col-lg;
       padding-right: @gap-lg;
 
-      &::before {
-        top: 65px;
-        left: 65px;
-        right: 0;
-      }
-
       /* Place for Write btn */
       &::after {
         content: '';
         display: block;
         height: @btn-height;
+        margin-top: auto;
       }
+    }
+
+    &__icon {
+      top: 65px;
+      left: 65px;
+      right: 0;
     }
 
     &__title {
@@ -155,8 +154,6 @@
     }
 
     &__list {
-      margin-bottom: 79px;
-
       font-size: 17px;
       line-height: 30px;
     }
