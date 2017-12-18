@@ -3,10 +3,15 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks("grunt-contrib-less");
-  grunt.loadNpmTasks("grunt-browser-sync");
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-browser-sync");
+  grunt.loadNpmTasks("grunt-csso");
   grunt.loadNpmTasks("grunt-postcss");
+  grunt.loadNpmTasks('grunt-svgmin');
+  grunt.loadNpmTasks('grunt-svgstore');
 
   grunt.initConfig({
     clean: {
@@ -36,7 +41,7 @@ module.exports = function(grunt) {
     },
 
     less: {
-      style: {
+      styles: {
         files: {
           "build/css/style.css": "less/style.less"
         }
@@ -44,15 +49,71 @@ module.exports = function(grunt) {
     },
 
     postcss: {
-      style: {
+      styles: {
         options: {
           processors: [
-            require("autoprefixer")({browsers: [
-              "last 2 versions"
-            ]})
+            require("autoprefixer")({browsers: ["last 2 versions"]}),
+            require("css-mqpacker")({sort: true})
           ]
         },
-        src: "build/css/*.css"
+        src: "build/css/style.css"
+      }
+    },
+
+    csso: {
+      styles: {
+        options: {
+          report: 'gzip'
+        },
+        files: {
+          'build/css/style.min.css': ['build/css/style.css']
+        }
+      }
+    },
+
+    imagemin: {
+      images: {
+          options: {
+              optimizationLevel: 3,
+              progressive: true
+          },
+          files: [{
+              expand: true,
+              src: ['build/img/**/*.{png,jpg,gif}']
+          }]
+      }
+    },
+
+    svgmin: {
+      svg: {
+        files: [{
+            expand: true,
+            src: ['build/img/**/*.svg']
+        }]
+      }
+    },
+
+    svgstore: {
+      options: {
+        cleanup: true,
+        prefix: 'svg-',
+        symbol: {
+          preserveAspectRatio: 'none'
+        }
+      },
+      svg : {
+        files: {
+          'build/img/sprite.svg': ['build/img/svg-sprite/*.svg'],
+        }
+      }
+    },
+
+    uglify: {
+      scripts: {
+        files: {
+          'build/js/lib.min.js': ['build/js/lib/*.js'],
+          'build/js/app.min.js': ['build/js/app.js'],
+        }
       }
     },
 
@@ -80,18 +141,22 @@ module.exports = function(grunt) {
         files: ["*.html"],
         tasks: ["copy:html"]
       },
-      style: {
+      styles: {
         files: ["less/**/*.less"],
-        tasks: ["less", "postcss"]
+        tasks: ["styles"]
       }
     }
   });
 
   grunt.registerTask("serve", ["browserSync", "watch"]);
+  grunt.registerTask("styles", ["less", "postcss", "csso"]);
+  grunt.registerTask("svg", ["svgmin","svgstore"]);
   grunt.registerTask("build", [
     "clean",
     "copy:build",
-    "less",
-    "postcss"
+    "styles",
+    "svg",
+    "uglify",
+    "imagemin",
   ]);
 };
