@@ -1,9 +1,8 @@
 Стилизация
 TODO:
-+ svg-load для всех фоновых svg (+ иконка Контактов)
+- Сделал Sticky Footer + добавил блок .page
 
 TODO's:
-- sticky footer / holly grail.
 - Состояния Главной Навигации.
 - Placeholder в префиксере
 - Размеры шрифта/высота - через переменные.
@@ -12,5 +11,6 @@ TODO's:
 - Проверить переменные (в частности, .color-main, .border-gray).
 - less конкатенация (@prefix в embed миксине)
 - Использовать шаблонизатор HTML
+- Анимация попапа
 - Посмотреть .container + .row в bootstrap 4|3
 - Clear TODO's
