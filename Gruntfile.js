@@ -53,7 +53,7 @@ module.exports = function(grunt) {
       styles: {
         options: {
           processors: [
-            require("autoprefixer")({browsers: ["last 2 versions"]}),
+            require("autoprefixer")({browsers: ["last 3 versions"]}),
             require("css-mqpacker")({sort: true}),
             require("postcss-inline-svg")(),
           ]
