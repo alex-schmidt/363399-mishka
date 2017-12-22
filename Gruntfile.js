@@ -53,7 +53,8 @@ module.exports = function(grunt) {
         options: {
           processors: [
             require("autoprefixer")({browsers: ["last 2 versions"]}),
-            require("css-mqpacker")({sort: true})
+            require("css-mqpacker")({sort: true}),
+            require("postcss-inline-svg")(),
           ]
         },
         src: "build/css/style.css"
@@ -157,6 +158,6 @@ module.exports = function(grunt) {
     "styles",
     "svg",
     "uglify",
-    "imagemin",
+    // "imagemin", // TODO
   ]);
 };

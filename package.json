@@ -18,7 +18,8 @@
     "grunt-csso": "^2.2.1",
     "grunt-postcss": "0.8.0",
     "grunt-svgmin": "^5.0.0",
-    "grunt-svgstore": "^1.0.0"
+    "grunt-svgstore": "^1.0.0",
+    "postcss-inline-svg": "^3.0.0"
   },
   "scripts": {
     "test": "editorconfig-cli",

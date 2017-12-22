@@ -1,35 +1,16 @@
-/*
-*
-* TODO: Автоматизация и оптимизация + Фиксы:
-* + группировка медиавыражений;
-* + минификация стилей;
-* + оптимизация изображений.
-* + сборка SVG-спрайта;
-* + вставка SVG-спрайта;
-* + SVG-минификация;
-* + слияние JS;
-* + минификация JS;
-* + донастройка сборки
-* + FIX: Page Hero Title, Desktop.
-*
-*
-*
-*** Стилизация
-* TODO: Состояния Главной Навигации.
-* TODO: Placeholder в префиксере
-* TODO: Размеры шрифта/высота - через переменные.
-* TODO: IE 11, Edge
-* TODO: Pixel perfect
-* TODO: Проверить переменные (в частности, .color-main, .border-gray).
-* TODO: less конкатенация (@prefix в embed миксине)
-* TODO: use без xmlns:xlink, svg-load, svg4everybody
-*
-* TODO: SVG иконки фоном - вопрос на HTML Academy (Миксины less)
-* TODO: Использовать шаблонизатор HTML
-* TODO: Посмотреть .container + .row в bootstrap 4|3
-*
-* TODO: Delete outlines.less
-* TODO: W3C Валидация
-* TODO: Delete TODO's
-*
-*/
+Стилизация
+TODO:
++ svg-load для всех фоновых svg (+ иконка Контактов)
+
+TODO's:
+- sticky footer / holly grail.
+- Состояния Главной Навигации.
+- Placeholder в префиксере
+- Размеры шрифта/высота - через переменные.
+- IE 10-11, Edge
+- Pixel perfect
+- Проверить переменные (в частности, .color-main, .border-gray).
+- less конкатенация (@prefix в embed миксине)
+- Использовать шаблонизатор HTML
+- Посмотреть .container + .row в bootstrap 4|3
+- Clear TODO's
