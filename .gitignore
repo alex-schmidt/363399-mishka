@@ -3,9 +3,9 @@
 *.ai
 *.log
 *.pdf
+*.psd
 *.sublime*
 build/
 design/
 node_modules/
-source/
 Thumbs.db

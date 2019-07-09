@@ -55,7 +55,147 @@ a {
 }
 
 .visually-hidden {
-  display: none; /* TODO: Сетка */
+  position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+
+
+.line-height {
+  position: relative;
+
+  margin: 100px 50px;
+  padding: 70px 0;
+
+  border: 1px solid #ccc;
+  border-width: 1px 0 1px;
+
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    display: flex;
+    align-items: baseline;
+    position: relative;
+
+    padding: 0 50px;
+    margin-bottom: 100px;
+
+    font-size: 100px;
+    line-height: 1;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+
+      border: 1px dashed blue;
+    }
+
+    &::before {
+      top: 0;
+      height: 13px;
+      border-width: 0 0 1px;
+    }
+    &::after {
+      bottom: 0;
+      height: 15px;
+      border-width: 1px 0 0;
+    }
+
+    &:nth-of-type(2) {
+      font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+
+      &::before { height: 16px; }
+      &::after { height: 17px; }
+
+      span {
+        &::before {
+          content: '16px';
+          height: 16px;
+        }
+
+        &::after {
+          content: '17px';
+          height: 17px;
+        }
+      }
+    }
+  }
+
+  li {
+
+    outline: 1px solid cyan;
+    outline-offset: -1px;
+
+    &::after {
+      content: 'line-height: 1';
+      position: absolute;
+      bottom: -50px;
+
+      font-size: 20px;
+      padding: 5px;
+
+      color: #fff;
+      background-color: fade(black, 50%);
+    }
+
+    & + li {
+      margin-left: 50px;
+    }
+
+    span {
+      display: block;
+      position: relative;
+
+      &::before,
+      &::after {
+        display: flex;
+        align-items: center;
+
+        content: '10px';
+        position: absolute;
+        right: 96%;
+
+        height: 10px;
+        padding: 0 5px;
+
+        font-size: 11px;
+        font-weight: bold;
+        line-height: 1;
+
+        background: #fff;
+        border: 1px solid magenta;
+        border-left: none;
+      }
+
+      &::before {
+        top: 0;
+        content: '13px';
+        height: 13px;
+      }
+
+      &::after {
+        bottom: 0;
+        content: '15px';
+        height: 15px;
+      }
+    }
+  }
 }
 
 
@@ -64,8 +204,8 @@ a {
 
 
 
-
 /* TODO: Сетка */
+
 
 @keyframes appearance {
     0% {

@@ -28,6 +28,7 @@ module.exports = function(grunt) {
             'js/**/*.js',
             '*.ico',
             '*.html',
+            '*.php',
           ],
           dest: 'build/'
         }],
@@ -35,7 +36,7 @@ module.exports = function(grunt) {
       html: {
         files: [{
           expand: true,
-          src: ['*.html'],
+          src: ['*.html', '*.php'],
           dest: 'build/'
         }],
       }
@@ -124,11 +125,14 @@ module.exports = function(grunt) {
         bsFiles: {
           src: [
             "build/*.html",
+            "build/*.php",
             "build/css/*.css"
           ]
         },
         options: {
-          server: "build/",
+          // server: "build/",
+          proxy: "mishka.local",
+          // port: 80,
           watchTask: true,
           notify: false,
           open: true,
@@ -140,7 +144,7 @@ module.exports = function(grunt) {
 
     watch: {
       html: {
-        files: ["*.html"],
+        files: ["*.html", "*.php"],
         tasks: ["copy:html"]
       },
       styles: {
