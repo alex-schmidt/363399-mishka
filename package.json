@@ -16,6 +16,7 @@
     "grunt-contrib-uglify": "^3.2.1",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-csso": "^2.2.1",
+    "grunt-gh-pages": "^4.0.0",
     "grunt-postcss": "0.8.0",
     "grunt-svgmin": "^5.0.0",
     "grunt-svgstore": "^1.0.0",

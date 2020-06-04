@@ -8,6 +8,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-browser-sync");
+  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks("grunt-csso");
   grunt.loadNpmTasks("grunt-postcss");
   grunt.loadNpmTasks('grunt-svgmin');
@@ -151,9 +152,17 @@ module.exports = function(grunt) {
         files: ["less/**/*.less"],
         tasks: ["styles"]
       }
+    },
+
+    "gh-pages": {
+      options: {
+        base: "build"
+      },
+      src: ["**"]
     }
   });
 
+  grunt.registerTask("deploy", ["gh-pages"]);
   grunt.registerTask("serve", ["browserSync", "watch"]);
   grunt.registerTask("styles", ["less", "postcss", "csso"]);
   grunt.registerTask("svg", ["svgmin","svgstore"]);
