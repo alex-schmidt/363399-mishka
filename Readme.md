@@ -1,7 +1,7 @@
 # Личный проект «Мишка» [![Build status][travis-image]][travis-url] [![Dependency status][dependency-image]][dependency-url]
 
-* Студент: [Alex Schmidt](https://up.htmlacademy.ru/adaptive/).
-* Наставник: Funny Racoon (https://somwhere.in.web).
+* Студент: Александр Горелых
+* Наставник: `Нет`
 
 ---
 
