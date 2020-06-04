@@ -130,8 +130,8 @@ module.exports = function(grunt) {
           ]
         },
         options: {
-          // server: "build/",
-          proxy: "mishka.local",
+          server: "build/",
+          // proxy: "mishka.local",
           // port: 80,
           watchTask: true,
           notify: false,
@@ -163,6 +163,6 @@ module.exports = function(grunt) {
     "styles",
     "svg",
     "uglify",
-    // "imagemin", // TODO
+    "imagemin", // TODO
   ]);
 };
