@@ -1,11 +1,12 @@
 .DS_Store
 .idea
+.grunt
 *.ai
 *.log
 *.pdf
 *.psd
 *.sublime*
-css/*.css
+build/
+design/
 node_modules/
-source/
 Thumbs.db

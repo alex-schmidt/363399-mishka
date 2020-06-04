@@ -1,24 +1,34 @@
-/*
-*
-* TODO: Адаптивная графика - страницы Заказ, Каталог - растры, SVG, обновленный Header|Footer + фиксы. Add to Cart modal js фикс. Contacts Map, миксин embed фиксы.
-*
-*
-*
-*
-*** Стилизация
-* TODO: Состояния Главной Навигации.
-* TODO: Placeholder в префиксере
-* TODO: Размеры шрифта/высота - через переменные.
-* TODO: Проверить переменные (в частности, .color-main, .border-gray).
-* TODO: less конкатенация (@prefix в embed миксине)
-* TODO: use без xmlns:xlink, svg-load, svg4everybody
-*
-* TODO: SVG иконки фоном - вопрос на HTML Academy (Миксины less)
-* TODO: Использовать шаблонизатор HTML
-* TODO: Посмотреть .container + .row в bootstrap 4|3
-*
-* TODO: Delete outlines.less
-* TODO: W3C Валидация
-* TODO: Delete TODO's
-*
-*/
+Стилизация
+TODO:
+- FIX: Навигация на Tablet/Desktop
+- FIX: Sticky Footer на внутренних страницах
+- FIX: Птичка checkbox
+- EDGE FIX: Цвет placeholder
+
+
+TODO's:
+- Настройка Xampp
+- IE 10-11, Edge
+- Pixel perfect
+- Github pages
+- Размеры шрифта/высота - через переменные.
+- Проверить переменные (в частности, .color-main, .border-gray).
+- Анимация попапа
+- Карта с маркером
+- Parallax scroll
+- Google Pagespeed
+- Clear TODO's
+
+TODO's 2nd Site:
+- Подбор шаблона
+- Структура папок
+- Gump базовая настройка SCSS
+- Gump Smart Grid
+- Использовать шаблонизатор HTML
+- Посмотреть .container + .row в bootstrap 4|3
+- JQuery загрузка из CDN + проверка
+- Валидация формы
+- Gump автоматизация
+- Gump fav/touch icons
+- Open server
+- Wordpress

@@ -5,8 +5,6 @@
     .container-fluid();
   }
 
-  &__icon { display: none; }
-
   &__title {
     margin: 0 0 26px;
 
@@ -63,13 +61,19 @@
     &__content {
       position: relative;
       text-align: left;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -15px; right: 0;
+
+        width: 47px;
+        height: 81px;
+
+        background: svg-load('../img/icon-flag.svg');
+      }
     }
 
-    &__icon {
-      display: block;
-      position: absolute;
-      top: -15px; right: 0;
-    }
 
     &__title {
       padding-right: @col-md;
@@ -130,6 +134,12 @@
       padding-left: @col-lg;
       padding-right: @gap-lg;
 
+      &::before {
+        top: 65px;
+        left: 65px;
+        right: 0;
+      }
+
       /* Place for Write btn */
       &::after {
         content: '';
@@ -137,12 +147,6 @@
         height: @btn-height;
         margin-top: auto;
       }
-    }
-
-    &__icon {
-      top: 65px;
-      left: 65px;
-      right: 0;
     }
 
     &__title {

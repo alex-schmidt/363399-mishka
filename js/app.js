@@ -21,6 +21,9 @@ function composedPath (el) {
     }
 }
 
+// Поддержка внешних SVG use
+svg4everybody();
+
 // page.classList.add("js");
 page.classList.remove("no-js");
 
