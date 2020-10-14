@@ -40,6 +40,13 @@ module.exports = function(grunt) {
           src: ['*.html', '*.php'],
           dest: 'build/'
         }],
+      },
+      js: {
+        files: [{
+          expand: true,
+          src: ['js/**/*.js'],
+          dest: 'build/'
+        }],
       }
     },
 
@@ -127,7 +134,8 @@ module.exports = function(grunt) {
           src: [
             "build/*.html",
             "build/*.php",
-            "build/css/*.css"
+            "build/css/*.css",
+            "build/js/*.js"
           ]
         },
         options: {
@@ -147,6 +155,10 @@ module.exports = function(grunt) {
       html: {
         files: ["*.html", "*.php"],
         tasks: ["copy:html"]
+      },
+      js: {
+        files: ["js/**/*.js"],
+        tasks: ["copy:js", "uglify"]
       },
       styles: {
         files: ["less/**/*.less"],
@@ -172,6 +184,6 @@ module.exports = function(grunt) {
     "styles",
     "svg",
     "uglify",
-    "imagemin", // TODO
+    // "imagemin", // TODO
   ]);
 };
