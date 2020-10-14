@@ -13,7 +13,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-imagemin": "^2.0.1",
     "grunt-contrib-less": "1.4.0",
-    "grunt-contrib-uglify": "^3.2.1",
+    "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-csso": "^2.2.1",
     "grunt-gh-pages": "^4.0.0",
