@@ -21,9 +21,6 @@ function composedPath (el) {
     }
 }
 
-// Поддержка внешних SVG use
-svg4everybody();
-
 // page.classList.add("js");
 page.classList.remove("no-js");
 
@@ -62,4 +59,12 @@ page.addEventListener("click", function(e) {
       modalAddToCart.classList.remove("modal--shown");
     }
   }
+})
+
+
+$(function() {
+  // Поддержка внешних SVG use
+  svg4everybody();
+
+  console.log('Test');
 })
