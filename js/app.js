@@ -1,6 +1,4 @@
 var page = document.querySelector("body");
-var mainNav = document.querySelector(".main-nav");
-var mainNavToggle = document.querySelector(".main-nav__toggle");
 var modalAddToCart = document.querySelector(".add-to-cart");
 var modalAddToCartShow = document.querySelectorAll(".js-add-to-cart-show");
 
@@ -20,22 +18,6 @@ function composedPath (el) {
        el = el.parentElement;
     }
 }
-
-// page.classList.add("js");
-page.classList.remove("no-js");
-
-mainNavToggle.addEventListener("click", function(e){
-  e.preventDefault();
-  console.log("123");
-  // Переключаем открытое/закрытое состояние навигации
-  if (mainNav.classList.contains("main-nav--closed")) {
-    mainNav.classList.remove("main-nav--closed")
-    mainNav.classList.add("main-nav--opened")
-  } else {
-    mainNav.classList.remove("main-nav--opened")
-    mainNav.classList.add("main-nav--closed")
-  }
-});
 
 for (var i = 0; i < modalAddToCartShow.length; i++) {
   modalAddToCartShow[i].addEventListener("click", function(e) {
@@ -61,10 +43,16 @@ page.addEventListener("click", function(e) {
   }
 })
 
+// Поддержка внешних SVG use
+svg4everybody();
 
 $(function() {
-  // Поддержка внешних SVG use
-  svg4everybody();
+  $('body').toggleClass('no-js js');
 
-  console.log('Test');
+  let $mainNav = $('.main-nav');
+
+  $('.main-nav__toggle').on('click', function(evt) {
+    evt.preventDefault();
+    $mainNav.toggleClass('main-nav--closed main-nav--opened');
+  });
 })

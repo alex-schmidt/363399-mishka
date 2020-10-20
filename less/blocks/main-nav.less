@@ -1,3 +1,13 @@
+@keyframes showMainNav {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .main-nav {
   @block: ~".main-nav";
   @icon-color: @color-gray--darker;
@@ -16,7 +26,9 @@
     align-items: center;
 
     height: 100%;
-    padding: 10px @logo-gap-sm;
+    padding: 10px (@logo-gap-sm + @gap-sm);
+
+    background: @bg-white;
   }
 
   // Стилизовано для @screen-sm-max
@@ -100,6 +112,8 @@
 
     // Чтобы выпадающее меню не перекрывало контент
     height: 79px;
+    padding: 0;
+
 
     &__toggle {
       display: block;
@@ -121,15 +135,17 @@
       &:active { opacity: 0.3; }
     }
 
+    &__items {
+      display: none;
+      opacity: 0;
+
+      position: relative;
+      z-index: -1;
+
+      padding: 0 @gap-sm;
+    }
+
     &--closed {
-
-      @{block}__list {
-        display: none;
-        clear: both;
-        float: left;
-
-        width: 100%;
-      }
 
       @{block}__toggle {
 
@@ -153,12 +169,13 @@
 
     &--opened {
 
-      @{block}__list {
+      @{block}__items--site,
+      @{block}__items--user {
+        display: block;
+        opacity: 1;
 
-        &--site,
-        &--user {
-          display: block;
-        }
+        animation-duration: 0.3s;
+        animation-name: showMainNav;
       }
 
       @{block}__toggle {
