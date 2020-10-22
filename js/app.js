@@ -4,6 +4,8 @@ svg4everybody();
 $(function() {
   $('body').toggleClass('no-js js');
 
+  const AJAX_ERROR = 'Совсем нет никаких данных :(';
+
   let $mainNav = $('.main-nav');
   let addToCartPopup = $('.add-to-cart').popup({closeBtn: false, overlay: true})[0];
   let contactUsPopup = $('.contact-us').popup()[0];
@@ -24,42 +26,33 @@ $(function() {
   });
 
   $('.add-to-cart__form').on('submit', function(evt) {
-    evt.preventDefault();
-
-    let form = this;
-    let $form = $(this);
-    let $response = $form.find('.add-to-cart__response');
-    let errorClass = 'add-to-cart__response--error';
-    let popup = addToCartPopup;
-
-    $.post(form.action, $form.serialize(), function(data){
-      if (data === 'Совсем нет никаких данных :(') {
-        $response.addClass(errorClass);
-      } else {
-        $response.removeClass(errorClass);
-
-        setTimeout(function() {
-          form.reset();
-          $response.empty();
-          popup.close();
-        }, 2000);
-      }
-
-      $response.html(data);
+    onPopupSubmit(evt, {
+      response: '.add-to-cart__response',
+      errorClass: 'add-to-cart__response--error'
     });
   });
 
   $('.contact-us__form').on('submit', function(evt) {
+    onPopupSubmit(evt);
+  });
+
+  function onPopupSubmit(evt, settings) {
     evt.preventDefault();
 
-    let form = this;
-    let $form = $(this);
-    let $response = $form.find('.form__response');
-    let errorClass = 'form__response--error';
-    let popup = contactUsPopup;
+    let defaults = {
+      response: '.form__response',
+      errorClass: 'form__response--error',
+    }
+
+    let options = $.extend(defaults, settings);
+    let form = evt.target;
+    let $form = $(evt.target);
+    let $response = $form.find(options.response);
+    let errorClass = options.errorClass;
+    let popup = $form.parents('.modal')[0];
 
     $.post(form.action, $form.serialize(), function(data){
-      if (data === 'Совсем нет никаких данных :(') {
+      if (data === AJAX_ERROR) {
         $response.addClass(errorClass);
       } else {
         $response.removeClass(errorClass);
@@ -73,5 +66,5 @@ $(function() {
 
       $response.html(data);
     });
-  });
-})
+  }
+});
