@@ -29,7 +29,8 @@ $(function() {
     let form = this;
     let $form = $(this);
     let $response = $form.find('.add-to-cart__response');
-    errorClass = 'add-to-cart__response--error';
+    let errorClass = 'add-to-cart__response--error';
+    let popup = addToCartPopup;
 
     $.post(form.action, $form.serialize(), function(data){
       if (data === 'Совсем нет никаких данных :(') {
@@ -40,7 +41,33 @@ $(function() {
         setTimeout(function() {
           form.reset();
           $response.empty();
-          addToCartPopup.close();
+          popup.close();
+        }, 2000);
+      }
+
+      $response.html(data);
+    });
+  });
+
+  $('.contact-us__form').on('submit', function(evt) {
+    evt.preventDefault();
+
+    let form = this;
+    let $form = $(this);
+    let $response = $form.find('.form__response');
+    let errorClass = 'form__response--error';
+    let popup = contactUsPopup;
+
+    $.post(form.action, $form.serialize(), function(data){
+      if (data === 'Совсем нет никаких данных :(') {
+        $response.addClass(errorClass);
+      } else {
+        $response.removeClass(errorClass);
+
+        setTimeout(function() {
+          form.reset();
+          $response.empty();
+          popup.close();
         }, 2000);
       }
 

@@ -65,6 +65,19 @@
     .container-fluid();
   }
 
+  &__response {
+    margin: 15px 0 0;
+
+    font-weight: bold;
+    text-align: center;
+    color: @color-main;
+
+
+    &--error {
+      color: @error-color;
+    }
+  }
+
   &__notice {
     margin: 15px 0 31px;
 
@@ -140,6 +153,7 @@
       @{block}__footer {
         display: flex;
         align-items: baseline;
+        flex-wrap: wrap;
       }
 
       @{block}__actions {
@@ -147,7 +161,16 @@
         width: @col-fluid-md * 2;
       }
 
+      @{block}__notice {
+        order: 2;
+      }
+
       @{block}__submit { width: auto; }
+
+      @{block}__response {
+        order: 3;
+        flex-grow: 1;
+      }
 
       @{block}__notice--bottom {
         order: 2;
@@ -182,6 +205,7 @@
 
       @{block}__footer {
         padding-left: @col-lg;
+        padding-right: @col-lg;
       }
 
       @{block}__actions {
