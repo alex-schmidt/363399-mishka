@@ -13,6 +13,16 @@
 
   &__sizes-item { width: 82px; }
 
+  &__response {
+    font-weight: bold;
+    text-align: center;
+    color: @color-main;
+
+    &--error {
+      color: @error-color;
+    }
+  }
+
   @media (min-width: @screen-md) {
     &__inner {
       padding-left: 108px;
