@@ -29,6 +29,13 @@
     background-color: @text-color;
   }
 
+  &:disabled,
+  &.disabled {
+    color: @color-gray--light;
+    background-color: @color-gray--lightest;
+    border-color: @color-gray--lighter;
+  }
+
   &--full-width {
     width: 100%;
     text-align: center;
