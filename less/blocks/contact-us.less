@@ -1,0 +1,18 @@
+.contact-us {
+  @block: ~".contact-us";
+
+  .contact-us__form {
+    margin: 0 -@gap-sm;
+  }
+
+  @media (min-width: @screen-md) {
+    &__title {
+      margin-left: -2px;
+      margin-right: -2px;
+    }
+
+    .contact-us__form {
+      margin: 0 -@gap-md;
+    }
+  }
+}

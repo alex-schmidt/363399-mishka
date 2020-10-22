@@ -1,21 +1,11 @@
 .modal {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+
   position: fixed;
   z-index: 1000;
   top: 0; bottom: 0;
   left: 0; right: 0;
-
-  // Overlay
-  &::after {
-    content: '';
-    position: absolute;
-    z-index: 0;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-
-    background: @color-white;
-    opacity: 0.9;
-  }
 
   &__inner {
     .container();
@@ -26,14 +16,52 @@
 
     padding-top: 31px;
     padding-bottom: 46px;
-    // margin-top: 80px; /* TODO: Сетка */
 
     background: @bg-white;
     box-shadow: 0 5px 10px fade(@color-black, 25%);
   }
 
+  &__close {
+    display: block;
+    box-sizing: content-box;
+
+    position: absolute;
+    right: 5px;
+    top: 5px;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    text-indent: -1000px;
+    overflow: hidden;
+
+    background: none;
+    border: none;
+
+    &:hover { opacity: 0.6; }
+    &:active { opacity: 0.3; }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%; left: 0;
+
+      width: 100%;
+
+      width: 28px;
+      height: 2px;
+
+      background: @color-gray--darker;
+    }
+
+    &::before { transform: translateY(-50%) rotate(45deg); }
+    &::after { transform: translateY(-50%) rotate(-45deg); }
+  }
+
   &__title {
-    margin: 0 0 10px;
+    margin: 0 0 15px;
 
     font-size: 25px;
     text-align: center;
@@ -41,19 +69,33 @@
   }
 
   &__content {
-    min-height: 190px; /* TODO: Сетка */
+    // min-height: 190px; /* TODO: Сетка */
+  }
+
+  &--with-overlay {
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      top: 0; bottom: 0;
+      left: 0; right: 0;
+
+      background: @color-white;
+      opacity: 0.9;
+    }
   }
 
   &--shown {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s;
   }
 
   @media (min-width: @screen-md) {
 
     &__inner {
       width: 566px;
-      padding: 34px 108px 46px;
-      // margin-top: 88px; /* TODO: Сетка */
+      padding: 34px @gap-md 46px;
     }
 
     &__title {

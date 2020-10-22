@@ -194,7 +194,7 @@
             </picture>
             <svg class="contacts__map-pin" width="67" height="100"><use xlink:href="img/sprite.svg#svg-icon-map-pin"></svg>
           </div>
-          <a href="#" class="contacts__write btn">Напишите нам</a>
+          <a href="#" class="contacts__write btn js-contact-us-show">Напишите нам</a>
         </div>
       </section>
     </main>
@@ -229,8 +229,8 @@
         </p>
       </div>
     </footer>
-    <section class="add-to-cart modal">
-      <div class="modal__inner">
+    <section class="add-to-cart modal modal--with-overlay">
+      <div class="add-to-cart__inner modal__inner">
         <h2 class="add-to-cart__title modal__title">Добавить <br> в корзину</h2>
         <form class="add-to-cart__form" action="https://echo.htmlacademy.ru/" method="post">
           <legend class="add-to-cart__legend">Выберите размер:</legend>
@@ -252,6 +252,51 @@
         </form>
       </div>
     </section>
+    <section class="contact-us modal">
+      <div class="modal__inner">
+        <button class="modal__close">Закрыть</button>
+        <h2 class="contact-us__title modal__title">Обратная связь</h2>
+        <form class="contact-us__form form form--responsive" action="https://echo.htmlacademy.ru/" method="post">
+          <fieldset class="form__fieldset">
+            <legend class="visually-hidden">Контакты</legend>
+            <p class="form__fieldset-inner">
+              <label class="form__title form__title--low" for="contact_us_firstname"><span>Имя</span></label>
+              <span class="form__field field-text">
+                <input class="field-text__input" type="text" name="firstname" id="contact_us_firstname" placeholder="Введите ваше имя*" required>
+              </span>
+            </p>
+            <p class="form__fieldset-inner">
+              <label class="form__title form__title--low" for="contact_us_phone"><span>Тел</span></label>
+              <span class="form__field field-text field-text--phone">
+                <input class="field-text__input" type="tel" name="phone" id="contact_us_phone" placeholder="+7 ххх хх хх*" required>
+                <svg class="field-text__icon" width="25" height="24"><use xlink:href="img/sprite.svg#svg-icon-phone"></svg>
+              </span>
+            </p>
+            <p class="form__fieldset-inner">
+              <label class="form__title form__title--low" for="contact_us_email"><span>E-mail</span></label>
+              <span class="form__field field-text field-text--email">
+                <input class="field-text__input" type="email" name="email" id="contact_us_email" placeholder="Ваш email*" required>
+                <svg class="field-text__icon" width="32" height="32"><use xlink:href="img/sprite.svg#svg-icon-mail"></svg>
+              </span>
+            </p>
+            <legend class="visually-hidden">Сообщение</legend>
+            <p class="form__fieldset-inner">
+              <label class="form__title" for="contact_us_message"><span>Текст</span></label>
+              <span class="form__field field-text field-text--area">
+                <textarea class="field-text__input" name="message" cols="23" rows="6" id="contact_us_message" placeholder="О чем хотите поговорить?*" required></textarea>
+              </span>
+            </p>
+          </fieldset>
+          <div class="form__footer">
+            <p class="form__notice form__notice--bottom">*Поля обязательны для заполнения</p>
+            <p class="form__actions">
+              <button type="submit" class="form__submit btn">Отправить</button>
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/lib.min.js"></script>
     <script src="js/app.min.js"></script>
