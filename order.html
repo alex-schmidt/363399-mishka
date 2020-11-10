@@ -139,11 +139,15 @@
                 <div class="form__field">
                   <p class="field-text">
                     <label class="field-text__name" for="order_firstname">Имя:</label>
-                    <input class="field-text__input" type="text" name="firstname" id="order_firstname" placeholder="Введите ваше имя*" required>
+                    <span class="field-text__wrapper">
+                      <input class="field-text__input" type="text" name="firstname" id="order_firstname" placeholder="Введите ваше имя*" required>
+                    </span>
                   </p>
                   <p class="field-text">
                     <label class="field-text__name" for="order_lastname">Фамилия:</label>
-                    <input class="field-text__input" type="text" name="lastname" id="order_lastname" placeholder="Укажите фамилию*" required>
+                    <span class="field-text__wrapper">
+                      <input class="field-text__input" type="text" name="lastname" id="order_lastname" placeholder="Укажите фамилию*" required>
+                    </span>
                   </p>
                   <p class="field-text">
                     <label class="field-text__name" for="order_middlename">Отчество:</label>
@@ -157,15 +161,19 @@
               <p class="form__fieldset-inner">
                 <label class="form__title form__title--low" for="order_phone"><span>Тел</span></label>
                 <span class="form__field field-text field-text--phone">
-                  <input class="field-text__input" type="tel" name="phone" id="order_phone" placeholder="+7 ххх хх хх*" required>
-                  <svg class="field-text__icon" width="25" height="24"><use xlink:href="img/sprite.svg#svg-icon-phone"></svg>
+                  <span class="field-text__wrapper">
+                    <input class="field-text__input" type="tel" name="phone" id="order_phone" placeholder="+7 ххх хх хх*" required>
+                    <svg class="field-text__icon" width="25" height="24"><use xlink:href="img/sprite.svg#svg-icon-phone"></svg>
+                  </span>
                 </span>
               </p>
               <p class="form__fieldset-inner">
                 <label class="form__title form__title--low" for="order_email"><span>E-mail</span></label>
                 <span class="form__field field-text field-text--email">
-                  <input class="field-text__input" type="email" name="email" id="order_email" placeholder="Ваш email*" required>
-                  <svg class="field-text__icon" width="32" height="32"><use xlink:href="img/sprite.svg#svg-icon-mail"></svg>
+                  <span class="field-text__wrapper">
+                    <input class="field-text__input" type="email" name="email" id="order_email" placeholder="Ваш email*" required>
+                    <svg class="field-text__icon" width="32" height="32"><use xlink:href="img/sprite.svg#svg-icon-mail"></svg>
+                  </span>
                 </span>
               </p>
             </fieldset>

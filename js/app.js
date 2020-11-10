@@ -16,6 +16,35 @@ $(function() {
     nextArrow: $('.reviews__btn--next'),
   });
 
+  let orderValidator = $('.order .form').validate({
+    errorElement: 'span',
+    errorClass: 'field-error',
+    rules: {
+      // Reruiered подтягиваются из атрибутов
+      // firstname: "required",
+      // lastname: "required",
+      email: {
+          // required: true,
+          email: true,
+          minlength: 5
+      }
+    },
+    messages: {
+      firstname: "Введите Ваше Имя",
+      lastname: "Введите Вашу Фамилию",
+      phone: "Введите Ваш Телефон",
+      email: {
+          required: "Введите Ваш Email",
+          minlength: "Поле должно быть более 5-ти символов",
+          email: "Некорректно введен Email"
+      }
+    },
+    submitHandler: function(form) {
+        form.submit();
+    }
+  });
+  console.log(orderValidator);
+
   $('.main-nav__toggle').on('click', function(evt) {
     evt.preventDefault();
     $mainNav.toggleClass('main-nav--closed main-nav--opened');
@@ -71,7 +100,7 @@ $(function() {
           form.reset();
           $response.empty();
           popup.close();
-        }, 2000);
+        }, 3000);
       }
 
       $response.html(data);

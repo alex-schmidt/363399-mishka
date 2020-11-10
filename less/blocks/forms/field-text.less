@@ -19,6 +19,10 @@
     font-weight: bold;
   }
 
+  &__wrapper {
+    display: block;
+  }
+
   &__input {
     display: block;
 
@@ -80,10 +84,15 @@
 
   @media (min-width: @screen-md) {
     display: flex;
+    // flex-wrap: wrap;
     align-items: baseline;
 
     &__name {
       padding-right: @label-gap;
+    }
+
+    &__wrapper {
+      flex-grow: 1;
     }
 
     &__input {
