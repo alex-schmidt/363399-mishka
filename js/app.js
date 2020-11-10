@@ -10,10 +10,20 @@ $(function() {
   let addToCartPopup = $('.add-to-cart').popup({closeBtn: false, overlay: true})[0];
   let contactUsPopup = $('.contact-us').popup()[0];
 
+  let reviewsSlider = $('.reviews__slider').slick({
+    accessibility: false,
+    prevArrow: $('.reviews__btn--prev'),
+    nextArrow: $('.reviews__btn--next'),
+  });
+
   $('.main-nav__toggle').on('click', function(evt) {
     evt.preventDefault();
     $mainNav.toggleClass('main-nav--closed main-nav--opened');
   });
+
+  $('.reviews__btn').on('click', function() {
+    $(this).blur();
+  })
 
   $('.js-add-to-cart-show').on('click', function(evt) {
     evt.preventDefault();

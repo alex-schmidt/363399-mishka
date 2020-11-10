@@ -16,13 +16,17 @@
     font-size: 25px;
   }
 
-  &__list {
-    .list-reset();
+  &__slider {
+    width: 100%;
   }
 
   &__item {
     padding: 0;
     margin: 0;
+
+    &:focus {
+      // outline: none;
+    }
   }
 
   &__text { margin: 0 0 34px; }
@@ -115,6 +119,8 @@
     }
 
     &:active {
+      outline: none;
+
       &::before,
       &::after {
         border-color: lighten(@controls-color, 60%);
@@ -181,7 +187,7 @@
       a { width: auto; }
     }
 
-    &__list {
+    &__slider {
       order: 3;
     }
 
