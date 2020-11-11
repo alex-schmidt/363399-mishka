@@ -68,9 +68,7 @@
     text-align: center;
   }
 
-  &__content {
-    // min-height: 190px; /* TODO: Сетка */
-  }
+  &__body {}
 
   &--info {
     @{block}__inner {
@@ -126,6 +124,10 @@
     &--info {
       @{block}__inner {
         width: @modal-md-width;
+      }
+
+      @{block}__body {
+        text-align: center;
       }
     }
   }

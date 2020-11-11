@@ -7,9 +7,9 @@ $(function() {
   const AJAX_ERROR = 'Совсем нет никаких данных :(';
 
   let $mainNav = $('.main-nav');
-  let addToCartPopup = $('.add-to-cart').popup({closeBtn: false, overlay: true})[0];
   let contactUsPopup = $('.contact-us').popup()[0];
-  let infoPopup = $('.modal--info').popup({closeBtn: false, overlay: true})[0];
+  let addToCartPopup = $('.add-to-cart').popup({closeBtn: false, overlay: true})[0];
+  let infoPopup = $('.modal--info').popup({dynamic: true, closeBtn: false, overlay: true})[0];
 
   $('.reviews__slider').slick({
     accessibility: false,
@@ -37,14 +37,24 @@ $(function() {
       }
     },
     submitHandler: function(form) {
-      console.log(form);
+      let popupTitle, popupContent = '';
+
       $.ajax({
         type: "POST",
         url: form.action,
         data: $(form).serialize(),
-        success: function(msg) {
-          infoPopup.open(msg, 'Ваш заказ отправлен');
+        success: function(data) {
+          popupTitle = 'Ваш заказ отправлен';
+          popupContent = data;
+
           form.reset();
+        },
+        error: function() {
+          popupTitle = 'Ошибка сервера';
+          popupContent = 'Попробуйте повторить заказ позднее';
+        },
+        complete: function() {
+          infoPopup.open(popupContent, popupTitle);
         }
       });
     }

@@ -253,7 +253,7 @@
     <section class="add-to-cart modal modal--with-overlay">
       <div class="add-to-cart__inner modal__inner">
         <h2 class="add-to-cart__title modal__title">Добавить <br> в корзину</h2>
-        <form class="add-to-cart__form" action="https://echo.htmlacademy.ru/" method="post">
+        <form class="add-to-cart__form modal__body" action="https://echo.htmlacademy.ru/" method="post">
           <legend class="add-to-cart__legend">Выберите размер:</legend>
           <p class="add-to-cart__sizes">
             <label class="btn-radio add-to-cart__sizes-item">
@@ -278,13 +278,13 @@
       <div class="modal__inner">
         <button class="modal__close">Закрыть</button>
         <h2 class="contact-us__title modal__title">Обратная связь</h2>
-        <form class="contact-us__form form form--responsive" action="https://echo.htmlacademy.ru/" method="post">
+        <form class="contact-us__form form form--responsive modal__body" action="https://echo.htmlacademy.ru/" method="post">
           <fieldset class="form__fieldset">
             <legend class="visually-hidden">Контакты</legend>
             <p class="form__fieldset-inner">
-              <label class="form__title form__title--low" for="contact_us_firstname"><span>Имя</span></label>
+              <label class="form__title form__title--low" for="contact_us_name"><span>Имя</span></label>
               <span class="form__field field-text">
-                <input class="field-text__input" type="text" name="firstname" id="contact_us_firstname" placeholder="Введите ваше имя*" required>
+                <input class="field-text__input" type="text" name="name" id="contact_us_name" placeholder="Введите ваше имя*" required>
               </span>
             </p>
             <p class="form__fieldset-inner">
@@ -319,7 +319,12 @@
         </form>
       </div>
     </section>
-
+    <section class="modal modal--info modal--with-overlay">
+      <div class="modal__inner">
+        <h2 class="modal__title"><!-- Динамический заголовок --></h2>
+        <div class="modal__body"><!-- Динамический контент --></div>
+      </div>
+    </section>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/lib.min.js"></script>
     <script src="js/app.min.js"></script>

@@ -2,6 +2,7 @@
 (function($){
   $.fn.popup = function(settings) {
     let defaults = {
+      dynamic: false,
       closeBtn: true,
       overlay: false
     }
@@ -9,30 +10,37 @@
     let options = $.extend(defaults, settings);
 
     this.each(function(){
-      this.element = $(this);
+      this.elem = $(this);
+      this.dynamic = options.dynamic;
       this.overlay = options.overlay;
-      this.closeBtn = options.closeBtn ? $(this).find('.modal__close') : false;
+      this.closeBtn = options.closeBtn ? this.elem.find('.modal__close') : false;
+      this.titleElem = this.elem.find('.modal__title');
+      this.bodyElem = this.elem.find('.modal__body');
 
       let popup = this;
-      let $popup = $(this);
 
       popup.open = function(content, title) {
         if (content) {
-          $popup.find('.modal__body').html(content);
+          popup.bodyElem.html(content);
         }
 
         if (title) {
-          $popup.find('.modal__title').html(title);
+          popup.titleElem.html(title);
         }
 
-        if (!$popup.hasClass('modal--shown')) {
-          $popup.addClass('modal--shown');
+        if (!popup.elem.hasClass('modal--shown')) {
+          popup.elem.addClass('modal--shown');
         }
       }
 
       popup.close = function() {
-        if ($popup.hasClass('modal--shown')) {
-          $popup.removeClass('modal--shown');
+        if (popup.elem.hasClass('modal--shown')) {
+          popup.elem.removeClass('modal--shown');
+        }
+
+        if (popup.dynamic) {
+          popup.titleElem.empty();
+          popup.bodyElem.empty();
         }
       }
 
@@ -42,7 +50,7 @@
       }
 
       if (popup.overlay) {
-        popup.element.on('click', function(evt) {
+        popup.elem.on('click', function(evt) {
           if (evt.target === popup) {
             popup.close();
           }
