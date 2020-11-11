@@ -9,24 +9,21 @@ $(function() {
   let $mainNav = $('.main-nav');
   let addToCartPopup = $('.add-to-cart').popup({closeBtn: false, overlay: true})[0];
   let contactUsPopup = $('.contact-us').popup()[0];
+  let infoPopup = $('.modal--info').popup({closeBtn: false, overlay: true})[0];
 
-  let reviewsSlider = $('.reviews__slider').slick({
+  $('.reviews__slider').slick({
     accessibility: false,
     prevArrow: $('.reviews__btn--prev'),
     nextArrow: $('.reviews__btn--next'),
   });
 
-  let orderValidator = $('.order .form').validate({
+  $('.order__form').validate({
     errorElement: 'span',
     errorClass: 'field-error',
     rules: {
-      // Reruiered подтягиваются из атрибутов
-      // firstname: "required",
-      // lastname: "required",
       email: {
-          // required: true,
-          email: true,
-          minlength: 5
+        email: true,
+        minlength: 5
       }
     },
     messages: {
@@ -34,16 +31,24 @@ $(function() {
       lastname: "Введите Вашу Фамилию",
       phone: "Введите Ваш Телефон",
       email: {
-          required: "Введите Ваш Email",
-          minlength: "Поле должно быть более 5-ти символов",
-          email: "Некорректно введен Email"
+        required: "Введите Ваш Email",
+        minlength: "Поле должно быть более 5-ти символов",
+        email: "Некорректно введен Email"
       }
     },
     submitHandler: function(form) {
-        form.submit();
+      console.log(form);
+      $.ajax({
+        type: "POST",
+        url: form.action,
+        data: $(form).serialize(),
+        success: function(msg) {
+          infoPopup.open(msg, 'Ваш заказ отправлен');
+          form.reset();
+        }
+      });
     }
   });
-  console.log(orderValidator);
 
   $('.main-nav__toggle').on('click', function(evt) {
     evt.preventDefault();

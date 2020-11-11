@@ -1,4 +1,5 @@
 .modal {
+  @block: ~".modal";
   visibility: hidden;
   opacity: 0;
 
@@ -18,7 +19,7 @@
     padding-bottom: 46px;
 
     background: @bg-white;
-    box-shadow: 0 5px 10px fade(@color-black, 25%);
+    box-shadow: 0 5px 10px fade(@color-black, 35%);
   }
 
   &__close {
@@ -65,11 +66,16 @@
 
     font-size: 25px;
     text-align: center;
-    text-transform: uppercase;
   }
 
   &__content {
     // min-height: 190px; /* TODO: Сетка */
+  }
+
+  &--info {
+    @{block}__inner {
+      // width: 300px;
+    }
   }
 
   &--with-overlay {
@@ -80,8 +86,8 @@
       top: 0; bottom: 0;
       left: 0; right: 0;
 
-      background: @color-white;
-      opacity: 0.9;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(3px);
     }
   }
 
@@ -94,17 +100,33 @@
   @media (min-width: @screen-md) {
 
     &__inner {
-      width: 566px;
+      width: @modal-md-width;
       padding: 34px @gap-md 46px;
+
+      font-size: @font-size--large;
     }
 
     &__title {
       margin-bottom: 12px;
 
       font-size: 30px;
-      line-height: 57px;
+      line-height: 40px;
 
       br { display: none; }
+    }
+
+    &--info {
+      @{block}__inner {
+        // width: 500px;
+      }
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+    &--info {
+      @{block}__inner {
+        width: @modal-md-width;
+      }
     }
   }
 }

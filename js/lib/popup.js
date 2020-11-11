@@ -16,7 +16,15 @@
       let popup = this;
       let $popup = $(this);
 
-      popup.open = function() {
+      popup.open = function(content, title) {
+        if (content) {
+          $popup.find('.modal__body').html(content);
+        }
+
+        if (title) {
+          $popup.find('.modal__title').html(title);
+        }
+
         if (!$popup.hasClass('modal--shown')) {
           $popup.addClass('modal--shown');
         }
