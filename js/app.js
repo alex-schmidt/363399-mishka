@@ -5,6 +5,8 @@ $(function() {
   $('body').toggleClass('no-js js');
 
   const AJAX_ERROR = 'Совсем нет никаких данных :(';
+  const SERVER_ERR_TITLE = 'Ошибка сервера';
+  const SERVER_ERR_TEXT = 'Попробуйте повторить запрос позднее';
 
   let $mainNav = $('.main-nav');
   let contactUsPopup = $('.contact-us').popup()[0];
@@ -50,8 +52,8 @@ $(function() {
           form.reset();
         },
         error: function() {
-          popupTitle = 'Ошибка сервера';
-          popupContent = 'Попробуйте повторить заказ позднее';
+          popupTitle = SERVER_ERR_TITLE;
+          popupContent = SERVER_ERR_TEXT;
         },
         complete: function() {
           infoPopup.open(popupContent, popupTitle);
@@ -105,20 +107,25 @@ $(function() {
     let errorClass = options.errorClass;
     let popup = $form.parents('.modal')[0];
 
-    $.post(form.action, $form.serialize(), function(data){
-      if (data === AJAX_ERROR) {
-        $response.addClass(errorClass);
-      } else {
-        $response.removeClass(errorClass);
+    $.post(form.action, $form.serialize())
+      .always(function(data, textStatus) {
+        if (data === AJAX_ERROR || textStatus === 'error') {
+          $response.addClass(errorClass);
+        } else {
+          $response.removeClass(errorClass);
 
-        setTimeout(function() {
-          form.reset();
-          $response.empty();
-          popup.close();
-        }, 3000);
-      }
+          setTimeout(function() {
+            form.reset();
+            $response.empty();
+            popup.close();
+          }, 3000);
+        }
 
-      $response.html(data);
-    });
+        if (typeof data === 'string') {
+          $response.html(data);
+        } else {
+          $response.html(`${SERVER_ERR_TITLE}. ${SERVER_ERR_TEXT}`);
+        }
+      });
   }
 });
