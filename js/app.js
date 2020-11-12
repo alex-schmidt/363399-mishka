@@ -1,13 +1,37 @@
 // Поддержка внешних SVG use
 svg4everybody();
 
+// jQuery
 $(function() {
   $('body').toggleClass('no-js js');
 
+// Константы
   const AJAX_ERROR = 'Совсем нет никаких данных :(';
   const SERVER_ERR_TITLE = 'Ошибка сервера';
   const SERVER_ERR_TEXT = 'Попробуйте повторить запрос позднее';
 
+// Стандартные сообщения валидатора
+  $.extend($.validator.messages, {
+    required: "Это обязательное поле",
+    remote: "Исправьте это поле",
+    email: "Введите корректный Email",
+    url: "Введите корректный URL",
+    date: "Введите корректную дату",
+    dateISO: "Введите корректную дату (ISO)",
+    number: "Введите корректное число",
+    digits: "Вводите только числа",
+    creditcard: "Введите корректный номер кредитной карты",
+    equalTo: "Введите то же значение снова",
+    accept: "Введите значение с допустимым расширением",
+    maxlength: jQuery.validator.format("Введите не более {0} символов"),
+    minlength: jQuery.validator.format("Введите по крайней мере {0} символов"),
+    rangelength: jQuery.validator.format("Введите значение между {0} и {1} символов"),
+    range: jQuery.validator.format("Введите значение между {0} и {1}"),
+    max: jQuery.validator.format("Введите значение меньшее или равное {0}"),
+    min: jQuery.validator.format("Введите значение большее или равное {0}")
+  });
+
+// DOM-элементы
   let $mainNav = $('.main-nav');
   let contactUsPopup = $('.contact-us').popup()[0];
   let addToCartPopup = $('.add-to-cart').popup({closeBtn: false, overlay: true})[0];
@@ -32,36 +56,12 @@ $(function() {
       firstname: "Введите Ваше Имя",
       lastname: "Введите Вашу Фамилию",
       phone: "Введите Ваш Телефон",
-      email: {
-        required: "Введите Ваш Email",
-        minlength: "Поле должно быть более 5-ти символов",
-        email: "Некорректно введен Email"
-      }
+      email: "Введите Ваш Email"
     },
-    submitHandler: function(form) {
-      let popupTitle, popupContent = '';
-
-      $.ajax({
-        type: "POST",
-        url: form.action,
-        data: $(form).serialize(),
-        success: function(data) {
-          popupTitle = 'Ваш заказ отправлен';
-          popupContent = data;
-
-          form.reset();
-        },
-        error: function() {
-          popupTitle = SERVER_ERR_TITLE;
-          popupContent = SERVER_ERR_TEXT;
-        },
-        complete: function() {
-          infoPopup.open(popupContent, popupTitle);
-        }
-      });
-    }
+    submitHandler: onOrderSubmit
   });
 
+// Обработчики
   $('.main-nav__toggle').on('click', function(evt) {
     evt.preventDefault();
     $mainNav.toggleClass('main-nav--closed main-nav--opened');
@@ -92,6 +92,7 @@ $(function() {
     onPopupSubmit(evt);
   });
 
+// Функции-обработчики
   function onPopupSubmit(evt, settings) {
     evt.preventDefault();
 
@@ -127,5 +128,28 @@ $(function() {
           $response.html(`${SERVER_ERR_TITLE}. ${SERVER_ERR_TEXT}`);
         }
       });
+  }
+
+  function onOrderSubmit(form) {
+    let popupTitle, popupContent = '';
+
+    $.ajax({
+      type: "POST",
+      url: form.action,
+      data: $(form).serialize(),
+      success: function(data) {
+        popupTitle = 'Ваш заказ отправлен';
+        popupContent = data;
+
+        form.reset();
+      },
+      error: function() {
+        popupTitle = SERVER_ERR_TITLE;
+        popupContent = SERVER_ERR_TEXT;
+      },
+      complete: function() {
+        infoPopup.open(popupContent, popupTitle);
+      }
+    });
   }
 });
