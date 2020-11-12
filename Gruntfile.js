@@ -120,6 +120,10 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      // options: {
+      //   mangle: false,
+      //   compress: false
+      // },
       scripts: {
         files: {
           'build/js/lib.min.js': ['build/js/lib/*.js'],
