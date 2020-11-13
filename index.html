@@ -284,28 +284,36 @@
             <p class="form__fieldset-inner">
               <label class="form__title form__title--low" for="contact_us_name"><span>Имя</span></label>
               <span class="form__field field-text">
-                <input class="field-text__input" type="text" name="name" id="contact_us_name" placeholder="Введите ваше имя*" required>
+                <span class="field-text__wrapper">
+                  <input class="field-text__input" type="text" name="name" id="contact_us_name" placeholder="Введите ваше имя*" data-msg="Введите корректное Имя" required>
+                </span>
               </span>
             </p>
             <p class="form__fieldset-inner">
               <label class="form__title form__title--low" for="contact_us_phone"><span>Тел</span></label>
               <span class="form__field field-text field-text--phone">
-                <input class="field-text__input" type="tel" name="phone" id="contact_us_phone" placeholder="+7 ххх хх хх*" required>
-                <svg class="field-text__icon" width="25" height="24"><use xlink:href="img/sprite.svg#svg-icon-phone"></svg>
+                <span class="field-text__wrapper">
+                  <input class="field-text__input" type="tel" name="phone" id="contact_us_phone" placeholder="+38 ххх хх хх*" data-rule-phone="true" data-msg="Введите корректный Телефон" required>
+                  <svg class="field-text__icon" width="25" height="24"><use xlink:href="img/sprite.svg#svg-icon-phone"></svg>
+                </span>
               </span>
             </p>
             <p class="form__fieldset-inner">
               <label class="form__title form__title--low" for="contact_us_email"><span>E-mail</span></label>
               <span class="form__field field-text field-text--email">
-                <input class="field-text__input" type="email" name="email" id="contact_us_email" placeholder="Ваш email*" required>
-                <svg class="field-text__icon" width="32" height="32"><use xlink:href="img/sprite.svg#svg-icon-mail"></svg>
+                <span class="field-text__wrapper">
+                  <input class="field-text__input" type="email" name="email" id="contact_us_email" placeholder="Ваш email*" data-rule-email="true" data-msg="Введите корректный Email" required>
+                  <svg class="field-text__icon" width="32" height="32"><use xlink:href="img/sprite.svg#svg-icon-mail"></svg>
+                </span>
               </span>
             </p>
             <legend class="visually-hidden">Сообщение</legend>
             <p class="form__fieldset-inner">
               <label class="form__title" for="contact_us_message"><span>Текст</span></label>
               <span class="form__field field-text field-text--area">
-                <textarea class="field-text__input" name="message" cols="23" rows="6" id="contact_us_message" placeholder="О чем хотите поговорить?*" required></textarea>
+                <span class="field-text__wrapper">
+                  <textarea class="field-text__input" name="message" cols="23" rows="6" id="contact_us_message" placeholder="О чем хотите поговорить?*" data-msg="Введите корректный Текст" required></textarea>
+                </span>
               </span>
             </p>
           </fieldset>

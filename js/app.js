@@ -11,10 +11,9 @@ $(function() {
   const SERVER_ERR_TEXT = 'Попробуйте повторить запрос позднее';
 
 // RegEx валидация номера телефона
-$.validator.addMethod('phone', function(value, element) {
-  // allow any non-whitespace characters as the host part
-  return this.optional( element ) || /^(\+\d{1,2})?( |-)?\d{3}( |-)?\d{3}( |-)?\d{2}( |-)?\d{2}$/.test( value );
-}, 'Введите корректный номер телефона');
+  $.validator.addMethod('phone', function(value, element) {
+    return this.optional(element) || /^(\+\d{1,2})?( |-)?\d{3}( |-)?\d{3}( |-)?\d{2}( |-)?\d{2}$/.test(value);
+  }, 'Введите корректный Телефон');
 
 // Стандартные сообщения валидатора
   $.extend($.validator.messages, {
@@ -49,6 +48,13 @@ $.validator.addMethod('phone', function(value, element) {
     nextArrow: $('.reviews__btn--next'),
   });
 
+  // Правила и ошибки валидации - через data-атрибуты
+  $('.contact-us__form').validate({
+    errorElement: 'span',
+    errorClass: 'field-error',
+    submitHandler: onPopupSubmit
+  });
+
   $('.order__form').validate({
     errorElement: 'span',
     errorClass: 'field-error',
@@ -70,6 +76,8 @@ $.validator.addMethod('phone', function(value, element) {
       color: 'Вы должны выбрать, по крайней мере, один цвет',
       firstname: 'Введите корректное Имя',
       lastname: 'Введите корректную Фамилию',
+      phone: 'Введите корректный Телефон',
+      email: 'Введите корректный Email',
     },
     errorPlacement: function(error, element) {
       if (element.attr('name') == 'color') {
@@ -102,18 +110,14 @@ $.validator.addMethod('phone', function(value, element) {
   });
 
   $('.add-to-cart__form').on('submit', function(evt) {
-    onPopupSubmit(evt, {
+    onPopupSubmit(evt.target, evt, {
       response: '.add-to-cart__response',
       errorClass: 'add-to-cart__response--error'
     });
   });
 
-  $('.contact-us__form').on('submit', function(evt) {
-    onPopupSubmit(evt);
-  });
-
 // Функции-обработчики
-  function onPopupSubmit(evt, settings) {
+  function onPopupSubmit(form, evt, settings) {
     evt.preventDefault();
 
     let defaults = {
@@ -122,8 +126,7 @@ $.validator.addMethod('phone', function(value, element) {
     }
 
     let options = $.extend(defaults, settings);
-    let form = evt.target;
-    let $form = $(evt.target);
+    let $form = $(form);
     let $response = $form.find(options.response);
     let errorClass = options.errorClass;
     let popup = $form.parents('.modal')[0];
