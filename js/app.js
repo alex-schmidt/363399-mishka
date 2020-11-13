@@ -11,30 +11,30 @@ $(function() {
   const SERVER_ERR_TEXT = 'Попробуйте повторить запрос позднее';
 
 // RegEx валидация номера телефона
-$.validator.addMethod("phone", function(value, element) {
+$.validator.addMethod('phone', function(value, element) {
   // allow any non-whitespace characters as the host part
   return this.optional( element ) || /^(\+\d{1,2})?( |-)?\d{3}( |-)?\d{3}( |-)?\d{2}( |-)?\d{2}$/.test( value );
 }, 'Введите корректный номер телефона');
 
 // Стандартные сообщения валидатора
   $.extend($.validator.messages, {
-    required: "Это обязательное поле",
-    remote: "Исправьте это поле",
-    email: "Введите корректный Email",
-    url: "Введите корректный URL",
-    date: "Введите корректную дату",
-    dateISO: "Введите корректную дату (ISO)",
-    number: "Введите корректное число",
-    digits: "Вводите только числа",
-    creditcard: "Введите корректный номер кредитной карты",
-    equalTo: "Введите то же значение снова",
-    accept: "Введите значение с допустимым расширением",
-    maxlength: jQuery.validator.format("Введите не более {0} символов"),
-    minlength: jQuery.validator.format("Введите по крайней мере {0} символов"),
-    rangelength: jQuery.validator.format("Введите значение между {0} и {1} символов"),
-    range: jQuery.validator.format("Введите значение между {0} и {1}"),
-    max: jQuery.validator.format("Введите значение меньшее или равное {0}"),
-    min: jQuery.validator.format("Введите значение большее или равное {0}")
+    required: 'Это обязательное поле',
+    remote: 'Исправьте это поле',
+    email: 'Введите корректный Email',
+    url: 'Введите корректный URL',
+    date: 'Введите корректную дату',
+    dateISO: 'Введите корректную дату (ISO)',
+    number: 'Введите корректное число',
+    digits: 'Вводите только числа',
+    creditcard: 'Введите корректный номер кредитной карты',
+    equalTo: 'Введите то же значение снова',
+    accept: 'Введите значение с допустимым расширением',
+    maxlength: jQuery.validator.format('Введите не более {0} символов'),
+    minlength: jQuery.validator.format('Введите по крайней мере {0} символов'),
+    rangelength: jQuery.validator.format('Введите значение между {0} и {1} символов'),
+    range: jQuery.validator.format('Введите значение между {0} и {1}'),
+    max: jQuery.validator.format('Введите значение меньшее или равное {0}'),
+    min: jQuery.validator.format('Введите значение большее или равное {0}')
   });
 
 // DOM-элементы
@@ -53,6 +53,9 @@ $.validator.addMethod("phone", function(value, element) {
     errorElement: 'span',
     errorClass: 'field-error',
     rules: {
+      color: {
+        required: true,
+      },
       email: {
         email: true,
         minlength: 5
@@ -64,8 +67,16 @@ $.validator.addMethod("phone", function(value, element) {
       }
     },
     messages: {
-      firstname: "Введите корректное Имя",
-      lastname: "Введите корректную Фамилию",
+      color: 'Вы должны выбрать, по крайней мере, один цвет',
+      firstname: 'Введите корректное Имя',
+      lastname: 'Введите корректную Фамилию',
+    },
+    errorPlacement: function(error, element) {
+      if (element.attr('name') == 'color') {
+        error.appendTo('.order__part--color .form__field');
+      } else {
+        error.insertAfter(element);
+      }
     },
     submitHandler: onOrderSubmit
   });
@@ -143,7 +154,7 @@ $.validator.addMethod("phone", function(value, element) {
     let popupTitle, popupContent = '';
 
     $.ajax({
-      type: "POST",
+      type: 'POST',
       url: form.action,
       data: $(form).serialize(),
       success: function(data) {

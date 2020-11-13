@@ -7,6 +7,16 @@
 
   &__intro { margin-top: -8px; }
 
+  &__part {
+
+    &--color {
+
+      span.field-error {
+        margin: 10px 0 0;
+      }
+    }
+  }
+
   @media (min-width: @screen-md) {
 
     &__part {
@@ -16,12 +26,21 @@
         .form__field {
           display: flex;
           flex-wrap: wrap;
+
+          position: relative;
+
           margin-top: -@label-gap;
         }
 
         .field-checkbox {
           width: 50%;
           margin-top: @label-gap;
+        }
+
+        span.field-error {
+          position: absolute;
+          bottom: -40px;
+          margin: 0;
         }
       }
     }
@@ -38,6 +57,5 @@
         }
       }
     }
-
   }
 }
