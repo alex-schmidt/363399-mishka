@@ -10,6 +10,12 @@ $(function() {
   const SERVER_ERR_TITLE = 'Ошибка сервера';
   const SERVER_ERR_TEXT = 'Попробуйте повторить запрос позднее';
 
+// RegEx валидация номера телефона
+$.validator.addMethod("phone", function(value, element) {
+  // allow any non-whitespace characters as the host part
+  return this.optional( element ) || /^(\+\d{1,2})?( |-)?\d{3}( |-)?\d{3}( |-)?\d{2}( |-)?\d{2}$/.test( value );
+}, 'Введите корректный номер телефона');
+
 // Стандартные сообщения валидатора
   $.extend($.validator.messages, {
     required: "Это обязательное поле",
@@ -50,13 +56,16 @@ $(function() {
       email: {
         email: true,
         minlength: 5
+      },
+      phone: {
+        phone: true,
+        minlength: 10,
+        maxlength: 17
       }
     },
     messages: {
-      firstname: "Введите Ваше Имя",
-      lastname: "Введите Вашу Фамилию",
-      phone: "Введите Ваш Телефон",
-      email: "Введите Ваш Email"
+      firstname: "Введите корректное Имя",
+      lastname: "Введите корректную Фамилию",
     },
     submitHandler: onOrderSubmit
   });
